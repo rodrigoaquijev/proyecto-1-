@@ -14,7 +14,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- AOS (Animate On Scroll) para animaciones suaves de entrada -->
+  <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -56,45 +56,51 @@
   </script>
 
   <style>
+    /* Textura de Fondo General (Mesa de madera/lino con grano de ruido) */
     body {
-      background-color: #ECE5DA;
-      background-image: radial-gradient(rgba(43, 38, 37, 0.05) 1px, transparent 0);
-      background-size: 26px 26px;
+      background-color: #E8DFD1;
+      background-image: 
+        radial-gradient(#2B2625 0.75px, transparent 0.75px),
+        radial-gradient(#FAF8F5 0.75px, #E8DFD1 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
     }
     
+    /* Textura Rica de Papel Algodón Hecho a Mano (Fibra + Ruido SVG + Marca de Agua Sutil) */
     .paper-texture {
-      background-color: #FDFBF7;
+      background-color: #FAF6EF;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(226, 236, 242, 0.4) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(246, 229, 232, 0.4) 0px, transparent 50%);
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E"),
+        radial-gradient(at 5% 5%, rgba(226, 236, 242, 0.4) 0px, transparent 45%),
+        radial-gradient(at 95% 95%, rgba(246, 229, 232, 0.45) 0px, transparent 45%);
       box-shadow: 
-        0 30px 60px -20px rgba(43, 38, 37, 0.12),
-        0 2px 6px 0 rgba(43, 38, 37, 0.04);
+        0 30px 70px -15px rgba(43, 38, 37, 0.16),
+        0 10px 25px -5px rgba(43, 38, 37, 0.08),
+        0 1px 3px 0 rgba(43, 38, 37, 0.05);
     }
 
     .deckled-border {
       border: 1px solid rgba(43, 38, 37, 0.14);
-      outline: 1px solid rgba(43, 38, 37, 0.06);
-      outline-offset: 10px;
+      outline: 1px solid rgba(43, 38, 37, 0.07);
+      outline-offset: 12px;
     }
 
     .hairline-separator {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(43, 38, 37, 0.18), transparent);
+      background: linear-gradient(90deg, transparent, rgba(43, 38, 37, 0.2), transparent);
     }
 
-    .photo-frame {
+    .map-frame {
       border: 6px solid #FFFFFF;
-      box-shadow: 0 10px 25px -8px rgba(43, 38, 37, 0.14);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+      box-shadow: 0 10px 25px -8px rgba(43, 38, 37, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    .photo-frame:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 16px 32px -10px rgba(43, 38, 37, 0.18);
+    .map-frame:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px -8px rgba(43, 38, 37, 0.2);
     }
 
-    /* Micro-animación de pulso sutil para líneas y tags */
     @keyframes softFloat {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-3px); }
@@ -173,15 +179,14 @@
         </p>
       </div>
 
-      <!-- Fotografía de Descanso 1 -->
-      <div class="photo-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
+      <div class="map-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
       </div>
     </section>
 
     <div class="hairline-separator max-w-xs mx-auto"></div>
 
-    <!-- Itinerario: Los Tres Tiempos con Descansos Visuales -->
+    <!-- Itinerario: Los Tres Tiempos con Widgets Interactivos de Google Maps -->
     <section class="py-24 space-y-24">
       <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Programa</p>
@@ -190,18 +195,23 @@
 
       <!-- Momento I: Boda Civil -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
-        <div class="md:col-span-6 order-2 md:order-1 photo-frame rounded-2xl overflow-hidden aspect-[4/3]">
-          <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ceremonia Civil" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+        <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+          <iframe 
+            src="https://maps.google.com/maps?q=Municipalidad+de+Magdalena+del+Mar,+Lima&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
         <div class="md:col-span-6 order-1 md:order-2 space-y-3 text-left">
-          <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 block">I &middot; 09:00 AM</span>
+          <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 block font-medium">I &middot; 09:00 AM</span>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Matrimonio Civil</h3>
           <p class="font-serif italic text-base text-mutedInk">Municipalidad de Magdalena del Mar</p>
           <p class="text-xs text-faintInk font-light">Avenida Brasil 3501, Magdalena del Mar</p>
           <div class="pt-4">
             <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group">
-              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:rotate-45 duration-300"></i>
-              <span>Abrir en Google Maps</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
+              <span>Abrir en App de Mapas</span>
             </a>
           </div>
         </div>
@@ -210,36 +220,46 @@
       <!-- Momento II: Boda Religiosa -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-left" data-aos-duration="900">
         <div class="md:col-span-6 space-y-3 text-left md:text-right">
-          <span class="text-[11px] tracking-widest-xl uppercase text-blush-600 block">II &middot; 11:00 AM</span>
+          <span class="text-[11px] tracking-widest-xl uppercase text-blush-600 block font-medium">II &middot; 11:00 AM</span>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Ceremonia Religiosa</h3>
           <p class="font-serif italic text-base text-mutedInk">Parroquia San Juan María Vianney</p>
           <p class="text-xs text-faintInk font-light">Avenida Javier Prado Oeste 765, Magdalena</p>
           <div class="pt-4 flex md:justify-end">
             <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-blush-600 underline underline-offset-8 transition-colors group">
-              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:rotate-45 duration-300"></i>
-              <span>Abrir en Google Maps</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
+              <span>Abrir en App de Mapas</span>
             </a>
           </div>
         </div>
-        <div class="md:col-span-6 photo-frame rounded-2xl overflow-hidden aspect-[4/3]">
-          <img src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=800&q=80" alt="Ceremonia Religiosa" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+        <div class="md:col-span-6 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+          <iframe 
+            src="https://maps.google.com/maps?q=Parroquia+San+Juan+Maria+Vianney,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
 
       <!-- Momento III: Recepción Íntima -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
-        <div class="md:col-span-6 order-2 md:order-1 photo-frame rounded-2xl overflow-hidden aspect-[4/3]">
-          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Recepción y Brindis" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+        <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+          <iframe 
+            src="https://maps.google.com/maps?q=Jiron+Faustino+Sanchez+Carrion+140,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
         <div class="md:col-span-6 order-1 md:order-2 space-y-3 text-left">
-          <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 block">III &middot; 01:00 PM</span>
+          <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 block font-medium">III &middot; 01:00 PM</span>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Recepción Íntima</h3>
           <p class="font-serif italic text-base text-mutedInk">Almuerzo & Brindis con los 40</p>
           <p class="text-xs text-faintInk font-light">Jirón Faustino Sánchez Carrión 140, Magdalena</p>
           <div class="pt-4">
             <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group">
-              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:rotate-45 duration-300"></i>
-              <span>Abrir en Google Maps</span>
+              <i data-lucide="external-link" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
+              <span>Abrir en App de Mapas</span>
             </a>
           </div>
         </div>
@@ -248,7 +268,7 @@
 
     <div class="hairline-separator max-w-xs mx-auto"></div>
 
-    <!-- Código de Vestimenta (Con Colores Prohibidos) -->
+    <!-- Código de Vestimenta -->
     <section class="py-24 max-w-xl mx-auto space-y-20 text-center" data-aos="fade-up">
       
       <div class="space-y-6">
@@ -258,14 +278,12 @@
           Agradecemos a todos nuestros invitados tener en cuenta las siguientes tonalidades reservadas y no permitidas para el evento:
         </p>
         
-        <!-- Bloque de Tonos Reservados / Prohibidos con Micro-animación -->
-        <div class="p-6 bg-white/70 border border-ink/10 rounded-2xl space-y-4 max-w-md mx-auto">
+        <div class="p-6 bg-white/80 border border-ink/10 rounded-2xl space-y-4 max-w-md mx-auto shadow-sm">
           <p class="text-[10px] uppercase tracking-widest text-blush-600 font-medium">
             Colores no permitidos / Reservados
           </p>
           
           <div class="flex justify-center items-center gap-6 pt-2">
-            <!-- Blanco Puro -->
             <div class="flex flex-col items-center gap-1.5 group">
               <div class="relative w-8 h-8 rounded-full bg-[#FFFFFF] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
                 <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
@@ -274,7 +292,6 @@
               <span class="text-[9px] text-faintInk">(Novia)</span>
             </div>
 
-            <!-- Marfil / Crudo -->
             <div class="flex flex-col items-center gap-1.5 group">
               <div class="relative w-8 h-8 rounded-full bg-[#FFFFF0] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
                 <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
@@ -283,7 +300,6 @@
               <span class="text-[9px] text-faintInk">(Novia)</span>
             </div>
 
-            <!-- Rojo Intenso -->
             <div class="flex flex-col items-center gap-1.5 group">
               <div class="relative w-8 h-8 rounded-full bg-[#C81D25] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
                 <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
@@ -292,7 +308,6 @@
               <span class="text-[9px] text-faintInk">(Evitar)</span>
             </div>
 
-            <!-- Negro Total -->
             <div class="flex flex-col items-center gap-1.5 group">
               <div class="relative w-8 h-8 rounded-full bg-[#1A1A1A] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
                 <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
@@ -316,14 +331,12 @@
           <span>Consultar Lista de Regalos & Cuentas</span>
         </button>
 
-        <!-- Bloque Plegable de Regalos -->
-        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/60 rounded-2xl border border-ink/10 space-y-6 transition-all">
+        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/70 rounded-2xl border border-ink/10 space-y-6 transition-all">
           <div>
             <h4 class="font-serif text-lg text-ink mb-3">Deseos para el Hogar con Link de Compra</h4>
             
             <div class="space-y-3">
-              <!-- Item 1 -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/5 hover:border-powder-200 transition-colors">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/90 border border-ink/5 hover:border-powder-200 transition-colors">
                 <div>
                   <p class="font-serif text-base text-ink">Set de Vajilla de Cerámica Artesanal</p>
                   <p class="text-[11px] text-faintInk">Acabado mate para 6 personas</p>
@@ -334,8 +347,7 @@
                 </a>
               </div>
 
-              <!-- Item 2 -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/5 hover:border-powder-200 transition-colors">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/90 border border-ink/5 hover:border-powder-200 transition-colors">
                 <div>
                   <p class="font-serif text-base text-ink">Copas de Cristal para Brindis</p>
                   <p class="text-[11px] text-faintInk">Set de copas de vino & champagne</p>
@@ -346,8 +358,7 @@
                 </a>
               </div>
 
-              <!-- Item 3 -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/5 hover:border-powder-200 transition-colors">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/90 border border-ink/5 hover:border-powder-200 transition-colors">
                 <div>
                   <p class="font-serif text-base text-ink">Cafetera de Especialidad</p>
                   <p class="text-[11px] text-faintInk">Para nuestros desayunos</p>
@@ -360,7 +371,6 @@
             </div>
           </div>
 
-          <!-- Transferencias -->
           <div class="pt-4 border-t border-ink/10 space-y-3">
             <h4 class="font-serif text-lg text-ink">Transferencia Directa</h4>
             <div class="text-xs text-mutedInk space-y-1 font-mono">
@@ -377,7 +387,7 @@
 
     <div class="hairline-separator max-w-xs mx-auto"></div>
 
-    <!-- Confirmación de Asistencia (RSVP Funcional con FormSubmit hacia rodrigoaquije45@gmail.com) -->
+    <!-- Confirmación de Asistencia (RSVP Funcional con FormSubmit) -->
     <section class="py-24 max-w-md mx-auto" data-aos="fade-up">
       <div class="text-center space-y-3 mb-12">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Confirmación</p>
@@ -389,7 +399,6 @@
 
       <form id="rsvpForm" action="https://formsubmit.co/rodrigoaquije45@gmail.com" method="POST" onsubmit="submitLetter(event)" class="space-y-8 text-xs font-light">
         
-        <!-- Configuraciones FormSubmit -->
         <input type="hidden" name="_subject" value="¡Nueva Confirmación RSVP - Boda Camila & Rodrigo!">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -448,7 +457,6 @@
   </article>
 
   <script>
-    // Inicializar íconos y animaciones
     lucide.createIcons();
     AOS.init({
       once: true,
@@ -456,7 +464,6 @@
       easing: 'ease-out-cubic'
     });
 
-    // Contador Regresivo
     function runTimer() {
       const eventTime = new Date('November 21, 2026 09:00:00').getTime();
       const currentTime = new Date().getTime();
@@ -477,7 +484,6 @@
     setInterval(runTimer, 1000);
     runTimer();
 
-    // Desplegable de Regalos
     function toggleGifts() {
       const container = document.getElementById('giftContainer');
       const isHidden = container.classList.contains('hidden');
@@ -490,7 +496,6 @@
       }
     }
 
-    // Envío Asíncrono de RSVP hacia FormSubmit sin recargar página
     async function submitLetter(e) {
       e.preventDefault();
       const form = document.getElementById('rsvpForm');
@@ -513,7 +518,6 @@
           form.classList.add('hidden');
           document.getElementById('rsvpSuccess').classList.remove('hidden');
         } else {
-          // Fallback en caso de error de red
           form.submit();
         }
       } catch (err) {
