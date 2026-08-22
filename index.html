@@ -56,7 +56,7 @@
   </script>
 
   <style>
-    /* Textura fotográfica real de mesa de madera oscura/rústica */
+    /* Mesa de fondo con textura de madera */
     body {
       background-color: #241A14;
       background-image: 
@@ -72,20 +72,21 @@
       height: 100vh;
     }
 
-    /* Pliego Central: Textura fotográfica real de papel artesanal / fibra prensada */
+    /* Pliego Central: Textura de Papel Algodón con Cuadrícula Milimétrica Tenue (Papel Carta) */
     .paper-texture {
       background-color: #FAF5EB;
       background-image: 
-        url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=1600&q=80'),
+        /* Cuadrícula ultra tenue de papel de papelería */
+        linear-gradient(rgba(43, 38, 37, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(43, 38, 37, 0.045) 1px, transparent 1px),
+        /* Gradientes sutiles de luz y sombra en las esquinas */
         radial-gradient(at 10% 10%, rgba(226, 236, 242, 0.35) 0px, transparent 50%),
         radial-gradient(at 90% 90%, rgba(246, 229, 232, 0.4) 0px, transparent 50%);
-      background-blend-mode: multiply, normal, normal;
-      background-size: cover;
-      background-position: center;
+      background-size: 24px 24px, 24px 24px, 100% 100%, 100% 100%;
       box-shadow: 
         0 35px 80px -15px rgba(0, 0, 0, 0.75),
         0 15px 35px -5px rgba(0, 0, 0, 0.5),
-        inset 0 0 60px rgba(160, 130, 100, 0.15);
+        inset 0 0 60px rgba(160, 130, 100, 0.12);
     }
 
     .deckled-border {
@@ -155,7 +156,7 @@
     }
 
     .digit-tile {
-      background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(245,239,227,0.9) 100%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(245,239,227,0.92) 100%);
       border: 1px solid rgba(43, 38, 37, 0.14);
       border-radius: 12px;
       padding: 0.75rem 0.25rem;
