@@ -5,15 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camila & Rodrigo — 21 de Noviembre, 2026</title>
   
-  <!-- Tipografías de corte editorial (Cormorant Garamond + Plus Jakarta Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <script>
@@ -21,32 +17,34 @@
       theme: {
         extend: {
           colors: {
-            linen: '#FBF9F5',
-            sand: '#F3EDE2',
-            espresso: '#231F20',
-            charcoal: '#4A4646',
+            parchment: '#FDFBF7',
+            envelope: '#F4EFE6',
+            cotton: '#F9F6F0',
+            wax: '#8C4B50',
+            ink: '#2B2625',
+            mutedInk: '#68615E',
+            faintInk: '#9C9490',
             powder: {
-              50: '#F0F6FA',
-              100: '#DFEBF4',
-              200: '#C2D9E8',
-              400: '#8CAEC6',
-              600: '#5B7F98'
+              100: '#E2ECF2',
+              200: '#C7DAE6',
+              400: '#8FAFC3',
+              600: '#5F829A'
             },
             blush: {
-              50: '#FAF2F4',
-              100: '#F4E3E7',
-              200: '#E8C5CE',
-              400: '#D49DAA',
-              600: '#B0707F'
+              100: '#F6E5E8',
+              200: '#E8C7CD',
+              400: '#D49FA9',
+              600: '#B0717D'
             }
           },
           fontFamily: {
-            serif: ['"Cormorant Garamond"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+            script: ['"Alex Brush"', 'cursive'],
           },
           letterSpacing: {
-            'widest-xl': '0.25em',
-            'widest-2xl': '0.35em'
+            'widest-xl': '0.3em',
+            'widest-2xl': '0.45em'
           }
         }
       }
@@ -54,406 +52,298 @@
   </script>
 
   <style>
-    ::selection {
-      background-color: #DFEBF4;
-      color: #231F20;
+    body {
+      background-color: #EFE9DF;
+      background-image: radial-gradient(rgba(43, 38, 37, 0.05) 1px, transparent 0);
+      background-size: 24px 24px;
     }
-    .border-hairline {
-      border-color: rgba(35, 31, 32, 0.08);
+    
+    .paper-texture {
+      background-color: #FDFBF7;
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(226, 236, 242, 0.4) 0px, transparent 50%),
+        radial-gradient(at 90% 85%, rgba(246, 229, 232, 0.45) 0px, transparent 50%);
+      box-shadow: 
+        0 20px 40px -15px rgba(43, 38, 37, 0.07),
+        0 1px 3px 0 rgba(43, 38, 37, 0.04);
+    }
+
+    .deckled-border {
+      border: 1px solid rgba(43, 38, 37, 0.12);
+      outline: 1px solid rgba(43, 38, 37, 0.06);
+      outline-offset: 8px;
+    }
+
+    .hairline-separator {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(43, 38, 37, 0.18), transparent);
+    }
+
+    ::selection {
+      background-color: #E2ECF2;
+      color: #2B2625;
     }
   </style>
 </head>
 
-<body class="bg-linen text-espresso font-sans antialiased selection:bg-powder-100 selection:text-espresso">
+<body class="text-ink antialiased selection:bg-powder-100 font-sans min-h-screen py-10 md:py-24 px-3 sm:px-6 flex justify-center">
 
-  <!-- Navegación Minimalista -->
-  <header class="fixed top-0 left-0 w-full z-40 bg-linen/90 backdrop-blur-md border-b border-hairline transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="font-serif text-2xl tracking-widest text-espresso font-light">C & R</a>
-      
-      <nav class="hidden md:flex items-center space-x-10 text-xs tracking-widest-xl uppercase text-charcoal font-medium">
-        <a href="#carta" class="hover:text-powder-600 transition-colors">La Boda</a>
-        <a href="#itinerario" class="hover:text-powder-600 transition-colors">Itinerario</a>
-        <a href="#detalles" class="hover:text-powder-600 transition-colors">Detalles</a>
-        <a href="#rsvp" class="hover:text-powder-600 transition-colors">Confirmación</a>
-      </nav>
+  <!-- La Carta / Pliego Central Continuo -->
+  <article class="paper-texture w-full max-w-3xl deckled-border p-8 sm:p-14 md:p-24 relative overflow-hidden transition-all">
 
-      <a href="#rsvp" class="text-xs uppercase tracking-widest-xl px-5 py-2.5 bg-powder-100 text-powder-600 border border-powder-200 rounded-full hover:bg-powder-200 transition-all">
-        RSVP
-      </a>
-    </div>
-  </header>
+    <!-- Encabezado de la Carta -->
+    <header class="text-center pt-8 pb-16 space-y-6">
+      <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-light">
+        Correspondencia Privada &middot; Boda Íntima
+      </p>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="min-h-screen pt-28 pb-16 flex flex-col justify-center items-center px-6 text-center relative overflow-hidden">
-      <!-- Halo sutil de color de fondo -->
-      <div class="absolute -top-40 -left-40 w-96 h-96 bg-powder-100 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-      <div class="absolute top-1/2 -right-40 w-96 h-96 bg-blush-50 rounded-full blur-3xl opacity-70 pointer-events-none"></div>
-
-      <div class="max-w-3xl mx-auto space-y-6 relative z-10">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sand/60 border border-hairline text-xs tracking-widest-xl uppercase text-charcoal mb-4">
-          <span>Celebración Íntima</span>
-          <span class="w-1 h-1 rounded-full bg-powder-400"></span>
-          <span>40 Invitados</span>
-        </div>
-
-        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-espresso leading-none">
-          Camila <span class="italic font-normal font-serif text-powder-400">&</span> Rodrigo
+      <div class="py-4">
+        <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl font-light tracking-normal text-ink leading-tight">
+          Camila <span class="font-script text-4xl sm:text-5xl md:text-6xl text-powder-600 lowercase align-middle">&</span> Rodrigo
         </h1>
-
-        <p class="font-serif italic text-xl md:text-2xl text-charcoal font-light pt-2">
-          Sábado, 21 de Noviembre de 2026 — Magdalena del Mar, Lima
-        </p>
-
-        <!-- Contador Regresivo Minimalista -->
-        <div class="pt-10 grid grid-cols-4 gap-3 md:gap-6 max-w-lg mx-auto">
-          <div class="p-4 rounded-2xl bg-white/70 border border-hairline shadow-sm backdrop-blur-sm">
-            <span id="days" class="font-serif text-3xl md:text-4xl text-espresso block font-light">00</span>
-            <span class="text-[10px] tracking-widest uppercase text-charcoal/70">Días</span>
-          </div>
-          <div class="p-4 rounded-2xl bg-white/70 border border-hairline shadow-sm backdrop-blur-sm">
-            <span id="hours" class="font-serif text-3xl md:text-4xl text-espresso block font-light">00</span>
-            <span class="text-[10px] tracking-widest uppercase text-charcoal/70">Horas</span>
-          </div>
-          <div class="p-4 rounded-2xl bg-white/70 border border-hairline shadow-sm backdrop-blur-sm">
-            <span id="minutes" class="font-serif text-3xl md:text-4xl text-espresso block font-light">00</span>
-            <span class="text-[10px] tracking-widest uppercase text-charcoal/70">Min</span>
-          </div>
-          <div class="p-4 rounded-2xl bg-white/70 border border-hairline shadow-sm backdrop-blur-sm">
-            <span id="seconds" class="font-serif text-3xl md:text-4xl text-espresso block font-light">00</span>
-            <span class="text-[10px] tracking-widest uppercase text-charcoal/70">Seg</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección Editorial: Carta / Manifiesto a los 40 -->
-    <section id="carta" class="py-24 px-6 border-t border-hairline bg-white/40">
-      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-        
-        <div class="md:col-span-5 space-y-6">
-          <span class="text-xs uppercase tracking-widest-2xl text-powder-600 block">El Motivo</span>
-          <h2 class="font-serif text-3xl md:text-4xl font-light text-espresso leading-snug">
-            Una mesa compartida solo con quienes dan sentido a nuestra historia.
-          </h2>
-          <p class="text-sm leading-relaxed text-charcoal font-light">
-            Decidimos celebrar este día en un formato muy personal. Solo cuarenta personas que han sido testigos, cómplices y hogar en cada una de nuestras etapas.
-          </p>
-          <div class="p-4 rounded-xl bg-blush-50/70 border border-blush-100 text-xs text-charcoal leading-relaxed font-light">
-            ✨ <strong class="font-medium text-espresso">Tu presencia es única:</strong> cada lugar en nuestra mesa fue pensado minuciosamente para ustedes.
-          </div>
-        </div>
-
-        <div class="md:col-span-7 grid grid-cols-2 gap-4">
-          <div class="space-y-4">
-            <div class="rounded-2xl overflow-hidden shadow-sm bg-sand/40 aspect-[4/5] relative">
-              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Detalle nupcial" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-            </div>
-            <div class="p-4 bg-powder-50/80 rounded-2xl border border-powder-100">
-              <p class="font-serif italic text-sm text-charcoal">"Pequeños momentos que forman un universo entero."</p>
-            </div>
-          </div>
-          <div class="space-y-4 pt-8">
-            <div class="p-4 bg-sand/60 rounded-2xl border border-hairline">
-              <span class="text-[10px] tracking-widest-xl uppercase text-charcoal block">Lugar</span>
-              <p class="font-serif text-lg text-espresso mt-1">Magdalena del Mar</p>
-            </div>
-            <div class="rounded-2xl overflow-hidden shadow-sm aspect-[4/5]">
-              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Celebración floral" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Itinerario de Tres Tiempos -->
-    <section id="itinerario" class="py-24 px-6 max-w-5xl mx-auto">
-      <div class="text-center max-w-xl mx-auto mb-16 space-y-3">
-        <span class="text-xs uppercase tracking-widest-2xl text-powder-600 block">Cronograma</span>
-        <h2 class="font-serif text-4xl font-light text-espresso">Los Tres Momentos</h2>
-        <p class="text-xs text-charcoal uppercase tracking-widest">Sábado 21 de Noviembre, 2026</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Momento 1: Civil -->
-        <div class="bg-white/80 rounded-3xl p-8 border border-hairline shadow-sm flex flex-col justify-between hover:border-powder-200 transition-all duration-300">
-          <div>
-            <div class="w-10 h-10 rounded-full bg-powder-50 border border-powder-100 flex items-center justify-center text-powder-600 font-serif text-lg mb-6">
-              01
-            </div>
-            <span class="text-xs uppercase tracking-widest text-charcoal block font-medium">09:00 AM</span>
-            <h3 class="font-serif text-2xl text-espresso font-light mt-1 mb-3">Boda Civil</h3>
-            <p class="text-xs text-charcoal leading-relaxed font-light mb-6">
-              Ceremonia civil y firma de actas en el salón de la municipalidad.
-            </p>
-            <div class="text-xs text-charcoal/80 space-y-1 mb-8">
-              <p class="font-medium text-espresso">Municipalidad de Magdalena</p>
-              <p>Av. Brasil 3501, Magdalena del Mar</p>
-            </div>
-          </div>
+      <div class="hairline-separator max-w-xs mx-auto"></div>
 
-          <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-linen border border-hairline text-xs uppercase tracking-widest text-espresso hover:bg-powder-50 transition-colors">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-powder-600"></i>
-            <span>Ver Ubicación</span>
-          </a>
-        </div>
-
-        <!-- Momento 2: Religiosa -->
-        <div class="bg-white/80 rounded-3xl p-8 border border-powder-200 shadow-sm flex flex-col justify-between relative overflow-hidden">
-          <div class="absolute top-0 right-0 px-4 py-1 bg-blush-100 text-blush-600 text-[10px] uppercase tracking-widest rounded-bl-xl font-medium">
-            Bendición
-          </div>
-          <div>
-            <div class="w-10 h-10 rounded-full bg-blush-50 border border-blush-100 flex items-center justify-center text-blush-600 font-serif text-lg mb-6">
-              02
-            </div>
-            <span class="text-xs uppercase tracking-widest text-charcoal block font-medium">11:00 AM</span>
-            <h3 class="font-serif text-2xl text-espresso font-light mt-1 mb-3">Boda Religiosa</h3>
-            <p class="text-xs text-charcoal leading-relaxed font-light mb-6">
-              Misa de consagración y bendición de argollas matrimoniales.
-            </p>
-            <div class="text-xs text-charcoal/80 space-y-1 mb-8">
-              <p class="font-medium text-espresso">Parroquia San Juan María Vianney</p>
-              <p>Av. Javier Prado Oeste 765, Magdalena</p>
-            </div>
-          </div>
-
-          <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-linen border border-hairline text-xs uppercase tracking-widest text-espresso hover:bg-blush-50 transition-colors">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blush-600"></i>
-            <span>Ver Ubicación</span>
-          </a>
-        </div>
-
-        <!-- Momento 3: Recepción -->
-        <div class="bg-white/80 rounded-3xl p-8 border border-hairline shadow-sm flex flex-col justify-between hover:border-powder-200 transition-all duration-300">
-          <div>
-            <div class="w-10 h-10 rounded-full bg-sand border border-hairline flex items-center justify-center text-charcoal font-serif text-lg mb-6">
-              03
-            </div>
-            <span class="text-xs uppercase tracking-widest text-charcoal block font-medium">01:00 PM</span>
-            <h3 class="font-serif text-2xl text-espresso font-light mt-1 mb-3">Recepción Íntima</h3>
-            <p class="text-xs text-charcoal leading-relaxed font-light mb-6">
-              Almuerzo, brindis y música junto a nuestros 40 invitados más cercanos.
-            </p>
-            <div class="text-xs text-charcoal/80 space-y-1 mb-8">
-              <p class="font-medium text-espresso">Local Privado</p>
-              <p>Jirón Faustino Sánchez Carrión 140</p>
-            </div>
-          </div>
-
-          <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-linen border border-hairline text-xs uppercase tracking-widest text-espresso hover:bg-sand transition-colors">
-            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-charcoal"></i>
-            <span>Ver Ubicación</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Detalles: Dress Code & Mesa de Regalos Discreta -->
-    <section id="detalles" class="py-20 px-6 bg-sand/30 border-t border-hairline">
-      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Código de Vestimenta -->
-        <div class="bg-white p-8 rounded-3xl border border-hairline flex flex-col justify-between">
-          <div class="space-y-4">
-            <span class="text-xs uppercase tracking-widest-xl text-charcoal block font-medium">Código de Vestimenta</span>
-            <h3 class="font-serif text-2xl text-espresso">Elegante de Día / Pastel Mood</h3>
-            <p class="text-xs text-charcoal leading-relaxed font-light">
-              Sugerimos tonos suaves (azules, rosas, arenas o neutros). Les pedimos reservar el blanco exclusivamente para la novia.
-            </p>
-            <div class="flex items-center gap-3 pt-2">
-              <span class="w-6 h-6 rounded-full bg-[#8EA8BE] inline-block shadow-sm" title="Azul Pastel"></span>
-              <span class="w-6 h-6 rounded-full bg-[#E4B5BD] inline-block shadow-sm" title="Rosa Suave"></span>
-              <span class="w-6 h-6 rounded-full bg-[#DFEBF4] inline-block shadow-sm" title="Celeste Cielo"></span>
-              <span class="w-6 h-6 rounded-full bg-[#EAE3D2] inline-block shadow-sm" title="Arena Cálido"></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tarjeta Discreta de Regalos -->
-        <div class="bg-white p-8 rounded-3xl border border-hairline flex flex-col justify-between space-y-6">
-          <div class="space-y-3">
-            <span class="text-xs uppercase tracking-widest-xl text-charcoal block font-medium">Mesa de Regalos</span>
-            <h3 class="font-serif text-2xl text-espresso">Nuestro Mayor Regalo</h3>
-            <p class="text-xs text-charcoal leading-relaxed font-light">
-              Su compañía es lo principal para nosotros. Si desean tener un detalle para nuestro nuevo hogar o luna de miel, pueden consultar nuestra pequeña lista de deseos o datos bancarios.
-            </p>
-          </div>
-
-          <button onclick="openGiftModal()" class="w-full py-3.5 px-6 rounded-2xl bg-powder-50 border border-powder-200 text-powder-600 text-xs tracking-widest uppercase hover:bg-powder-100 transition-all font-medium inline-flex items-center justify-center gap-2">
-            <i data-lucide="gift" class="w-4 h-4"></i>
-            <span>Ver Opciones de Regalo</span>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Formulario RSVP -->
-    <section id="rsvp" class="py-24 px-6 max-w-xl mx-auto">
-      <div class="text-center space-y-3 mb-10">
-        <span class="text-xs uppercase tracking-widest-2xl text-powder-600 block">R.S.V.P.</span>
-        <h2 class="font-serif text-4xl font-light text-espresso">Confirma tu Asistencia</h2>
-        <p class="text-xs text-charcoal leading-relaxed">
-          Agradecemos responder antes del <strong class="text-espresso">15 de Octubre</strong> para coordinar la logística de nuestros 40 lugares.
-        </p>
-      </div>
-
-      <div class="bg-white p-8 md:p-10 rounded-3xl border border-hairline shadow-sm">
-        <form id="rsvpForm" onsubmit="handleFormSubmit(event)" class="space-y-6">
-          
-          <div>
-            <label class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">Nombre Completo</label>
-            <input type="text" required placeholder="Ej. Claudia Morales" class="w-full px-4 py-3 text-sm bg-linen rounded-xl border border-hairline focus:outline-none focus:border-powder-400 transition-colors">
-          </div>
-
-          <div>
-            <label class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">¿Nos acompañas?</label>
-            <div class="grid grid-cols-2 gap-3">
-              <label class="flex items-center justify-center gap-2 p-3 bg-linen rounded-xl border border-hairline cursor-pointer has-[:checked]:bg-powder-100 has-[:checked]:border-powder-400">
-                <input type="radio" name="attendance" value="yes" checked class="accent-powder-600">
-                <span class="text-xs text-espresso">Sí, ahí estaré</span>
-              </label>
-              <label class="flex items-center justify-center gap-2 p-3 bg-linen rounded-xl border border-hairline cursor-pointer has-[:checked]:bg-blush-100 has-[:checked]:border-blush-400">
-                <input type="radio" name="attendance" value="no" class="accent-blush-600">
-                <span class="text-xs text-espresso">No podré asistir</span>
-              </label>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">Restricción Alimentaria o Alergia</label>
-            <input type="text" placeholder="Ej. Vegetariano, celíaco, alergia a mariscos (opcional)" class="w-full px-4 py-3 text-sm bg-linen rounded-xl border border-hairline focus:outline-none focus:border-powder-400 transition-colors">
-          </div>
-
-          <div>
-            <label class="block text-xs uppercase tracking-widest text-charcoal mb-2 font-medium">Canción Recomendada</label>
-            <input type="text" placeholder="¿Qué canción no puede faltar en el brindis?" class="w-full px-4 py-3 text-sm bg-linen rounded-xl border border-hairline focus:outline-none focus:border-powder-400 transition-colors">
-          </div>
-
-          <button type="submit" class="w-full py-4 px-6 rounded-2xl bg-espresso text-linen text-xs uppercase tracking-widest-xl hover:bg-charcoal transition-colors font-medium">
-            Enviar Confirmacvión
-          </button>
-        </form>
-
-        <div id="rsvpSuccess" class="hidden text-center py-10 space-y-4">
-          <div class="w-12 h-12 rounded-full bg-powder-100 text-powder-600 mx-auto flex items-center justify-center">
-            <i data-lucide="check" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-2xl text-espresso">¡Gracias por confirmar!</h3>
-          <p class="text-xs text-charcoal font-light leading-relaxed">
-            Hemos recibido tu respuesta con éxito. Nos vemos el 21 de noviembre.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer Discreto -->
-  <footer class="py-12 border-t border-hairline text-center text-xs text-charcoal/70 space-y-2 bg-white/50">
-    <p class="font-serif italic text-base text-espresso">Camila & Rodrigo</p>
-    <p class="tracking-widest uppercase text-[10px]">21 · 11 · 2026 — Magdalena del Mar</p>
-  </footer>
-
-  <!-- Modal Discreto de Wishlist / Transferencias -->
-  <div id="giftModal" class="fixed inset-0 bg-espresso/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white max-w-lg w-full rounded-3xl p-6 md:p-8 border border-hairline shadow-xl relative animate-fade-in max-h-[90vh] overflow-y-auto">
+      <p class="font-serif italic text-lg sm:text-xl text-mutedInk font-light tracking-wide">
+        Sábado, veintiuno de noviembre del año dos mil veintiséis
+      </p>
       
-      <button onclick="closeGiftModal()" class="absolute top-6 right-6 text-charcoal hover:text-espresso">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
+      <p class="text-[11px] tracking-widest-xl uppercase text-faintInk">
+        Magdalena del Mar, Lima
+      </p>
+    </header>
 
-      <div class="text-center space-y-2 mb-6">
-        <span class="text-[10px] tracking-widest-2xl uppercase text-powder-600 block">Detalles de Agradecimiento</span>
-        <h3 class="font-serif text-2xl text-espresso">Mesa de Deseos & Cuentas</h3>
-      </div>
-
-      <!-- Selector de Pestañas en el Modal -->
-      <div class="flex border-b border-hairline mb-6">
-        <button id="tabWishesBtn" onclick="switchGiftTab('wishes')" class="flex-1 pb-3 text-xs uppercase tracking-widest border-b-2 border-powder-400 text-espresso font-medium">
-          Deseos del Hogar
-        </button>
-        <button id="tabBankBtn" onclick="switchGiftTab('bank')" class="flex-1 pb-3 text-xs uppercase tracking-widest border-b-2 border-transparent text-charcoal hover:text-espresso font-medium">
-          Transferencia Directa
-        </button>
-      </div>
-
-      <!-- Contenido 1: Wishlist de Regalos Físicos -->
-      <div id="tabWishes" class="space-y-4">
-        <div class="p-4 rounded-2xl bg-linen border border-hairline flex items-center justify-between">
-          <div>
-            <h4 class="font-serif text-lg text-espresso">Set de Copas de Cristal</h4>
-            <p class="text-xs text-charcoal font-light">Para nuestras cenas familiares</p>
-          </div>
-          <span class="text-xs px-3 py-1 bg-white rounded-full border border-hairline text-charcoal">Sugerencia</span>
+    <!-- Contador en Formato Carta -->
+    <div class="py-12 border-y border-ink/5 text-center">
+      <p class="text-[10px] tracking-widest-xl uppercase text-faintInk mb-6">Tiempo Restante</p>
+      <div class="grid grid-cols-4 gap-4 max-w-md mx-auto">
+        <div>
+          <span id="days" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk">Días</span>
         </div>
-
-        <div class="p-4 rounded-2xl bg-linen border border-hairline flex items-center justify-between">
-          <div>
-            <h4 class="font-serif text-lg text-espresso">Vajilla de Cerámica Artesanal</h4>
-            <p class="text-xs text-charcoal font-light">Set de 6 piezas acabado mate</p>
-          </div>
-          <span class="text-xs px-3 py-1 bg-white rounded-full border border-hairline text-charcoal">Sugerencia</span>
+        <div>
+          <span id="hours" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk">Horas</span>
         </div>
-
-        <div class="p-4 rounded-2xl bg-linen border border-hairline flex items-center justify-between">
-          <div>
-            <h4 class="font-serif text-lg text-espresso">Cafetera de Especialidad</h4>
-            <p class="text-xs text-charcoal font-light">Para nuestros cafés matutinos</p>
-          </div>
-          <span class="text-xs px-3 py-1 bg-white rounded-full border border-hairline text-charcoal">Sugerencia</span>
+        <div>
+          <span id="minutes" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk">Minutos</span>
+        </div>
+        <div>
+          <span id="seconds" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk">Segundos</span>
         </div>
       </div>
-
-      <!-- Contenido 2: Datos Bancarios -->
-      <div id="tabBank" class="hidden space-y-4">
-        <div class="p-4 rounded-2xl bg-powder-50/60 border border-powder-100 space-y-2">
-          <div class="flex justify-between items-center">
-            <span class="text-xs font-semibold text-espresso">BCP (Banco de Crédito)</span>
-            <span class="text-[10px] uppercase tracking-widest text-powder-600 bg-white px-2 py-0.5 rounded-md">Soles</span>
-          </div>
-          <p class="text-xs text-charcoal font-mono select-all">193-XXXXXXXX-0-XX</p>
-          <p class="text-[11px] text-charcoal/80">CCI: 002-193-XXXXXXXXXXXX-XX</p>
-          <p class="text-[11px] text-charcoal/80">Titular: Rodrigo / Camila</p>
-        </div>
-
-        <div class="p-4 rounded-2xl bg-blush-50/60 border border-blush-100 space-y-2">
-          <div class="flex justify-between items-center">
-            <span class="text-xs font-semibold text-espresso">Yape / Plin</span>
-            <span class="text-[10px] uppercase tracking-widest text-blush-600 bg-white px-2 py-0.5 rounded-md">Móvil</span>
-          </div>
-          <p class="text-xs text-charcoal font-mono select-all">+51 9XX XXX XXX</p>
-          <p class="text-[11px] text-charcoal/80">A nombre de: Camila / Rodrigo</p>
-        </div>
-      </div>
-
-      <div class="mt-8 text-center">
-        <button onclick="closeGiftModal()" class="text-xs text-charcoal uppercase tracking-widest underline underline-offset-4 hover:text-espresso">
-          Cerrar ventana
-        </button>
-      </div>
-
     </div>
-  </div>
+
+    <!-- Cuerpo de la Carta: Texto Personal -->
+    <section class="py-24 max-w-xl mx-auto text-center space-y-8">
+      <p class="font-script text-3xl sm:text-4xl text-blush-600">Querida familia y amigos,</p>
+      
+      <p class="font-serif text-xl sm:text-2xl text-ink font-light leading-relaxed">
+        Hemos reservado este día para compartirlo exclusivamente junto a las cuarenta personas que forman la parte más sincera de nuestras vidas.
+      </p>
+
+      <p class="text-xs sm:text-sm text-mutedInk font-light leading-loose tracking-wide">
+        No concebimos dar este paso sin su compañía, su cariño y sus historias cruzadas con las nuestras. Cada asiento en nuestra mesa fue pensado con gratitud para celebrar en intimidad el comienzo de nuestro nuevo hogar.
+      </p>
+    </section>
+
+    <div class="hairline-separator max-w-xs mx-auto"></div>
+
+    <!-- Cronograma e Itinerario -->
+    <section class="py-24 space-y-20 max-w-lg mx-auto">
+      <div class="text-center space-y-2">
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Programa</p>
+        <h2 class="font-serif text-3xl font-light text-ink">Los Tres Tiempos</h2>
+      </div>
+
+      <div class="space-y-16">
+        
+        <!-- Tiempo I: Civil -->
+        <div class="text-center space-y-3">
+          <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 block">I &middot; Nueve de la Mañana</span>
+          <h3 class="font-serif text-2xl text-ink font-normal">Matrimonio Civil</h3>
+          <p class="font-serif italic text-base text-mutedInk">Municipalidad de Magdalena del Mar</p>
+          <p class="text-xs text-faintInk font-light">Avenida Brasil 3501</p>
+          <div class="pt-3">
+            <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors">
+              <i data-lucide="compass" class="w-3 h-3"></i>
+              <span>Abrir en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-1.5 h-1.5 rounded-full bg-ink/20 mx-auto"></div>
+
+        <!-- Tiempo II: Religiosa -->
+        <div class="text-center space-y-3">
+          <span class="text-[11px] tracking-widest-xl uppercase text-blush-600 block">II &middot; Once de la Mañana</span>
+          <h3 class="font-serif text-2xl text-ink font-normal">Ceremonia Religiosa</h3>
+          <p class="font-serif italic text-base text-mutedInk">Parroquia San Juan María Vianney</p>
+          <p class="text-xs text-faintInk font-light">Avenida Javier Prado Oeste 765</p>
+          <div class="pt-3">
+            <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-ink hover:text-blush-600 underline underline-offset-8 transition-colors">
+              <i data-lucide="compass" class="w-3 h-3"></i>
+              <span>Abrir en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="w-1.5 h-1.5 rounded-full bg-ink/20 mx-auto"></div>
+
+        <!-- Tiempo III: Recepción -->
+        <div class="text-center space-y-3">
+          <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 block">III &middot; Una de la Tarde</span>
+          <h3 class="font-serif text-2xl text-ink font-normal">Almuerzo & Recepción</h3>
+          <p class="font-serif italic text-base text-mutedInk">Celebración Íntima</p>
+          <p class="text-xs text-faintInk font-light">Jirón Faustino Sánchez Carrión 140</p>
+          <div class="pt-3">
+            <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors">
+              <i data-lucide="compass" class="w-3 h-3"></i>
+              <span>Abrir en Google Maps</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="hairline-separator max-w-xs mx-auto"></div>
+
+    <!-- Código de Vestimenta & Nota de Agradecimiento -->
+    <section class="py-24 max-w-lg mx-auto space-y-16 text-center">
+      
+      <div class="space-y-4">
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Código de Vestimenta</p>
+        <h3 class="font-serif text-2xl text-ink">Elegante de Día</h3>
+        <p class="text-xs text-mutedInk font-light leading-relaxed max-w-sm mx-auto">
+          Sugerimos una gama de colores suaves inspirada en tonos pasteles, azules serenos y arenas cálidas. Agradecemos reservar el blanco para la novia.
+        </p>
+        <div class="flex justify-center items-center gap-3 pt-3">
+          <span class="w-4 h-4 rounded-full bg-[#8FAFC3]/70 border border-ink/10" title="Azul Pastel"></span>
+          <span class="w-4 h-4 rounded-full bg-[#D49FA9]/70 border border-ink/10" title="Rosa Pastel"></span>
+          <span class="w-4 h-4 rounded-full bg-[#E2ECF2] border border-ink/10" title="Celeste Nube"></span>
+          <span class="w-4 h-4 rounded-full bg-[#E8E1D3] border border-ink/10" title="Lino Natural"></span>
+        </div>
+      </div>
+
+      <div class="pt-8 space-y-4">
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Mesa de Regalos</p>
+        <p class="text-xs text-mutedInk font-light leading-relaxed max-w-md mx-auto">
+          Su compañía es nuestro mayor regalo. Para quienes deseen tener un gesto adicional hacia nuestro nuevo hogar, dejamos disponibles nuestras opciones de obsequio y datos bancarios.
+        </p>
+        <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors pt-2">
+          <i data-lucide="gift" class="w-3.5 h-3.5"></i>
+          <span>Consultar Lista de Regalos & Cuentas</span>
+        </button>
+
+        <!-- Bloque Plegable de Regalos -->
+        <div id="giftContainer" class="hidden text-left mt-8 p-6 bg-envelope/60 rounded-xl border border-ink/10 space-y-6">
+          <div>
+            <h4 class="font-serif text-lg text-ink mb-2">Deseos para el Hogar</h4>
+            <ul class="text-xs text-mutedInk font-light space-y-2 list-disc list-inside">
+              <li>Set de vajilla de cerámica artesanal</li>
+              <li>Copas de cristal para brindis</li>
+              <li>Cafetera de especialidad</li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-ink/10 space-y-3">
+            <h4 class="font-serif text-lg text-ink">Transferencia Directa</h4>
+            <div class="text-xs text-mutedInk space-y-1 font-mono">
+              <p><strong class="font-sans font-medium text-ink">BCP Soles:</strong> 193-XXXXXXXX-0-XX</p>
+              <p><strong class="font-sans font-medium text-ink">CCI:</strong> 002-193-XXXXXXXXXXXX-XX</p>
+              <p><strong class="font-sans font-medium text-ink">Yape / Plin:</strong> +51 9XX XXX XXX</p>
+              <p class="font-sans text-[11px] text-faintInk pt-1">Titulares: Rodrigo Aquijo / Camila</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="hairline-separator max-w-xs mx-auto"></div>
+
+    <!-- Confirmación de Asistencia (RSVP) -->
+    <section class="py-24 max-w-md mx-auto">
+      <div class="text-center space-y-3 mb-12">
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Confirmación</p>
+        <h2 class="font-serif text-3xl font-light text-ink">R. S. V. P.</h2>
+        <p class="text-xs text-mutedInk font-light leading-relaxed">
+          Rogamos confirmar su presencia antes del 15 de octubre para asegurar su lugar en nuestra mesa.
+        </p>
+      </div>
+
+      <form id="rsvpForm" onsubmit="submitLetter(event)" class="space-y-8 text-xs font-light">
+        <div class="space-y-2">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Nombre y Apellido</label>
+          <input type="text" required placeholder="Escriba su nombre aquí" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+        </div>
+
+        <div class="space-y-3 pt-2">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Asistencia</label>
+          <div class="flex gap-6">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="attend" value="yes" checked class="accent-ink">
+              <span class="text-ink">Acepto con alegría</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="attend" value="no" class="accent-ink">
+              <span class="text-mutedInk">Lamento no poder asistir</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-2">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Restricciones Alimentarias (Opcional)</label>
+          <input type="text" placeholder="Ej. Ninguna / Alergias" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+        </div>
+
+        <div class="space-y-2 pt-2">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Una sugerencia musical para el brindis</label>
+          <input type="text" placeholder="Canción y artista" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+        </div>
+
+        <div class="pt-6 text-center">
+          <button type="submit" class="w-full py-4 px-8 border border-ink text-[11px] uppercase tracking-widest-xl text-ink hover:bg-ink hover:text-parchment transition-all duration-300">
+            Enviar Respuesta
+          </button>
+        </div>
+      </form>
+
+      <div id="rsvpSuccess" class="hidden text-center py-12 space-y-4">
+        <p class="font-script text-3xl text-powder-600">Muchas gracias</p>
+        <p class="font-serif italic text-lg text-ink font-light">
+          Hemos anotado tu confirmación en nuestro registro.
+        </p>
+      </div>
+    </section>
+
+    <!-- Firma Final -->
+    <footer class="pt-16 pb-8 text-center space-y-4">
+      <div class="hairline-separator max-w-[120px] mx-auto mb-8"></div>
+      <p class="font-script text-4xl text-ink">Con amor, Camila & Rodrigo</p>
+      <p class="text-[9px] uppercase tracking-widest-2xl text-faintInk">21 &middot; 11 &middot; 2026</p>
+    </footer>
+
+  </article>
 
   <script>
     lucide.createIcons();
 
-    // Cuenta Regresiva: 21 de Noviembre de 2026, 09:00 AM
-    function updateTimer() {
-      const targetDate = new Date('November 21, 2026 09:00:00').getTime();
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+    // Cuenta Regresiva
+    function runTimer() {
+      const eventTime = new Date('November 21, 2026 09:00:00').getTime();
+      const currentTime = new Date().getTime();
+      const difference = eventTime - currentTime;
 
-      if (diff > 0) {
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
+      if (difference > 0) {
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
 
         document.getElementById('days').innerText = d < 10 ? '0' + d : d;
         document.getElementById('hours').innerText = h < 10 ? '0' + h : h;
@@ -461,43 +351,29 @@
         document.getElementById('seconds').innerText = s < 10 ? '0' + s : s;
       }
     }
-    setInterval(updateTimer, 1000);
-    updateTimer();
+    setInterval(runTimer, 1000);
+    runTimer();
 
-    // Gestión del Modal de Regalos
-    function openGiftModal() {
-      document.getElementById('giftModal').classList.remove('hidden');
-    }
-    function closeGiftModal() {
-      document.getElementById('giftModal').classList.add('hidden');
-    }
-
-    // Pestañas del Modal
-    function switchGiftTab(tab) {
-      const wishesTab = document.getElementById('tabWishes');
-      const bankTab = document.getElementById('tabBank');
-      const wishesBtn = document.getElementById('tabWishesBtn');
-      const bankBtn = document.getElementById('tabBankBtn');
-
-      if (tab === 'wishes') {
-        wishesTab.classList.remove('hidden');
-        bankTab.classList.add('hidden');
-        wishesBtn.className = 'flex-1 pb-3 text-xs uppercase tracking-widest border-b-2 border-powder-400 text-espresso font-medium';
-        bankBtn.className = 'flex-1 pb-3 text-xs uppercase tracking-widest border-b-2 border-transparent text-charcoal hover:text-espresso font-medium';
+    // Desplegable de Regalos
+    function toggleGifts() {
+      const container = document.getElementById('giftContainer');
+      const isHidden = container.classList.contains('hidden');
+      if (isHidden) {
+        container.classList.remove('hidden');
+        document.getElementById('giftBtn').querySelector('span').innerText = 'Ocultar Opciones de Regalo';
       } else {
-        wishesTab.classList.add('hidden');
-        bankTab.classList.remove('hidden');
-        bankBtn.className = 'flex-1 pb-3 text-xs uppercase tracking-widest border-b-2 border-blush-400 text-espresso font-medium';
-        wishesBtn.className = 'flex-1 pb-3 text-xs uppercase tracking-widest border-b-2 border-transparent text-charcoal hover:text-espresso font-medium';
+        container.classList.add('hidden');
+        document.getElementById('giftBtn').querySelector('span').innerText = 'Consultar Lista de Regalos & Cuentas';
       }
     }
 
-    // Simulación de Envío RSVP
-    function handleFormSubmit(e) {
+    // Envío de Formulario
+    function submitLetter(e) {
       e.preventDefault();
       document.getElementById('rsvpForm').classList.add('hidden');
       document.getElementById('rsvpSuccess').classList.remove('hidden');
     }
   </script>
+
 </body>
 </html>
