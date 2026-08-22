@@ -72,16 +72,13 @@
       height: 100vh;
     }
 
-    /* Pliego Central: Textura Orgánica de Algodón Prensado (Sin líneas ni cuadrículas) */
+    /* Pliego Central: Textura Orgánica de Algodón Prensado */
     .paper-texture {
       background-color: #FAF5EB;
       background-image: 
-        /* Grano de microfibra SVG */
         url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperFibers'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.17  0 0 0 0 0.15  0 0 0 0 0.14  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperFibers)'/%3E%3C/svg%3E"),
-        /* Halos de luz y tinte suave en extremos opuestos */
         radial-gradient(ellipse at 15% 10%, rgba(226, 236, 242, 0.6) 0%, transparent 60%),
         radial-gradient(ellipse at 85% 90%, rgba(246, 229, 232, 0.65) 0%, transparent 60%),
-        /* Sombreado de borde perimetral para dar relieve y volumen al pliego */
         radial-gradient(ellipse at center, transparent 65%, rgba(68, 52, 38, 0.09) 100%);
       box-shadow: 
         0 35px 80px -15px rgba(0, 0, 0, 0.75),
@@ -576,11 +573,11 @@
         </div>
       </div>
 
-      <!-- Mesa de Regalos Plegable -->
+      <!-- Mesa de Regalos Plegable Actualizada -->
       <div class="space-y-4 pt-4">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-semibold">Mesa de Regalos</p>
         <p class="text-xs text-mutedInk font-light leading-relaxed max-w-md mx-auto">
-          Su compañía es nuestro mayor regalo. Si desean tener un detalle para equipar nuestro nuevo espacio o luna de miel, ponemos a su disposición nuestra selección con enlaces directos de compra o transferencias.
+          Su compañía es nuestro mayor regalo. Si desean tener un detalle para equipar nuestro nuevo hogar, hemos reunido una selección de artículos sugeridos (los enlaces y tiendas son totalmente referenciales).
         </p>
         
         <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-all pt-2 group font-semibold">
@@ -588,48 +585,195 @@
           <span>Consultar Lista de Regalos & Cuentas</span>
         </button>
 
-        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/85 rounded-2xl border border-ink/15 space-y-6 transition-all shadow-md">
-          <div>
-            <h4 class="font-serif text-lg text-ink mb-3 font-medium">Deseos para el Hogar con Link de Compra</h4>
-            
-            <div class="space-y-3">
+        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/85 rounded-2xl border border-ink/15 space-y-8 transition-all shadow-md">
+          
+          <div class="p-3.5 bg-powder-50/70 border border-powder-200 rounded-xl text-center">
+            <p class="text-[11px] text-mutedInk font-light">
+              <span class="font-semibold text-ink">Nota:</span> Los enlaces externos son únicamente modelos de referencia; son libres de elegir la tienda o formato que prefieran.
+            </p>
+          </div>
+
+          <!-- Categoría 1: Electrodomésticos y Tecnología -->
+          <div class="space-y-3">
+            <span class="text-[10px] uppercase tracking-widest text-powder-600 font-semibold block">Hogar & Tecnología</span>
+            <div class="space-y-2.5">
+              
+              <!-- Zojirushi -->
               <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
                 <div>
-                  <p class="font-serif text-base text-ink font-medium">Set de Vajilla de Cerámica Artesanal</p>
-                  <p class="text-[11px] text-faintInk">Acabado mate para 6 personas</p>
+                  <p class="font-serif text-base text-ink font-medium">Olla Arrocera Eléctrica Zojirushi 1.0 Lt</p>
+                  <p class="text-[11px] text-faintInk">Modelo NS-ZAQ10WZ</p>
                 </div>
-                <a href="https://www.falabella.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Comprar</span>
+                <a href="https://fuku.pe/producto/olla-arrocera-electrica-zojirushi-1-0-lt-ns-zaq10wz/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
                 </a>
               </div>
 
+              <!-- LG WashTower -->
               <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
                 <div>
-                  <p class="font-serif text-base text-ink font-medium">Copas de Cristal para Brindis</p>
-                  <p class="text-[11px] text-faintInk">Set de copas de vino & champagne</p>
+                  <p class="font-serif text-base text-ink font-medium">LG WashTower (14Kg lavado / 10Kg secado)</p>
+                  <p class="text-[11px] text-faintInk">AI DD y ThinQ</p>
                 </div>
-                <a href="https://www.ripley.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Comprar</span>
+                <a href="https://www.lg.com/pe/lavadoras/washtower/wk14bs6r/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
                 </a>
               </div>
 
+              <!-- Xiaomi Vacuum -->
               <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
                 <div>
-                  <p class="font-serif text-base text-ink font-medium">Cafetera de Especialidad</p>
-                  <p class="text-[11px] text-faintInk">Para nuestros desayunos</p>
+                  <p class="font-serif text-base text-ink font-medium">Xiaomi Robot Vacuum X20 Pro</p>
+                  <p class="text-[11px] text-faintInk">Aspiradora robot inteligente</p>
                 </div>
-                <a href="https://www.amazon.com" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Comprar</span>
+                <a href="https://www.mi.com/pe/product/xiaomi-robot-vacuum-x20-pro/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
                 </a>
               </div>
+
+              <!-- TCL 75" -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Televisor TCL MiniLed 75" UHD 4K</p>
+                  <p class="text-[11px] text-faintInk">Smart TV 75C6K</p>
+                </div>
+                <a href="https://www.plazavea.com.pe/televisor-tcl-mini-led-75--uhd-4k-smart-tv-75c6k/p" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
             </div>
           </div>
 
+          <!-- Categoría 2: Cocina y Mesa -->
+          <div class="space-y-3">
+            <span class="text-[10px] uppercase tracking-widest text-powder-600 font-semibold block">Cocina & Preparación</span>
+            <div class="space-y-2.5">
+              
+              <!-- KitchenAid -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Batidora Artisan Empire Red 4.7L</p>
+                  <p class="text-[11px] text-faintInk">Combo con molino de alimentos</p>
+                </div>
+                <a href="https://www.kitchenaid.pe/combo-batidora-artisan-molino-de-carne-empire-red-1/p" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Oster Inmersión -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Batidora de Inmersión Oster 800W</p>
+                  <p class="text-[11px] text-faintInk">Modelo Fpsthb2801</p>
+                </div>
+                <a href="https://www.falabella.com.pe/falabella-pe/product/144849332/Batidora-De-Inmersion-Fpsthb2801-800W/144849334" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Cuisinart Mandolina -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Mandolina V-Blade Cuisinart</p>
+                  <p class="text-[11px] text-faintInk">Modelo CTG-00-VMAC</p>
+                </div>
+                <a href="https://www.lacuisine.pe/lgc/product/mandolina-v-blade-ctg-00-vmac-cuisinart/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Oster Waflera -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Waflera Belga Oster</p>
+                  <p class="text-[11px] text-faintInk">Acero Inoxidable</p>
+                </div>
+                <a href="https://www.sodimac.com.pe/sodimac-pe/articulo/140036181/Oster-Waflera-Belga-Acero-Inoxidable/140036182" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Oster Juego de Ollas -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Juego de Ollas 12 Piezas Oster</p>
+                  <p class="text-[11px] text-faintInk">Acero Inoxidable</p>
+                </div>
+                <a href="https://www.falabella.com.pe/falabella-pe/product/882538483/juego-de-ollas-12-piezas-acero-inoxidable/882538483" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Benetton Cubiertos -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Juego de Cubiertos 24 Piezas Benetton</p>
+                  <p class="text-[11px] text-faintInk">Acero Inoxidable</p>
+                </div>
+                <a href="https://www.falabella.com.pe/falabella-pe/product/883377125/juego-de-cubiertos-24-piezas-benetton/883377125" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Crate & Barrel Tabla -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Tabla de Picar de Madera Acacia</p>
+                  <p class="text-[11px] text-faintInk">Crate & Barrel</p>
+                </div>
+                <a href="https://www.crateandbarrel.com.pe/crateandbarrel-pe/product/770628085/tabla-de-picar-de-madera-acacia/770628085" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
+                  <span>Ver Referencia</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Categoría 3: Dormitorio y Confort (Sin enlace estricto) -->
+          <div class="space-y-3">
+            <span class="text-[10px] uppercase tracking-widest text-blush-600 font-semibold block">Dormitorio & Bienestar</span>
+            <div class="space-y-2.5">
+              
+              <!-- Fundas de sábana -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Juego de Sábanas de Seda</p>
+                  <p class="text-[11px] text-faintInk">400 hilos (tonos suaves o neutros)</p>
+                </div>
+                <span class="px-2.5 py-1 rounded-md bg-blush-50 text-[10px] uppercase tracking-widest text-blush-600 border border-blush-200 font-medium">
+                  Libre Elección
+                </span>
+              </div>
+
+              <!-- Fundas de almohada -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10">
+                <div>
+                  <p class="font-serif text-base text-ink font-medium">Fundas de Almohada de Seda</p>
+                  <p class="text-[11px] text-faintInk">Seda natural (tonos marfil, blush o perla)</p>
+                </div>
+                <span class="px-2.5 py-1 rounded-md bg-blush-50 text-[10px] uppercase tracking-widest text-blush-600 border border-blush-200 font-medium">
+                  Libre Elección
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Transferencias -->
           <div class="pt-4 border-t border-ink/15 space-y-3">
-            <h4 class="font-serif text-lg text-ink font-medium">Transferencia Directa</h4>
+            <h4 class="font-serif text-lg text-ink font-medium">Transferencia Directa / Fondo de Boda</h4>
             <div class="text-xs text-mutedInk space-y-1 font-mono">
               <p><strong class="font-sans font-semibold text-ink">BCP Soles:</strong> 193-XXXXXXXX-0-XX</p>
               <p><strong class="font-sans font-semibold text-ink">CCI:</strong> 002-193-XXXXXXXXXXXX-XX</p>
