@@ -8,7 +8,7 @@
   <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,18 +27,18 @@
             envelope: '#F4EFE6',
             ink: '#2B2625',
             mutedInk: '#68615E',
-            faintInk: '#9C9490',
+            faintInk: '#8E8682',
             powder: {
               100: '#E2ECF2',
               200: '#C7DAE6',
               400: '#8FAFC3',
-              600: '#5F829A'
+              600: '#4F738C'
             },
             blush: {
               100: '#F6E5E8',
               200: '#E8C7CD',
               400: '#D49FA9',
-              600: '#B0717D'
+              600: '#9E5B68'
             }
           },
           fontFamily: {
@@ -56,14 +56,14 @@
   </script>
 
   <style>
-    /* Textura de Fondo General (Mesa de madera/lino con grano de ruido) */
+    /* Fondo: Mesa de Nogal y Lino Natural con vetas sutiles y viñeta cálida */
     body {
-      background-color: #E8DFD1;
-      background-image:
-        radial-gradient(#2B2625 0.75px, transparent 0.75px),
-        radial-gradient(#FAF8F5 0.75px, #E8DFD1 0.75px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+      background-color: #352B24;
+      background-image: 
+        radial-gradient(ellipse at center, rgba(82, 66, 54, 0.5) 0%, rgba(28, 22, 18, 0.95) 100%),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 2px, transparent 2px, transparent 8px);
+      background-attachment: fixed;
     }
 
     body.gate-locked {
@@ -71,32 +71,31 @@
       height: 100vh;
     }
 
-    /* Textura Rica de Papel Algodón Hecho a Mano (Fibra + Ruido SVG + Marca de Agua Sutil + Viñeta) */
+    /* Pliego Central: Textura de Papel de Algodón Hecho a Mano con Fibras Prensadas */
     .paper-texture {
-      background-color: #FAF6EF;
-      background-image:
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E"),
-        radial-gradient(at 5% 5%, rgba(226, 236, 242, 0.4) 0px, transparent 45%),
-        radial-gradient(at 95% 95%, rgba(246, 229, 232, 0.45) 0px, transparent 45%),
-        radial-gradient(ellipse at center, transparent 62%, rgba(43, 38, 37, 0.05) 100%);
-      box-shadow:
-        0 30px 70px -15px rgba(43, 38, 37, 0.16),
-        0 10px 25px -5px rgba(43, 38, 37, 0.08),
-        0 1px 3px 0 rgba(43, 38, 37, 0.05);
+      background-color: #FAF5EB;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)' opacity='0.06'/%3E%3C/svg%3E"),
+        radial-gradient(at 10% 10%, rgba(226, 236, 242, 0.5) 0px, transparent 50%),
+        radial-gradient(at 90% 90%, rgba(246, 229, 232, 0.55) 0px, transparent 50%),
+        radial-gradient(ellipse at center, transparent 50%, rgba(68, 52, 38, 0.07) 100%);
+      box-shadow: 
+        0 35px 80px -15px rgba(0, 0, 0, 0.5),
+        0 15px 30px -5px rgba(0, 0, 0, 0.3),
+        inset 0 0 80px rgba(184, 155, 126, 0.12);
     }
 
     .deckled-border {
-      border: 1px solid rgba(43, 38, 37, 0.14);
-      outline: 1px solid rgba(43, 38, 37, 0.07);
+      border: 1px solid rgba(43, 38, 37, 0.18);
+      outline: 1px solid rgba(43, 38, 37, 0.08);
       outline-offset: 12px;
     }
 
     .hairline-separator {
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(43, 38, 37, 0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(43, 38, 37, 0.22), transparent);
     }
 
-    /* Divisor ornamental con gota de sello, hermana visual del sello de cera */
     .ornamental-divider {
       display: flex;
       align-items: center;
@@ -112,17 +111,13 @@
       height: 7px;
       flex-shrink: 0;
       border-radius: 9999px;
-      background: radial-gradient(circle at 32% 28%, #D49FA9, #B0717D 75%);
+      background: radial-gradient(circle at 32% 28%, #D49FA9, #9E5B68 75%);
       box-shadow: 0 2px 4px -1px rgba(43, 38, 37, 0.35);
     }
-    .ornamental-divider.tone-powder .divider-dot {
-      background: radial-gradient(circle at 32% 28%, #8FAFC3, #5F829A 75%);
-    }
 
-    /* Insignia tipo sello para numerales de itinerario y confirmaciones */
     .seal-badge {
       --seal-a: #8FAFC3;
-      --seal-b: #5F829A;
+      --seal-b: #4F738C;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -136,73 +131,48 @@
       font-size: 15px;
       color: #FDFBF7;
       background: radial-gradient(circle at 32% 28%, var(--seal-a), var(--seal-b) 75%);
-      box-shadow:
+      box-shadow: 
         0 4px 10px -3px rgba(43, 38, 37, 0.4),
-        inset 0 1px 2px rgba(255, 255, 255, 0.35),
-        inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+        inset 0 1px 2px rgba(255, 255, 255, 0.4),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.25);
     }
     .seal-badge.blush {
       --seal-a: #D49FA9;
-      --seal-b: #B0717D;
+      --seal-b: #9E5B68;
     }
 
-    /* Letra capital sobre el primer párrafo de la carta */
     .drop-cap::first-letter {
       font-family: "Alex Brush", cursive;
-      font-size: 3.5em;
+      font-size: 3.6em;
       line-height: 0.75;
       float: left;
-      padding-right: 0.14em;
+      padding-right: 0.16em;
       padding-top: 0.08em;
-      color: #B0717D;
+      color: #9E5B68;
     }
 
-    /* Casillas de la cuenta regresiva, tipo placa estampada */
     .digit-tile {
-      background: linear-gradient(180deg, #FFFFFF, #FAF6EF);
-      border: 1px solid rgba(43, 38, 37, 0.08);
-      border-radius: 10px;
-      padding: 0.7rem 0.25rem;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F5EFE3 100%);
+      border: 1px solid rgba(43, 38, 37, 0.12);
+      border-radius: 12px;
+      padding: 0.75rem 0.25rem;
       overflow: hidden;
-      box-shadow:
-        0 2px 6px -2px rgba(43, 38, 37, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.6);
-    }
-    .digit-tile span.tick {
-      display: inline-block;
-      animation: digitTick 0.4s ease;
-    }
-    @keyframes digitTick {
-      0% { transform: translateY(-40%); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
+      box-shadow: 
+        0 4px 10px -2px rgba(43, 38, 37, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
     .map-frame {
-      border: 6px solid #FFFFFF;
-      box-shadow: 0 10px 25px -8px rgba(43, 38, 37, 0.15);
+      border: 5px solid #FFFFFF;
+      box-shadow: 0 12px 28px -8px rgba(43, 38, 37, 0.18);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
-
     .map-frame:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 30px -8px rgba(43, 38, 37, 0.2);
+      box-shadow: 0 18px 34px -8px rgba(43, 38, 37, 0.24);
     }
 
-    @keyframes softFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-3px); }
-    }
-    .floating-accent {
-      animation: softFloat 4s ease-in-out infinite;
-    }
-
-    /* Ornamentos de esquina, vid de línea fina */
-    .corner-flourish {
-      position: absolute;
-      pointer-events: none;
-    }
-
-    /* ===== Puerta de entrada: sobre con sello de cera ===== */
+    /* Modal / Puerta de Sobre */
     #envelopeGate {
       position: fixed;
       inset: 0;
@@ -213,12 +183,8 @@
       justify-content: center;
       gap: 2.25rem;
       padding: 1.5rem;
-      background-color: #E8DFD1;
-      background-image:
-        radial-gradient(#2B2625 0.75px, transparent 0.75px),
-        radial-gradient(#FAF8F5 0.75px, #E8DFD1 0.75px);
-      background-size: 30px 30px;
-      background-position: 0 0, 15px 15px;
+      background-color: #352B24;
+      background-image: radial-gradient(ellipse at center, rgba(82, 66, 54, 0.6) 0%, rgba(28, 22, 18, 0.98) 100%);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
     #envelopeGate.gate-exit {
@@ -243,16 +209,16 @@
       border-radius: 6px;
       overflow: hidden;
       background: linear-gradient(180deg, #F4EFE6, #EDE5D6);
-      box-shadow: 0 25px 60px -15px rgba(43, 38, 37, 0.35), 0 0 0 1px rgba(43, 38, 37, 0.08);
+      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(43, 38, 37, 0.12);
       z-index: 1;
     }
     .envelope-back::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(115deg, transparent 48%, rgba(43, 38, 37, 0.06) 50%, transparent 52%),
-        linear-gradient(245deg, transparent 48%, rgba(43, 38, 37, 0.06) 50%, transparent 52%);
+      background: 
+        linear-gradient(115deg, transparent 48%, rgba(43, 38, 37, 0.08) 50%, transparent 52%),
+        linear-gradient(245deg, transparent 48%, rgba(43, 38, 37, 0.08) 50%, transparent 52%);
     }
     .envelope-letter-peek {
       position: absolute;
@@ -263,7 +229,7 @@
       transform: translate(-50%, 0);
       background: #FAF6EF;
       border-radius: 3px 3px 0 0;
-      box-shadow: 0 -4px 10px -4px rgba(43, 38, 37, 0.15);
+      box-shadow: 0 -4px 10px -4px rgba(43, 38, 37, 0.18);
       z-index: 2;
       transition: transform 0.9s cubic-bezier(.5, 0, .2, 1) 0.25s;
     }
@@ -276,7 +242,7 @@
       transform-origin: top center;
       clip-path: polygon(0 0, 100% 0, 50% 100%);
       background: linear-gradient(160deg, #EDE5D6, #E2D8C4);
-      box-shadow: 0 6px 14px -6px rgba(43, 38, 37, 0.25);
+      box-shadow: 0 6px 14px -6px rgba(43, 38, 37, 0.3);
       transition: transform 0.8s cubic-bezier(.5, 0, .2, 1);
       z-index: 3;
     }
@@ -293,25 +259,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 32% 28%, #D49FA9, #B0717D 70%);
-      box-shadow:
-        0 10px 20px -6px rgba(43, 38, 37, 0.4),
-        inset 0 2px 3px rgba(255, 255, 255, 0.35),
-        inset 0 -3px 5px rgba(0, 0, 0, 0.25);
+      background: radial-gradient(circle at 32% 28%, #D49FA9, #9E5B68 70%);
+      box-shadow: 
+        0 12px 24px -6px rgba(0, 0, 0, 0.5),
+        inset 0 2px 3px rgba(255, 255, 255, 0.4),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: transform 0.35s ease;
     }
     .wax-seal:hover {
       transform: translate(-50%, -50%) scale(1.05);
     }
-    .wax-seal:focus-visible {
-      outline: 2px solid #2B2625;
-      outline-offset: 4px;
-    }
-    .wax-seal svg {
-      width: 70%;
-    }
-
     #envelopeGate.is-opening .envelope-flap {
       transform: rotateX(-165deg);
     }
@@ -329,61 +287,22 @@
 
     .tap-hint {
       font-size: 10px;
-      letter-spacing: 0.25em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: #9C9490;
+      color: #D4C9BC;
       animation: hintPulse 2.4s ease-in-out infinite;
     }
     @keyframes hintPulse {
-      0%, 100% { opacity: 0.55; }
+      0%, 100% { opacity: 0.5; }
       50% { opacity: 1; }
     }
 
-    /* Confirmación RSVP */
-    #rsvpSuccess:not(.hidden) {
-      animation: successReveal 0.6s ease both;
-    }
-    @keyframes successReveal {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .stamp-success {
-      animation: stampPop 0.6s cubic-bezier(.34, 1.56, .64, 1) 0.1s both;
-    }
-    @keyframes stampPop {
-      0% { transform: scale(0) rotate(-15deg); opacity: 0; }
-      60% { transform: scale(1.15) rotate(5deg); opacity: 1; }
-      100% { transform: scale(1) rotate(0deg); opacity: 1; }
-    }
-
-    /* Barra de desplazamiento a juego con la paleta */
     ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #E8DFD1; }
+    ::-webkit-scrollbar-track { background: #2B211B; }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, #C7DAE6, #8FAFC3);
+      background: #8FAFC3;
       border-radius: 8px;
-      border: 2px solid #E8DFD1;
-    }
-    html { scrollbar-color: #8FAFC3 #E8DFD1; scrollbar-width: thin; }
-
-    ::selection {
-      background-color: #E2ECF2;
-      color: #2B2625;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .floating-accent,
-      .tap-hint,
-      #envelopeGate,
-      .envelope-flap,
-      .wax-seal,
-      .envelope-letter-peek,
-      .digit-tile span.tick,
-      #rsvpSuccess:not(.hidden),
-      .stamp-success {
-        animation: none !important;
-        transition: none !important;
-      }
+      border: 2px solid #2B211B;
     }
   </style>
 </head>
@@ -397,7 +316,7 @@
       <div class="envelope-back"></div>
       <div class="envelope-flap"></div>
       <button type="button" id="waxSeal" class="wax-seal" aria-label="Abrir invitación">
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-2/3">
           <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1"></circle>
           <text x="50" y="61" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="40" fill="#FDFBF7">C&amp;R</text>
         </svg>
@@ -410,37 +329,25 @@
   <!-- Pliego Continuo de la Carta -->
   <article class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
 
-    <!-- Ornamentos de esquina -->
-    <svg class="corner-flourish top-5 left-5 sm:top-8 sm:left-8 w-14 h-14 sm:w-20 sm:h-20 text-powder-400/50 hidden sm:block" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Ornamentos florales en esquinas -->
+    <svg class="absolute top-5 left-5 sm:top-8 sm:left-8 w-14 h-14 sm:w-20 sm:h-20 text-powder-400/40 hidden sm:block pointer-events-none" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
-      <path d="M14 4C14 4 14 16 24 18" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
       <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
     </svg>
-    <svg class="corner-flourish top-5 right-5 sm:top-8 sm:right-8 -scale-x-100 w-14 h-14 sm:w-20 sm:h-20 text-powder-400/50 hidden sm:block" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg class="absolute top-5 right-5 sm:top-8 sm:right-8 -scale-x-100 w-14 h-14 sm:w-20 sm:h-20 text-powder-400/40 hidden sm:block pointer-events-none" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
-      <path d="M14 4C14 4 14 16 24 18" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
-      <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
-    </svg>
-    <svg class="corner-flourish bottom-5 left-5 sm:bottom-8 sm:left-8 -scale-y-100 w-14 h-14 sm:w-20 sm:h-20 text-blush-400/50 hidden sm:block" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
-      <path d="M14 4C14 4 14 16 24 18" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
-      <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
-    </svg>
-    <svg class="corner-flourish bottom-5 right-5 sm:bottom-8 sm:right-8 -scale-x-100 -scale-y-100 w-14 h-14 sm:w-20 sm:h-20 text-blush-400/50 hidden sm:block" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
-      <path d="M14 4C14 4 14 16 24 18" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
       <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
     </svg>
 
     <!-- Encabezado de la Carta -->
     <header class="text-center pt-6 pb-16 space-y-6" data-aos="fade-up" data-aos-duration="1000">
       <div class="flex justify-center" aria-hidden="true">
-        <svg class="w-9 h-9 text-powder-600 floating-accent" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.2" opacity="0.5"></circle>
+        <svg class="w-9 h-9 text-powder-600" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.2" opacity="0.45"></circle>
           <text x="50" y="60" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="34" fill="currentColor">C&amp;R</text>
         </svg>
       </div>
-      <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-light">
+      <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-medium">
         Correspondencia Privada &middot; Boda Íntima
       </p>
 
@@ -455,39 +362,39 @@
       <p class="font-serif italic text-lg sm:text-xl text-mutedInk font-light tracking-wide">
         Sábado, veintiuno de noviembre del año dos mil veintiséis
       </p>
-
+      
       <p class="text-[11px] tracking-widest-xl uppercase text-faintInk">
         Magdalena del Mar, Lima
       </p>
     </header>
 
     <!-- Contador Regresivo -->
-    <div class="py-10 border-y border-ink/5 text-center" data-aos="fade-up" data-aos-delay="150">
-      <p class="text-[10px] tracking-widest-xl uppercase text-faintInk mb-6">Tiempo Restante</p>
-      <div class="grid grid-cols-4 gap-4 max-w-md mx-auto">
-        <div class="group transition-transform hover:-translate-y-1 duration-300">
+    <div class="py-10 border-y border-ink/10 text-center" data-aos="fade-up" data-aos-delay="150">
+      <p class="text-[10px] tracking-widest-xl uppercase text-faintInk mb-6 font-medium">Tiempo Restante</p>
+      <div class="grid grid-cols-4 gap-3 sm:gap-4 max-w-md mx-auto">
+        <div>
           <div class="digit-tile">
             <span id="days" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           </div>
-          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block">Días</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block font-medium">Días</span>
         </div>
-        <div class="group transition-transform hover:-translate-y-1 duration-300">
+        <div>
           <div class="digit-tile">
             <span id="hours" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           </div>
-          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block">Horas</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block font-medium">Horas</span>
         </div>
-        <div class="group transition-transform hover:-translate-y-1 duration-300">
+        <div>
           <div class="digit-tile">
             <span id="minutes" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           </div>
-          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block">Minutos</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block font-medium">Minutos</span>
         </div>
-        <div class="group transition-transform hover:-translate-y-1 duration-300">
+        <div>
           <div class="digit-tile">
             <span id="seconds" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           </div>
-          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block">Segundos</span>
+          <span class="text-[9px] uppercase tracking-widest text-faintInk mt-2 block font-medium">Segundos</span>
         </div>
       </div>
     </div>
@@ -496,7 +403,7 @@
     <section class="py-24 max-w-2xl mx-auto space-y-12" data-aos="fade-up">
       <div class="text-center space-y-6">
         <p class="font-script text-3xl sm:text-4xl text-blush-600">Querida familia y amigos,</p>
-        <p class="font-serif text-xl sm:text-2xl text-ink font-light leading-relaxed drop-cap">
+        <p class="font-serif text-xl sm:text-2xl text-ink font-light leading-relaxed drop-cap text-left sm:text-center">
           Hemos reservado este día para compartirlo exclusivamente junto a las cuarenta personas que forman la parte más sincera de nuestras vidas.
         </p>
         <p class="text-xs sm:text-sm text-mutedInk font-light leading-loose tracking-wide max-w-lg mx-auto">
@@ -505,7 +412,7 @@
       </div>
 
       <div class="map-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
       </div>
     </section>
 
@@ -515,33 +422,33 @@
       <span class="divider-line"></span>
     </div>
 
-    <!-- Itinerario: Los Tres Tiempos con Widgets Interactivos de Google Maps -->
+    <!-- Itinerario: Los Tres Tiempos con Google Maps -->
     <section class="py-24 space-y-24">
       <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
-        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Programa</p>
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-medium">Programa</p>
         <h2 class="font-serif text-3xl md:text-4xl font-light text-ink">Los Tres Tiempos</h2>
       </div>
 
       <!-- Momento I: Boda Civil -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
         <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
-          <iframe
-            src="https://maps.google.com/maps?q=Municipalidad+de+Magdalena+del+Mar,+Lima&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
-            loading="lazy"
+          <iframe 
+            src="https://maps.google.com/maps?q=Municipalidad+de+Magdalena+del+Mar,+Lima&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
         <div class="md:col-span-6 order-1 md:order-2 space-y-3 text-left">
           <div class="flex items-center gap-3">
             <span class="seal-badge" aria-hidden="true">I</span>
-            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-medium">09:00 AM</span>
+            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-semibold">09:00 AM</span>
           </div>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Matrimonio Civil</h3>
           <p class="font-serif italic text-base text-mutedInk">Municipalidad de Magdalena del Mar</p>
           <p class="text-xs text-faintInk font-light">Avenida Brasil 3501, Magdalena del Mar</p>
           <div class="pt-4">
-            <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group">
+            <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group font-medium">
               <i data-lucide="external-link" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
               <span>Abrir en App de Mapas</span>
             </a>
@@ -554,23 +461,23 @@
         <div class="md:col-span-6 space-y-3 text-left md:text-right">
           <div class="flex items-center gap-3 md:justify-end">
             <span class="seal-badge blush" aria-hidden="true">II</span>
-            <span class="text-[11px] tracking-widest-xl uppercase text-blush-600 font-medium">11:00 AM</span>
+            <span class="text-[11px] tracking-widest-xl uppercase text-blush-600 font-semibold">11:00 AM</span>
           </div>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Ceremonia Religiosa</h3>
           <p class="font-serif italic text-base text-mutedInk">Parroquia San Juan María Vianney</p>
           <p class="text-xs text-faintInk font-light">Avenida Javier Prado Oeste 765, Magdalena</p>
           <div class="pt-4 flex md:justify-end">
-            <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-blush-600 underline underline-offset-8 transition-colors group">
+            <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-blush-600 underline underline-offset-8 transition-colors group font-medium">
               <i data-lucide="external-link" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
               <span>Abrir en App de Mapas</span>
             </a>
           </div>
         </div>
         <div class="md:col-span-6 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
-          <iframe
-            src="https://maps.google.com/maps?q=Parroquia+San+Juan+Maria+Vianney,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
-            loading="lazy"
+          <iframe 
+            src="https://maps.google.com/maps?q=Parroquia+San+Juan+Maria+Vianney,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
@@ -579,23 +486,23 @@
       <!-- Momento III: Recepción Íntima -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
         <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
-          <iframe
-            src="https://maps.google.com/maps?q=Jiron+Faustino+Sanchez+Carrion+140,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed"
-            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
-            loading="lazy"
+          <iframe 
+            src="https://maps.google.com/maps?q=Jiron+Faustino+Sanchez+Carrion+140,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
             referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
         <div class="md:col-span-6 order-1 md:order-2 space-y-3 text-left">
           <div class="flex items-center gap-3">
             <span class="seal-badge" aria-hidden="true">III</span>
-            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-medium">01:00 PM</span>
+            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-semibold">01:00 PM</span>
           </div>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Recepción Íntima</h3>
           <p class="font-serif italic text-base text-mutedInk">Almuerzo & Brindis con los 40</p>
           <p class="text-xs text-faintInk font-light">Jirón Faustino Sánchez Carrión 140, Magdalena</p>
           <div class="pt-4">
-            <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group">
+            <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group font-medium">
               <i data-lucide="external-link" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
               <span>Abrir en App de Mapas</span>
             </a>
@@ -610,102 +517,103 @@
       <span class="divider-line"></span>
     </div>
 
-    <!-- Código de Vestimenta -->
-    <section class="py-24 max-w-xl mx-auto space-y-20 text-center" data-aos="fade-up">
-
+    <!-- Código de Vestimenta (Con Contraste Curado y Sin Bloque Blanco) -->
+    <section class="py-24 max-w-xl mx-auto space-y-16 text-center" data-aos="fade-up">
+      
       <div class="space-y-6">
-        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Código de Vestimenta</p>
-        <h3 class="font-serif text-2xl md:text-3xl text-ink">Elegante de Día</h3>
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-medium">Guía de Estilo</p>
+        <h3 class="font-serif text-2xl md:text-3xl text-ink">Código de Vestimenta</h3>
         <p class="text-xs text-mutedInk font-light leading-relaxed max-w-sm mx-auto">
-          Agradecemos a todos nuestros invitados tener en cuenta las siguientes tonalidades reservadas y no permitidas para el evento:
+          Vestimenta <strong class="font-medium text-ink">Elegante de Día</strong>. Agradecemos a todos nuestros invitados tener en cuenta las tonalidades reservadas exclusivamente para la ocasión:
         </p>
-
-        <div class="p-6 bg-white/80 border border-ink/10 rounded-2xl space-y-4 max-w-md mx-auto shadow-sm">
-          <p class="text-[10px] uppercase tracking-widest text-blush-600 font-medium">
-            Colores no permitidos / Reservados
+        
+        <!-- Muestrario Integrado Directamente al Papel (Sin cajas invasivas) -->
+        <div class="pt-4 space-y-3">
+          <p class="text-[10px] uppercase tracking-widest-xl text-blush-600 font-semibold">
+            Tonalidades no permitidas / Reservadas
           </p>
-
-          <div class="flex justify-center items-center gap-6 pt-2">
+          
+          <div class="flex justify-center items-center gap-6 sm:gap-8 pt-2">
             <div class="flex flex-col items-center gap-1.5 group">
-              <div class="relative w-8 h-8 rounded-full bg-[#FFFFFF] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
-                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              <div class="relative w-9 h-9 rounded-full bg-[#FFFFFF] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
               </div>
-              <span class="text-[10px] text-mutedInk font-light">Blanco Puro</span>
+              <span class="text-[10px] text-ink font-medium">Blanco</span>
               <span class="text-[9px] text-faintInk">(Novia)</span>
             </div>
 
             <div class="flex flex-col items-center gap-1.5 group">
-              <div class="relative w-8 h-8 rounded-full bg-[#FFFFF0] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
-                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              <div class="relative w-9 h-9 rounded-full bg-[#FFFFF0] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
               </div>
-              <span class="text-[10px] text-mutedInk font-light">Marfil</span>
+              <span class="text-[10px] text-ink font-medium">Marfil</span>
               <span class="text-[9px] text-faintInk">(Novia)</span>
             </div>
 
             <div class="flex flex-col items-center gap-1.5 group">
-              <div class="relative w-8 h-8 rounded-full bg-[#C81D25] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
-                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              <div class="relative w-9 h-9 rounded-full bg-[#9E1B22] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
               </div>
-              <span class="text-[10px] text-mutedInk font-light">Rojo Intenso</span>
+              <span class="text-[10px] text-ink font-medium">Rojo</span>
               <span class="text-[9px] text-faintInk">(Evitar)</span>
             </div>
 
             <div class="flex flex-col items-center gap-1.5 group">
-              <div class="relative w-8 h-8 rounded-full bg-[#1A1A1A] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
-                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              <div class="relative w-9 h-9 rounded-full bg-[#1A1A1A] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
               </div>
-              <span class="text-[10px] text-mutedInk font-light">Negro Total</span>
+              <span class="text-[10px] text-ink font-medium">Negro</span>
               <span class="text-[9px] text-faintInk">(Evitar)</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Mesa de Regalos con Links de Compra y Transferencia -->
+      <!-- Mesa de Regalos Plegable -->
       <div class="space-y-4 pt-4">
-        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Mesa de Regalos</p>
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-medium">Mesa de Regalos</p>
         <p class="text-xs text-mutedInk font-light leading-relaxed max-w-md mx-auto">
           Su compañía es nuestro mayor regalo. Si desean tener un detalle para equipar nuestro nuevo espacio o luna de miel, ponemos a su disposición nuestra selección con enlaces directos de compra o transferencias.
         </p>
-
-        <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-all pt-2 group">
+        
+        <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-all pt-2 group font-medium">
           <i data-lucide="gift" class="w-3.5 h-3.5 transition-transform group-hover:scale-125"></i>
           <span>Consultar Lista de Regalos & Cuentas</span>
         </button>
 
-        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/70 rounded-2xl border border-ink/10 space-y-6 transition-all">
+        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/80 rounded-2xl border border-ink/12 space-y-6 transition-all shadow-inner">
           <div>
             <h4 class="font-serif text-lg text-ink mb-3">Deseos para el Hogar con Link de Compra</h4>
-
+            
             <div class="space-y-3">
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/90 border border-ink/5 hover:border-powder-200 transition-colors">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/70 border border-ink/8 hover:border-powder-400 transition-colors">
                 <div>
                   <p class="font-serif text-base text-ink">Set de Vajilla de Cerámica Artesanal</p>
                   <p class="text-[11px] text-faintInk">Acabado mate para 6 personas</p>
                 </div>
-                <a href="https://www.falabella.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/10 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors">
+                <a href="https://www.falabella.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-medium">
                   <span>Comprar</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
                 </a>
               </div>
 
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/90 border border-ink/5 hover:border-powder-200 transition-colors">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/70 border border-ink/8 hover:border-powder-400 transition-colors">
                 <div>
                   <p class="font-serif text-base text-ink">Copas de Cristal para Brindis</p>
                   <p class="text-[11px] text-faintInk">Set de copas de vino & champagne</p>
                 </div>
-                <a href="https://www.ripley.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/10 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors">
+                <a href="https://www.ripley.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-medium">
                   <span>Comprar</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
                 </a>
               </div>
 
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/90 border border-ink/5 hover:border-powder-200 transition-colors">
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/70 border border-ink/8 hover:border-powder-400 transition-colors">
                 <div>
                   <p class="font-serif text-base text-ink">Cafetera de Especialidad</p>
                   <p class="text-[11px] text-faintInk">Para nuestros desayunos</p>
                 </div>
-                <a href="https://www.amazon.com" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/10 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors">
+                <a href="https://www.amazon.com" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-medium">
                   <span>Comprar</span>
                   <i data-lucide="external-link" class="w-3 h-3"></i>
                 </a>
@@ -713,13 +621,13 @@
             </div>
           </div>
 
-          <div class="pt-4 border-t border-ink/10 space-y-3">
+          <div class="pt-4 border-t border-ink/12 space-y-3">
             <h4 class="font-serif text-lg text-ink">Transferencia Directa</h4>
             <div class="text-xs text-mutedInk space-y-1 font-mono">
               <p><strong class="font-sans font-medium text-ink">BCP Soles:</strong> 193-XXXXXXXX-0-XX</p>
               <p><strong class="font-sans font-medium text-ink">CCI:</strong> 002-193-XXXXXXXXXXXX-XX</p>
               <p><strong class="font-sans font-medium text-ink">Yape / Plin:</strong> +51 9XX XXX XXX</p>
-              <p class="font-sans text-[11px] text-faintInk pt-1">Titulares: Rodrigo / Camila</p>
+              <p class="font-sans text-[11px] text-faintInk pt-1">Titulares: Rodrigo Aquijo / Camila</p>
             </div>
           </div>
         </div>
@@ -733,10 +641,10 @@
       <span class="divider-line"></span>
     </div>
 
-    <!-- Confirmación de Asistencia (RSVP Funcional con FormSubmit) -->
+    <!-- Confirmación de Asistencia (RSVP Funcional) -->
     <section class="py-24 max-w-md mx-auto" data-aos="fade-up">
       <div class="text-center space-y-3 mb-12">
-        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Confirmación</p>
+        <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-medium">Confirmación</p>
         <h2 class="font-serif text-3xl font-light text-ink">R. S. V. P.</h2>
         <p class="text-xs text-mutedInk font-light leading-relaxed">
           Rogamos confirmar su presencia antes del 15 de octubre para asegurar su lugar en nuestra mesa.
@@ -744,22 +652,22 @@
       </div>
 
       <form id="rsvpForm" action="https://formsubmit.co/rodrigoaquije45@gmail.com" method="POST" onsubmit="submitLetter(event)" class="space-y-8 text-xs font-light">
-
+        
         <input type="hidden" name="_subject" value="¡Nueva Confirmación RSVP - Boda Camila & Rodrigo!">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
 
         <div class="space-y-2">
-          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Nombre y Apellido</label>
-          <input type="text" name="Nombre_Invitado" required placeholder="Escriba su nombre aquí" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk font-medium">Nombre y Apellido</label>
+          <input type="text" name="Nombre_Invitado" required placeholder="Escriba su nombre aquí" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50 text-ink text-sm">
         </div>
 
         <div class="space-y-3 pt-2">
-          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Asistencia</label>
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk font-medium">Asistencia</label>
           <div class="flex gap-6">
             <label class="flex items-center gap-2 cursor-pointer">
               <input type="radio" name="Asistencia" value="Sí, asiste con alegría" checked class="accent-ink">
-              <span class="text-ink">Acepto con alegría</span>
+              <span class="text-ink font-normal">Acepto con alegría</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer">
               <input type="radio" name="Asistencia" value="No podrá asistir" class="accent-ink">
@@ -769,24 +677,24 @@
         </div>
 
         <div class="space-y-2 pt-2">
-          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Restricciones Alimentarias (Opcional)</label>
-          <input type="text" name="Restricciones_Alimentarias" placeholder="Ej. Vegetariano / Alergias" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk font-medium">Restricciones Alimentarias (Opcional)</label>
+          <input type="text" name="Restricciones_Alimentarias" placeholder="Ej. Vegetariano / Alergias" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50 text-ink text-sm">
         </div>
 
         <div class="space-y-2 pt-2">
-          <label class="block uppercase tracking-widest text-[10px] text-faintInk">Una sugerencia musical para el brindis</label>
-          <input type="text" name="Cancion_Sugerida" placeholder="Canción y artista" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+          <label class="block uppercase tracking-widest text-[10px] text-faintInk font-medium">Una sugerencia musical para el brindis</label>
+          <input type="text" name="Cancion_Sugerida" placeholder="Canción y artista" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50 text-ink text-sm">
         </div>
 
         <div class="pt-6 text-center">
-          <button id="submitBtn" type="submit" class="w-full py-4 px-8 border border-ink text-[11px] uppercase tracking-widest-xl text-ink hover:bg-ink hover:text-parchment transition-all duration-300 cursor-pointer">
+          <button id="submitBtn" type="submit" class="w-full py-4 px-8 border border-ink text-[11px] uppercase tracking-widest-xl text-ink hover:bg-ink hover:text-parchment transition-all duration-300 cursor-pointer font-medium">
             Enviar Respuesta
           </button>
         </div>
       </form>
 
       <div id="rsvpSuccess" class="hidden text-center py-12 space-y-4">
-        <div class="seal-badge stamp-success mx-auto" style="width:56px;height:56px;font-size:22px;" aria-hidden="true">&#10003;</div>
+        <div class="seal-badge mx-auto" style="width:56px;height:56px;font-size:22px;" aria-hidden="true">&#10003;</div>
         <p class="font-script text-4xl text-powder-600">Muchas gracias</p>
         <p class="font-serif italic text-lg text-ink font-light">
           Tu respuesta ha sido enviada directamente a los novios.
@@ -802,7 +710,7 @@
         <span class="divider-line"></span>
       </div>
       <p class="font-script text-4xl text-ink">Con amor, Camila & Rodrigo</p>
-      <p class="text-[9px] uppercase tracking-widest-2xl text-faintInk">21 &middot; 11 &middot; 2026</p>
+      <p class="text-[9px] uppercase tracking-widest-2xl text-faintInk font-medium">21 &middot; 11 &middot; 2026</p>
     </footer>
 
   </article>
@@ -818,7 +726,6 @@
       disable: prefersReducedMotion
     });
 
-    /* ===== Puerta de entrada: sobre con sello de cera ===== */
     (function () {
       const gate = document.getElementById('envelopeGate');
       const waxSeal = document.getElementById('waxSeal');
@@ -845,7 +752,6 @@
       gate.addEventListener('click', openInvitation);
     })();
 
-    /* ===== Contador Regresivo ===== */
     const prevDigits = { days: null, hours: null, minutes: null, seconds: null };
 
     function updateDigit(id, value) {
@@ -854,11 +760,6 @@
       if (prevDigits[id] === text) return;
       prevDigits[id] = text;
       el.textContent = text;
-      if (!prefersReducedMotion) {
-        el.classList.remove('tick');
-        void el.offsetWidth;
-        el.classList.add('tick');
-      }
     }
 
     function runTimer() {
