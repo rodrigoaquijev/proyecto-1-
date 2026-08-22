@@ -29,12 +29,14 @@
             mutedInk: '#68615E',
             faintInk: '#8E8682',
             powder: {
+              50: '#F0F6F9',
               100: '#E2ECF2',
               200: '#C7DAE6',
               400: '#8FAFC3',
               600: '#4F738C'
             },
             blush: {
+              50: '#FAF0F2',
               100: '#F6E5E8',
               200: '#E8C7CD',
               400: '#D49FA9',
@@ -573,11 +575,11 @@
         </div>
       </div>
 
-      <!-- Mesa de Regalos Plegable Actualizada -->
+      <!-- Mesa de Regalos con WhatsApp y Reserva -->
       <div class="space-y-4 pt-4">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-semibold">Mesa de Regalos</p>
         <p class="text-xs text-mutedInk font-light leading-relaxed max-w-md mx-auto">
-          Su compañía es nuestro mayor regalo. Si desean tener un detalle para equipar nuestro nuevo hogar, hemos reunido una selección de artículos sugeridos (los enlaces y tiendas son totalmente referenciales).
+          Su compañía es nuestro mayor regalo. Si desean tener un detalle para equipar nuestro nuevo hogar, pueden consultar nuestra lista sugerida. Para evitar regalos duplicados, pueden avisarnos o coordinar directamente por WhatsApp.
         </p>
         
         <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-all pt-2 group font-semibold">
@@ -587,9 +589,9 @@
 
         <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/85 rounded-2xl border border-ink/15 space-y-8 transition-all shadow-md">
           
-          <div class="p-3.5 bg-powder-50/70 border border-powder-200 rounded-xl text-center">
+          <div class="p-3.5 bg-powder-50/80 border border-powder-200 rounded-xl text-center space-y-1">
             <p class="text-[11px] text-mutedInk font-light">
-              <span class="font-semibold text-ink">Nota:</span> Los enlaces externos son únicamente modelos de referencia; son libres de elegir la tienda o formato que prefieran.
+              <span class="font-semibold text-ink">¿Deseas obsequiar un artículo?</span> Pulsa en <strong class="font-semibold text-ink">"Regalar vía WhatsApp"</strong> para avisarnos y marcarlo como reservado en la web. Los enlaces de tienda son modelos referenciales.
             </p>
           </div>
 
@@ -599,173 +601,225 @@
             <div class="space-y-2.5">
               
               <!-- Zojirushi -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Olla Arrocera Eléctrica Zojirushi 1.0 Lt</p>
                   <p class="text-[11px] text-faintInk">Modelo NS-ZAQ10WZ</p>
                 </div>
-                <a href="https://fuku.pe/producto/olla-arrocera-electrica-zojirushi-1-0-lt-ns-zaq10wz/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://fuku.pe/producto/olla-arrocera-electrica-zojirushi-1-0-lt-ns-zaq10wz/" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Olla%20Arrocera%20Zojirushi%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- LG WashTower -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">LG WashTower (14Kg lavado / 10Kg secado)</p>
                   <p class="text-[11px] text-faintInk">AI DD y ThinQ</p>
                 </div>
-                <a href="https://www.lg.com/pe/lavadoras/washtower/wk14bs6r/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.lg.com/pe/lavadoras/washtower/wk14bs6r/" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20LG%20WashTower%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Xiaomi Vacuum -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Xiaomi Robot Vacuum X20 Pro</p>
                   <p class="text-[11px] text-faintInk">Aspiradora robot inteligente</p>
                 </div>
-                <a href="https://www.mi.com/pe/product/xiaomi-robot-vacuum-x20-pro/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.mi.com/pe/product/xiaomi-robot-vacuum-x20-pro/" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Xiaomi%20Robot%20Vacuum%20X20%20Pro%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- TCL 75" -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Televisor TCL MiniLed 75" UHD 4K</p>
                   <p class="text-[11px] text-faintInk">Smart TV 75C6K</p>
                 </div>
-                <a href="https://www.plazavea.com.pe/televisor-tcl-mini-led-75--uhd-4k-smart-tv-75c6k/p" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.plazavea.com.pe/televisor-tcl-mini-led-75--uhd-4k-smart-tv-75c6k/p" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Televisor%20TCL%2075%22%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Categoría 2: Cocina y Mesa -->
+          <!-- Categoría 2: Cocina y Preparación -->
           <div class="space-y-3">
             <span class="text-[10px] uppercase tracking-widest text-powder-600 font-semibold block">Cocina & Preparación</span>
             <div class="space-y-2.5">
               
               <!-- KitchenAid -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Batidora Artisan Empire Red 4.7L</p>
                   <p class="text-[11px] text-faintInk">Combo con molino de alimentos</p>
                 </div>
-                <a href="https://www.kitchenaid.pe/combo-batidora-artisan-molino-de-carne-empire-red-1/p" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.kitchenaid.pe/combo-batidora-artisan-molino-de-carne-empire-red-1/p" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Batidora%20KitchenAid%20Artisan%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Oster Inmersión -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Batidora de Inmersión Oster 800W</p>
                   <p class="text-[11px] text-faintInk">Modelo Fpsthb2801</p>
                 </div>
-                <a href="https://www.falabella.com.pe/falabella-pe/product/144849332/Batidora-De-Inmersion-Fpsthb2801-800W/144849334" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.falabella.com.pe/falabella-pe/product/144849332/Batidora-De-Inmersion-Fpsthb2801-800W/144849334" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Batidora%20de%20Inmersi%C3%B3n%20Oster%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
-              <!-- Cuisinart Mandolina -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <!-- Mandolina Cuisinart (EJEMPLO: YA REGALADO / RESERVADO) -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-cotton/50 border border-ink/10 opacity-60 gap-3">
                 <div>
-                  <p class="font-serif text-base text-ink font-medium">Mandolina V-Blade Cuisinart</p>
+                  <p class="font-serif text-base text-mutedInk line-through font-medium">Mandolina V-Blade Cuisinart</p>
                   <p class="text-[11px] text-faintInk">Modelo CTG-00-VMAC</p>
                 </div>
-                <a href="https://www.lacuisine.pe/lgc/product/mandolina-v-blade-ctg-00-vmac-cuisinart/" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-ink/10 text-mutedInk text-[10px] uppercase tracking-widest font-semibold self-end sm:self-center">
+                  <i data-lucide="check" class="w-3 h-3"></i>
+                  <span>Ya Regalado</span>
+                </span>
               </div>
 
               <!-- Oster Waflera -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Waflera Belga Oster</p>
                   <p class="text-[11px] text-faintInk">Acero Inoxidable</p>
                 </div>
-                <a href="https://www.sodimac.com.pe/sodimac-pe/articulo/140036181/Oster-Waflera-Belga-Acero-Inoxidable/140036182" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.sodimac.com.pe/sodimac-pe/articulo/140036181/Oster-Waflera-Belga-Acero-Inoxidable/140036182" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Waflera%20Belga%20Oster%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Oster Juego de Ollas -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Juego de Ollas 12 Piezas Oster</p>
                   <p class="text-[11px] text-faintInk">Acero Inoxidable</p>
                 </div>
-                <a href="https://www.falabella.com.pe/falabella-pe/product/882538483/juego-de-ollas-12-piezas-acero-inoxidable/882538483" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.falabella.com.pe/falabella-pe/product/882538483/juego-de-ollas-12-piezas-acero-inoxidable/882538483" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20Ollas%20Oster%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Benetton Cubiertos -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Juego de Cubiertos 24 Piezas Benetton</p>
                   <p class="text-[11px] text-faintInk">Acero Inoxidable</p>
                 </div>
-                <a href="https://www.falabella.com.pe/falabella-pe/product/883377125/juego-de-cubiertos-24-piezas-benetton/883377125" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.falabella.com.pe/falabella-pe/product/883377125/juego-de-cubiertos-24-piezas-benetton/883377125" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20Cubiertos%20Benetton%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
               <!-- Crate & Barrel Tabla -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 hover:border-powder-400 transition-colors">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Tabla de Picar de Madera Acacia</p>
                   <p class="text-[11px] text-faintInk">Crate & Barrel</p>
                 </div>
-                <a href="https://www.crateandbarrel.com.pe/crateandbarrel-pe/product/770628085/tabla-de-picar-de-madera-acacia/770628085" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-parchment border border-ink/15 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors font-semibold">
-                  <span>Ver Referencia</span>
-                  <i data-lucide="external-link" class="w-3 h-3"></i>
-                </a>
+                <div class="flex items-center gap-2 self-end sm:self-center">
+                  <a href="https://www.crateandbarrel.com.pe/crateandbarrel-pe/product/770628085/tabla-de-picar-de-madera-acacia/770628085" target="_blank" class="p-2 rounded-lg bg-parchment border border-ink/15 text-mutedInk hover:text-ink hover:bg-powder-100 transition-colors" title="Ver enlace referencial">
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                  <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Tabla%20de%20Picar%20de%20Acacia%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium">
+                    <i data-lucide="message-circle" class="w-3 h-3"></i>
+                    <span>Regalar</span>
+                  </a>
+                </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Categoría 3: Dormitorio y Confort (Sin enlace estricto) -->
+          <!-- Categoría 3: Dormitorio y Bienestar -->
           <div class="space-y-3">
             <span class="text-[10px] uppercase tracking-widest text-blush-600 font-semibold block">Dormitorio & Bienestar</span>
             <div class="space-y-2.5">
               
               <!-- Fundas de sábana -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Juego de Sábanas de Seda</p>
-                  <p class="text-[11px] text-faintInk">400 hilos (tonos suaves o neutros)</p>
+                  <p class="text-[11px] text-faintInk">400 hilos (formato o marca a libre elección)</p>
                 </div>
-                <span class="px-2.5 py-1 rounded-md bg-blush-50 text-[10px] uppercase tracking-widest text-blush-600 border border-blush-200 font-medium">
-                  Libre Elección
-                </span>
+                <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20S%C3%A1banas%20de%20Seda%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium self-end sm:self-center">
+                  <i data-lucide="message-circle" class="w-3 h-3"></i>
+                  <span>Regalar</span>
+                </a>
               </div>
 
               <!-- Fundas de almohada -->
-              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/10 gap-3">
                 <div>
                   <p class="font-serif text-base text-ink font-medium">Fundas de Almohada de Seda</p>
-                  <p class="text-[11px] text-faintInk">Seda natural (tonos marfil, blush o perla)</p>
+                  <p class="text-[11px] text-faintInk">Seda natural (tonos suaves a libre elección)</p>
                 </div>
-                <span class="px-2.5 py-1 rounded-md bg-blush-50 text-[10px] uppercase tracking-widest text-blush-600 border border-blush-200 font-medium">
-                  Libre Elección
-                </span>
+                <a href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20las%20Fundas%20de%20Almohada%20de%20Seda%20para%20su%20nuevo%20hogar." target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-800 text-[#FAF6EE] text-[10px] uppercase tracking-widest hover:bg-emerald-900 transition-colors font-medium self-end sm:self-center">
+                  <i data-lucide="message-circle" class="w-3 h-3"></i>
+                  <span>Regalar</span>
+                </a>
               </div>
 
             </div>
@@ -777,7 +831,7 @@
             <div class="text-xs text-mutedInk space-y-1 font-mono">
               <p><strong class="font-sans font-semibold text-ink">BCP Soles:</strong> 193-XXXXXXXX-0-XX</p>
               <p><strong class="font-sans font-semibold text-ink">CCI:</strong> 002-193-XXXXXXXXXXXX-XX</p>
-              <p><strong class="font-sans font-semibold text-ink">Yape / Plin:</strong> +51 9XX XXX XXX</p>
+              <p><strong class="font-sans font-semibold text-ink">Yape / Plin:</strong> +51 935 355 020</p>
               <p class="font-sans text-[11px] text-faintInk pt-1">Titulares: Rodrigo Aquijo / Camila</p>
             </div>
           </div>
