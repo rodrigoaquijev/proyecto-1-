@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camila & Rodrigo — 21 de Noviembre, 2026</title>
   
+  <!-- Tipografías -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
   
+  <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS (Animate On Scroll) para animaciones suaves de entrada -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
   <script>
     tailwind.config = {
@@ -19,7 +25,6 @@
           colors: {
             parchment: '#FDFBF7',
             envelope: '#F4EFE6',
-            cotton: '#F9F6F0',
             ink: '#2B2625',
             mutedInk: '#68615E',
             faintInk: '#9C9490',
@@ -53,15 +58,15 @@
   <style>
     body {
       background-color: #ECE5DA;
-      background-image: radial-gradient(rgba(43, 38, 37, 0.06) 1px, transparent 0);
+      background-image: radial-gradient(rgba(43, 38, 37, 0.05) 1px, transparent 0);
       background-size: 26px 26px;
     }
     
     .paper-texture {
       background-color: #FDFBF7;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(226, 236, 242, 0.45) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(246, 229, 232, 0.45) 0px, transparent 50%);
+        radial-gradient(at 0% 0%, rgba(226, 236, 242, 0.4) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(246, 229, 232, 0.4) 0px, transparent 50%);
       box-shadow: 
         0 30px 60px -20px rgba(43, 38, 37, 0.12),
         0 2px 6px 0 rgba(43, 38, 37, 0.04);
@@ -80,7 +85,22 @@
 
     .photo-frame {
       border: 6px solid #FFFFFF;
-      box-shadow: 0 8px 24px -6px rgba(43, 38, 37, 0.12);
+      box-shadow: 0 10px 25px -8px rgba(43, 38, 37, 0.14);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+    }
+
+    .photo-frame:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 16px 32px -10px rgba(43, 38, 37, 0.18);
+    }
+
+    /* Micro-animación de pulso sutil para líneas y tags */
+    @keyframes softFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    .floating-accent {
+      animation: softFloat 4s ease-in-out infinite;
     }
 
     ::selection {
@@ -90,14 +110,14 @@
   </style>
 </head>
 
-<body class="text-ink antialiased selection:bg-powder-100 font-sans min-h-screen py-10 md:py-24 px-3 sm:px-6 flex justify-center">
+<body class="text-ink antialiased selection:bg-powder-100 font-sans min-h-screen py-8 sm:py-16 md:py-24 px-3 sm:px-6 flex justify-center">
 
   <!-- Pliego Continuo de la Carta -->
   <article class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
 
-    <!-- Encabezado -->
-    <header class="text-center pt-6 pb-16 space-y-6">
-      <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-light">
+    <!-- Encabezado de la Carta -->
+    <header class="text-center pt-6 pb-16 space-y-6" data-aos="fade-up" data-aos-duration="1000">
+      <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk font-light floating-accent">
         Correspondencia Privada &middot; Boda Íntima
       </p>
 
@@ -119,30 +139,30 @@
     </header>
 
     <!-- Contador Regresivo -->
-    <div class="py-10 border-y border-ink/5 text-center">
+    <div class="py-10 border-y border-ink/5 text-center" data-aos="fade-up" data-aos-delay="150">
       <p class="text-[10px] tracking-widest-xl uppercase text-faintInk mb-6">Tiempo Restante</p>
       <div class="grid grid-cols-4 gap-4 max-w-md mx-auto">
-        <div>
+        <div class="group transition-transform hover:-translate-y-1 duration-300">
           <span id="days" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           <span class="text-[9px] uppercase tracking-widest text-faintInk">Días</span>
         </div>
-        <div>
+        <div class="group transition-transform hover:-translate-y-1 duration-300">
           <span id="hours" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           <span class="text-[9px] uppercase tracking-widest text-faintInk">Horas</span>
         </div>
-        <div>
+        <div class="group transition-transform hover:-translate-y-1 duration-300">
           <span id="minutes" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           <span class="text-[9px] uppercase tracking-widest text-faintInk">Minutos</span>
         </div>
-        <div>
+        <div class="group transition-transform hover:-translate-y-1 duration-300">
           <span id="seconds" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
           <span class="text-[9px] uppercase tracking-widest text-faintInk">Segundos</span>
         </div>
       </div>
     </div>
 
-    <!-- Introducción: Dedicatoria con Composición Fotográfica -->
-    <section class="py-24 max-w-2xl mx-auto space-y-12">
+    <!-- Introducción Editorial -->
+    <section class="py-24 max-w-2xl mx-auto space-y-12" data-aos="fade-up">
       <div class="text-center space-y-6">
         <p class="font-script text-3xl sm:text-4xl text-blush-600">Querida familia y amigos,</p>
         <p class="font-serif text-xl sm:text-2xl text-ink font-light leading-relaxed">
@@ -153,23 +173,23 @@
         </p>
       </div>
 
-      <!-- Fotografía de Descanso 1: Apertura -->
-      <div class="photo-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto">
+      <!-- Fotografía de Descanso 1 -->
+      <div class="photo-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
       </div>
     </section>
 
     <div class="hairline-separator max-w-xs mx-auto"></div>
 
-    <!-- Itinerario / Los Tres Tiempos con Descansos Visuales -->
+    <!-- Itinerario: Los Tres Tiempos con Descansos Visuales -->
     <section class="py-24 space-y-24">
-      <div class="text-center space-y-2 max-w-md mx-auto">
+      <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Programa</p>
         <h2 class="font-serif text-3xl md:text-4xl font-light text-ink">Los Tres Tiempos</h2>
       </div>
 
       <!-- Momento I: Boda Civil -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
         <div class="md:col-span-6 order-2 md:order-1 photo-frame rounded-2xl overflow-hidden aspect-[4/3]">
           <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Ceremonia Civil" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
         </div>
@@ -179,8 +199,8 @@
           <p class="font-serif italic text-base text-mutedInk">Municipalidad de Magdalena del Mar</p>
           <p class="text-xs text-faintInk font-light">Avenida Brasil 3501, Magdalena del Mar</p>
           <div class="pt-4">
-            <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors">
-              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group">
+              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:rotate-45 duration-300"></i>
               <span>Abrir en Google Maps</span>
             </a>
           </div>
@@ -188,15 +208,15 @@
       </div>
 
       <!-- Momento II: Boda Religiosa -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-left" data-aos-duration="900">
         <div class="md:col-span-6 space-y-3 text-left md:text-right">
           <span class="text-[11px] tracking-widest-xl uppercase text-blush-600 block">II &middot; 11:00 AM</span>
           <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Ceremonia Religiosa</h3>
           <p class="font-serif italic text-base text-mutedInk">Parroquia San Juan María Vianney</p>
           <p class="text-xs text-faintInk font-light">Avenida Javier Prado Oeste 765, Magdalena</p>
           <div class="pt-4 flex md:justify-end">
-            <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-blush-600 underline underline-offset-8 transition-colors">
-              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-blush-600 underline underline-offset-8 transition-colors group">
+              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:rotate-45 duration-300"></i>
               <span>Abrir en Google Maps</span>
             </a>
           </div>
@@ -207,7 +227,7 @@
       </div>
 
       <!-- Momento III: Recepción Íntima -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
         <div class="md:col-span-6 order-2 md:order-1 photo-frame rounded-2xl overflow-hidden aspect-[4/3]">
           <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Recepción y Brindis" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
         </div>
@@ -217,8 +237,8 @@
           <p class="font-serif italic text-base text-mutedInk">Almuerzo & Brindis con los 40</p>
           <p class="text-xs text-faintInk font-light">Jirón Faustino Sánchez Carrión 140, Magdalena</p>
           <div class="pt-4">
-            <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors">
-              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+            <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors group">
+              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:rotate-45 duration-300"></i>
               <span>Abrir en Google Maps</span>
             </a>
           </div>
@@ -228,51 +248,126 @@
 
     <div class="hairline-separator max-w-xs mx-auto"></div>
 
-    <!-- Código de Vestimenta & Mesa de Regalos Discreta -->
-    <section class="py-24 max-w-xl mx-auto space-y-20 text-center">
+    <!-- Código de Vestimenta (Con Colores Prohibidos) -->
+    <section class="py-24 max-w-xl mx-auto space-y-20 text-center" data-aos="fade-up">
       
-      <div class="space-y-4">
+      <div class="space-y-6">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Código de Vestimenta</p>
         <h3 class="font-serif text-2xl md:text-3xl text-ink">Elegante de Día</h3>
         <p class="text-xs text-mutedInk font-light leading-relaxed max-w-sm mx-auto">
-          Sugerimos una gama de colores suaves inspirada en tonos pasteles, azules serenos y arenas cálidas. Agradecemos reservar el blanco para la novia.
+          Agradecemos a todos nuestros invitados tener en cuenta las siguientes tonalidades reservadas y no permitidas para el evento:
         </p>
-        <div class="flex justify-center items-center gap-3 pt-3">
-          <span class="w-4 h-4 rounded-full bg-[#8FAFC3]/80 border border-ink/10" title="Azul Pastel"></span>
-          <span class="w-4 h-4 rounded-full bg-[#D49FA9]/80 border border-ink/10" title="Rosa Pastel"></span>
-          <span class="w-4 h-4 rounded-full bg-[#E2ECF2] border border-ink/10" title="Celeste Nube"></span>
-          <span class="w-4 h-4 rounded-full bg-[#E8E1D3] border border-ink/10" title="Lino Natural"></span>
+        
+        <!-- Bloque de Tonos Reservados / Prohibidos con Micro-animación -->
+        <div class="p-6 bg-white/70 border border-ink/10 rounded-2xl space-y-4 max-w-md mx-auto">
+          <p class="text-[10px] uppercase tracking-widest text-blush-600 font-medium">
+            Colores no permitidos / Reservados
+          </p>
+          
+          <div class="flex justify-center items-center gap-6 pt-2">
+            <!-- Blanco Puro -->
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-8 h-8 rounded-full bg-[#FFFFFF] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-mutedInk font-light">Blanco Puro</span>
+              <span class="text-[9px] text-faintInk">(Novia)</span>
+            </div>
+
+            <!-- Marfil / Crudo -->
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-8 h-8 rounded-full bg-[#FFFFF0] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-mutedInk font-light">Marfil</span>
+              <span class="text-[9px] text-faintInk">(Novia)</span>
+            </div>
+
+            <!-- Rojo Intenso -->
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-8 h-8 rounded-full bg-[#C81D25] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-mutedInk font-light">Rojo Intenso</span>
+              <span class="text-[9px] text-faintInk">(Evitar)</span>
+            </div>
+
+            <!-- Negro Total -->
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-8 h-8 rounded-full bg-[#1A1A1A] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1px] bg-red-400 rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-mutedInk font-light">Negro Total</span>
+              <span class="text-[9px] text-faintInk">(Evitar)</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="space-y-4">
+      <!-- Mesa de Regalos con Links de Compra y Transferencia -->
+      <div class="space-y-4 pt-4">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Mesa de Regalos</p>
         <p class="text-xs text-mutedInk font-light leading-relaxed max-w-md mx-auto">
-          Su compañía es nuestro mayor regalo. Para quienes deseen tener un gesto adicional hacia nuestro nuevo hogar, dejamos disponibles nuestras opciones de obsequio y datos bancarios.
+          Su compañía es nuestro mayor regalo. Si desean tener un detalle para equipar nuestro nuevo espacio o luna de miel, ponemos a su disposición nuestra selección con enlaces directos de compra o transferencias.
         </p>
-        <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-colors pt-2">
-          <i data-lucide="gift" class="w-3.5 h-3.5"></i>
+        
+        <button onclick="toggleGifts()" id="giftBtn" class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-ink hover:text-powder-600 underline underline-offset-8 transition-all pt-2 group">
+          <i data-lucide="gift" class="w-3.5 h-3.5 transition-transform group-hover:scale-125"></i>
           <span>Consultar Lista de Regalos & Cuentas</span>
         </button>
 
         <!-- Bloque Plegable de Regalos -->
-        <div id="giftContainer" class="hidden text-left mt-8 p-6 bg-envelope/60 rounded-2xl border border-ink/10 space-y-6">
+        <div id="giftContainer" class="hidden text-left mt-8 p-6 sm:p-8 bg-envelope/60 rounded-2xl border border-ink/10 space-y-6 transition-all">
           <div>
-            <h4 class="font-serif text-lg text-ink mb-2">Deseos para el Hogar</h4>
-            <ul class="text-xs text-mutedInk font-light space-y-2 list-disc list-inside">
-              <li>Set de vajilla de cerámica artesanal</li>
-              <li>Copas de cristal para brindis</li>
-              <li>Cafetera de especialidad</li>
-            </ul>
+            <h4 class="font-serif text-lg text-ink mb-3">Deseos para el Hogar con Link de Compra</h4>
+            
+            <div class="space-y-3">
+              <!-- Item 1 -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/5 hover:border-powder-200 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink">Set de Vajilla de Cerámica Artesanal</p>
+                  <p class="text-[11px] text-faintInk">Acabado mate para 6 personas</p>
+                </div>
+                <a href="https://www.falabella.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-linen border border-ink/10 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors">
+                  <span>Comprar</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/5 hover:border-powder-200 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink">Copas de Cristal para Brindis</p>
+                  <p class="text-[11px] text-faintInk">Set de copas de vino & champagne</p>
+                </div>
+                <a href="https://www.ripley.com.pe" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-linen border border-ink/10 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors">
+                  <span>Comprar</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="flex items-center justify-between p-3.5 rounded-xl bg-white/80 border border-ink/5 hover:border-powder-200 transition-colors">
+                <div>
+                  <p class="font-serif text-base text-ink">Cafetera de Especialidad</p>
+                  <p class="text-[11px] text-faintInk">Para nuestros desayunos</p>
+                </div>
+                <a href="https://www.amazon.com" target="_blank" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-linen border border-ink/10 text-[10px] uppercase tracking-widest text-ink hover:bg-powder-100 hover:border-powder-400 transition-colors">
+                  <span>Comprar</span>
+                  <i data-lucide="external-link" class="w-3 h-3"></i>
+                </a>
+              </div>
+            </div>
           </div>
 
+          <!-- Transferencias -->
           <div class="pt-4 border-t border-ink/10 space-y-3">
             <h4 class="font-serif text-lg text-ink">Transferencia Directa</h4>
             <div class="text-xs text-mutedInk space-y-1 font-mono">
               <p><strong class="font-sans font-medium text-ink">BCP Soles:</strong> 193-XXXXXXXX-0-XX</p>
               <p><strong class="font-sans font-medium text-ink">CCI:</strong> 002-193-XXXXXXXXXXXX-XX</p>
               <p><strong class="font-sans font-medium text-ink">Yape / Plin:</strong> +51 9XX XXX XXX</p>
-              <p class="font-sans text-[11px] text-faintInk pt-1">Titulares: Rodrigo Aquijo / Camila</p>
+              <p class="font-sans text-[11px] text-faintInk pt-1">Titulares: Rodrigo / Camila</p>
             </div>
           </div>
         </div>
@@ -282,8 +377,8 @@
 
     <div class="hairline-separator max-w-xs mx-auto"></div>
 
-    <!-- Confirmación de Asistencia (RSVP) -->
-    <section class="py-24 max-w-md mx-auto">
+    <!-- Confirmación de Asistencia (RSVP Funcional con FormSubmit hacia rodrigoaquije45@gmail.com) -->
+    <section class="py-24 max-w-md mx-auto" data-aos="fade-up">
       <div class="text-center space-y-3 mb-12">
         <p class="text-[10px] tracking-widest-2xl uppercase text-faintInk">Confirmación</p>
         <h2 class="font-serif text-3xl font-light text-ink">R. S. V. P.</h2>
@@ -292,21 +387,27 @@
         </p>
       </div>
 
-      <form id="rsvpForm" onsubmit="submitLetter(event)" class="space-y-8 text-xs font-light">
+      <form id="rsvpForm" action="https://formsubmit.co/rodrigoaquije45@gmail.com" method="POST" onsubmit="submitLetter(event)" class="space-y-8 text-xs font-light">
+        
+        <!-- Configuraciones FormSubmit -->
+        <input type="hidden" name="_subject" value="¡Nueva Confirmación RSVP - Boda Camila & Rodrigo!">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+
         <div class="space-y-2">
           <label class="block uppercase tracking-widest text-[10px] text-faintInk">Nombre y Apellido</label>
-          <input type="text" required placeholder="Escriba su nombre aquí" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+          <input type="text" name="Nombre_Invitado" required placeholder="Escriba su nombre aquí" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
         </div>
 
         <div class="space-y-3 pt-2">
           <label class="block uppercase tracking-widest text-[10px] text-faintInk">Asistencia</label>
           <div class="flex gap-6">
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="attend" value="yes" checked class="accent-ink">
+              <input type="radio" name="Asistencia" value="Sí, asiste con alegría" checked class="accent-ink">
               <span class="text-ink">Acepto con alegría</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="attend" value="no" class="accent-ink">
+              <input type="radio" name="Asistencia" value="No podrá asistir" class="accent-ink">
               <span class="text-mutedInk">Lamento no poder asistir</span>
             </label>
           </div>
@@ -314,31 +415,31 @@
 
         <div class="space-y-2 pt-2">
           <label class="block uppercase tracking-widest text-[10px] text-faintInk">Restricciones Alimentarias (Opcional)</label>
-          <input type="text" placeholder="Ej. Ninguna / Alergias" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+          <input type="text" name="Restricciones_Alimentarias" placeholder="Ej. Vegetariano / Alergias" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
         </div>
 
         <div class="space-y-2 pt-2">
           <label class="block uppercase tracking-widest text-[10px] text-faintInk">Una sugerencia musical para el brindis</label>
-          <input type="text" placeholder="Canción y artista" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
+          <input type="text" name="Cancion_Sugerida" placeholder="Canción y artista" class="w-full pb-2 bg-transparent border-b border-ink/20 focus:border-ink focus:outline-none transition-colors rounded-none placeholder:text-faintInk/50">
         </div>
 
         <div class="pt-6 text-center">
-          <button type="submit" class="w-full py-4 px-8 border border-ink text-[11px] uppercase tracking-widest-xl text-ink hover:bg-ink hover:text-parchment transition-all duration-300">
+          <button id="submitBtn" type="submit" class="w-full py-4 px-8 border border-ink text-[11px] uppercase tracking-widest-xl text-ink hover:bg-ink hover:text-parchment transition-all duration-300 cursor-pointer">
             Enviar Respuesta
           </button>
         </div>
       </form>
 
-      <div id="rsvpSuccess" class="hidden text-center py-12 space-y-4">
-        <p class="font-script text-3xl text-powder-600">Muchas gracias</p>
+      <div id="rsvpSuccess" class="hidden text-center py-12 space-y-4" data-aos="zoom-in">
+        <p class="font-script text-4xl text-powder-600">Muchas gracias</p>
         <p class="font-serif italic text-lg text-ink font-light">
-          Hemos anotado tu confirmación en nuestro registro.
+          Tu respuesta ha sido enviada directamente a los novios.
         </p>
       </div>
     </section>
 
     <!-- Firma Final -->
-    <footer class="pt-16 pb-8 text-center space-y-4">
+    <footer class="pt-16 pb-8 text-center space-y-4" data-aos="fade-up">
       <div class="hairline-separator max-w-[120px] mx-auto mb-8"></div>
       <p class="font-script text-4xl text-ink">Con amor, Camila & Rodrigo</p>
       <p class="text-[9px] uppercase tracking-widest-2xl text-faintInk">21 &middot; 11 &middot; 2026</p>
@@ -347,8 +448,15 @@
   </article>
 
   <script>
+    // Inicializar íconos y animaciones
     lucide.createIcons();
+    AOS.init({
+      once: true,
+      duration: 800,
+      easing: 'ease-out-cubic'
+    });
 
+    // Contador Regresivo
     function runTimer() {
       const eventTime = new Date('November 21, 2026 09:00:00').getTime();
       const currentTime = new Date().getTime();
@@ -369,6 +477,7 @@
     setInterval(runTimer, 1000);
     runTimer();
 
+    // Desplegable de Regalos
     function toggleGifts() {
       const container = document.getElementById('giftContainer');
       const isHidden = container.classList.contains('hidden');
@@ -381,10 +490,35 @@
       }
     }
 
-    function submitLetter(e) {
+    // Envío Asíncrono de RSVP hacia FormSubmit sin recargar página
+    async function submitLetter(e) {
       e.preventDefault();
-      document.getElementById('rsvpForm').classList.add('hidden');
-      document.getElementById('rsvpSuccess').classList.remove('hidden');
+      const form = document.getElementById('rsvpForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const formData = new FormData(form);
+
+      submitBtn.innerText = 'Enviando...';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/rodrigoaquije45@gmail.com', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (res.ok) {
+          form.classList.add('hidden');
+          document.getElementById('rsvpSuccess').classList.remove('hidden');
+        } else {
+          // Fallback en caso de error de red
+          form.submit();
+        }
+      } catch (err) {
+        form.submit();
+      }
     }
   </script>
 
