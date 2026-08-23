@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camila & Rodrigo — 21 de Noviembre, 2026</title>
 
-  <!-- Tipografías de Imprenta Editorial -->
+  <!-- Tipografías Editoriales -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS, Lucide Icons, Canvas Confetti & Three.js CDN -->
+  <!-- Tailwind CSS & Lucide Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -62,36 +60,25 @@
   </script>
 
   <style>
-    /* Canvas 3D de fondo */
-    #webgl-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 5;
-    }
-
-    /* Cursor personalizado */
+    /* Cursor personalizado fino */
     @media (pointer: fine) {
       body { cursor: default; }
       .custom-cursor-dot {
         position: fixed;
-        width: 8px;
-        height: 8px;
+        width: 6px;
+        height: 6px;
         background-color: #3B7097;
         border-radius: 9999px;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
-        transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+        transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease;
       }
       .custom-cursor-ring {
         position: fixed;
-        width: 34px;
-        height: 34px;
-        border: 1.5px solid rgba(59, 112, 151, 0.45);
+        width: 28px;
+        height: 28px;
+        border: 1px solid rgba(59, 112, 151, 0.35);
         border-radius: 9999px;
         pointer-events: none;
         z-index: 9998;
@@ -99,22 +86,22 @@
         transition: transform 0.15s ease-out, width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
       }
       body.hovered-link .custom-cursor-dot {
-        width: 14px;
-        height: 14px;
+        width: 10px;
+        height: 10px;
         background-color: #2A5574;
       }
       body.hovered-link .custom-cursor-ring {
-        width: 46px;
-        height: 46px;
-        border-color: rgba(59, 112, 151, 0.9);
+        width: 38px;
+        height: 38px;
+        border-color: rgba(59, 112, 151, 0.7);
       }
     }
 
-    /* Mesa de Nogal y Lino Oscuro */
+    /* Mesa de Madera Cálida */
     body {
-      background-color: #201712;
+      background-color: #241A14;
       background-image: 
-        radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%),
+        radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.9) 100%),
         url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=2000&q=80');
       background-size: cover;
       background-position: center;
@@ -126,20 +113,18 @@
       height: 100vh;
     }
 
-    /* Pliego Central: Textura Orgánica con Iluminación Cinética */
+    /* Pliego Central: Textura Orgánica de Papel de Algodón */
     .paper-texture {
       background-color: #FAF5EB;
       background-image: 
         url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperFibers'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.17  0 0 0 0 0.15  0 0 0 0 0.14  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperFibers)'/%3E%3C/svg%3E"),
-        radial-gradient(ellipse at 15% 10%, rgba(200, 222, 237, 0.5) 0%, transparent 60%),
-        radial-gradient(ellipse at 85% 90%, rgba(246, 229, 232, 0.45) 0%, transparent 60%),
-        radial-gradient(ellipse at center, transparent 65%, rgba(68, 52, 38, 0.09) 100%);
+        radial-gradient(ellipse at 15% 10%, rgba(200, 222, 237, 0.45) 0%, transparent 60%),
+        radial-gradient(ellipse at 85% 90%, rgba(246, 229, 232, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at center, transparent 65%, rgba(68, 52, 38, 0.08) 100%);
       box-shadow: 
-        0 40px 90px -20px rgba(0, 0, 0, 0.8),
-        0 15px 35px -5px rgba(0, 0, 0, 0.55),
-        inset 0 0 60px rgba(184, 155, 126, 0.14);
-      transform-style: preserve-3d;
-      transition: transform 0.15s ease-out;
+        0 35px 80px -15px rgba(0, 0, 0, 0.75),
+        0 15px 35px -5px rgba(0, 0, 0, 0.5),
+        inset 0 0 50px rgba(184, 155, 126, 0.12);
     }
 
     .deckled-border {
@@ -213,18 +198,17 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
-    /* Tilt 3D en mapas e imágenes */
-    .tilt-card {
-      transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
-      transform-style: preserve-3d;
+    .map-frame {
       border: 5px solid #FFFFFF;
-      box-shadow: 0 12px 28px -8px rgba(43, 38, 37, 0.25);
+      box-shadow: 0 12px 28px -8px rgba(43, 38, 37, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .tilt-card:hover {
-      box-shadow: 0 20px 38px -8px rgba(35, 75, 102, 0.35);
+    .map-frame:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(35, 75, 102, 0.28);
     }
 
-    /* --- SOBRE 3D --- */
+    /* --- SOBRE FÍSICO LIMPIO --- */
     #envelopeGate {
       position: fixed;
       inset: 0;
@@ -233,15 +217,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2.25rem;
+      gap: 2rem;
       padding: 1.5rem;
-      background-color: rgba(24, 17, 13, 0.97);
-      backdrop-filter: blur(10px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      background-color: rgba(24, 17, 13, 0.96);
+      backdrop-filter: blur(8px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #envelopeGate.gate-exit {
       opacity: 0;
-      transform: scale(1.05);
+      transform: scale(1.04);
       pointer-events: none;
     }
     #envelopeGate.gate-hidden {
@@ -250,18 +234,17 @@
 
     .envelope-scene {
       position: relative;
-      width: min(85vw, 400px);
+      width: min(85vw, 380px);
       aspect-ratio: 1.45 / 1;
-      perspective: 1200px;
       cursor: pointer;
     }
     
     .envelope-back {
       position: absolute;
       inset: 0;
-      border-radius: 12px;
+      border-radius: 10px;
       background: linear-gradient(180deg, #E8DFC8, #DFD4BD);
-      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.75);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
       border: 1px solid #D5C7B0;
       z-index: 1;
     }
@@ -273,9 +256,9 @@
       top: 8%;
       bottom: 8%;
       background: #FAF5EB;
-      border-radius: 8px;
+      border-radius: 6px;
       border: 1px solid #E0D5C1;
-      box-shadow: 0 -4px 15px -4px rgba(43, 38, 37, 0.15);
+      box-shadow: 0 -4px 12px -4px rgba(43, 38, 37, 0.15);
       z-index: 2;
       display: flex;
       flex-direction: column;
@@ -283,7 +266,7 @@
       justify-content: center;
       text-align: center;
       padding: 1rem;
-      transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
     }
 
     .envelope-pocket {
@@ -300,7 +283,7 @@
       width: 100%;
       height: 58%;
       transform-origin: top center;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
       transform-style: preserve-3d;
       z-index: 4;
     }
@@ -310,8 +293,8 @@
       top: 48%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 82px;
-      height: 82px;
+      width: 76px;
+      height: 76px;
       border-radius: 9999px;
       z-index: 5;
       display: flex;
@@ -319,30 +302,29 @@
       justify-content: center;
       background: radial-gradient(circle at 32% 28%, #5A8BAE, #2A5574 75%);
       box-shadow: 
-        0 14px 28px -6px rgba(0, 0, 0, 0.6),
+        0 12px 24px -6px rgba(0, 0, 0, 0.55),
         inset 0 2px 3px rgba(255, 255, 255, 0.45),
-        inset 0 -3px 5px rgba(0, 0, 0, 0.35);
+        inset 0 -3px 5px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       transition: transform 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.25);
     }
     .wax-seal:hover {
-      transform: translate(-50%, -50%) scale(1.08);
+      transform: translate(-50%, -50%) scale(1.06);
     }
 
     #envelopeGate.is-opening .envelope-flap {
       transform: rotateX(-175deg);
     }
     #envelopeGate.is-opening .envelope-letter-peek {
-      transform: translateY(-130px) scale(1.02);
+      transform: translateY(-110px) scale(1.02);
     }
     #envelopeGate.is-opening .wax-seal {
-      animation: sealPop 0.5s ease forwards;
+      animation: sealFade 0.4s ease forwards;
     }
-    @keyframes sealPop {
+    @keyframes sealFade {
       0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-      40% { transform: translate(-50%, -50%) scale(1.15) rotate(-5deg); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(0.3) rotate(15deg); opacity: 0; }
+      100% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
     }
 
     .tap-hint {
@@ -369,23 +351,22 @@
 
 <body class="text-ink antialiased selection:bg-powder-100 font-sans min-h-screen py-8 sm:py-16 md:py-24 px-3 sm:px-6 flex justify-center">
 
-  <!-- Lienzo 3D con Three.js para partículas y ambientación de lujo -->
-  <canvas id="webgl-canvas"></canvas>
-
-  <!-- Cursor interactivo -->
+  <!-- Cursor interactivo fino -->
   <div id="cursorDot" class="custom-cursor-dot hidden md:block"></div>
   <div id="cursorRing" class="custom-cursor-ring hidden md:block"></div>
 
-  <!-- Puerta de entrada: sobre físico 3D con sello de cera -->
+  <!-- Puerta de entrada: Sobre físico limpio -->
   <div id="envelopeGate" role="dialog" aria-modal="true" aria-label="Invitación de boda, toque el sello para abrir">
     <div class="envelope-scene" id="envelopeTrigger">
       <div class="envelope-back"></div>
+      
       <div class="envelope-letter-peek">
         <p class="text-[9px] uppercase tracking-[0.3em] text-powder-600 font-sans font-semibold">Invitación de Boda</p>
         <h2 class="text-2xl sm:text-3xl font-serif text-ink mt-0.5 font-light">Camila & Rodrigo</h2>
         <div class="w-8 h-[1px] bg-powder-600/30 my-1.5"></div>
         <p class="text-[11px] italic font-serif text-mutedInk">21 de Noviembre, 2026</p>
       </div>
+
       <div class="envelope-pocket">
         <svg class="w-full h-full drop-shadow-md" viewBox="0 0 420 290" fill="none">
           <path d="M0 290L210 150L420 290H0Z" fill="#E2D6BC" />
@@ -393,11 +374,13 @@
           <path d="M420 0L210 150L420 290V0Z" fill="#DFD3B9" />
         </svg>
       </div>
+
       <div class="envelope-flap">
         <svg class="w-full h-full drop-shadow-lg" viewBox="0 0 420 170" fill="none">
           <path d="M0 0H420L210 170L0 0Z" fill="#EFE5CD" />
         </svg>
       </div>
+
       <button type="button" id="waxSeal" class="wax-seal" aria-label="Abrir invitación">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-2/3">
           <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"></circle>
@@ -409,8 +392,8 @@
   </div>
   <noscript><style>#envelopeGate{display:none !important;}body{overflow:auto !important;height:auto !important;}</style></noscript>
 
-  <!-- Pliego Continuo de la Carta con Parallax 3D -->
-  <article id="mainLetter" class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
+  <!-- Pliego Continuo de la Carta -->
+  <article class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
 
     <!-- Ornamentos florales en esquinas -->
     <svg class="absolute top-5 left-5 sm:top-8 sm:left-8 w-14 h-14 sm:w-20 sm:h-20 text-powder-600/30 hidden sm:block pointer-events-none" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -494,7 +477,7 @@
         </p>
       </div>
 
-      <div class="tilt-card rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
+      <div class="map-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
         <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
       </div>
     </section>
@@ -514,7 +497,7 @@
 
       <!-- Momento I: Boda Civil -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
-        <div class="md:col-span-6 order-2 md:order-1 tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+        <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
           <iframe 
             src="https://maps.google.com/maps?q=Municipalidad+de+Magdalena+del+Mar,+Lima&t=&z=16&ie=UTF8&iwloc=&output=embed" 
             class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
@@ -556,7 +539,7 @@
             </a>
           </div>
         </div>
-        <div class="md:col-span-6 tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+        <div class="md:col-span-6 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
           <iframe 
             src="https://maps.google.com/maps?q=Parroquia+San+Juan+Maria+Vianney,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
             class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
@@ -568,7 +551,7 @@
 
       <!-- Momento III: Recepción Íntima -->
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
-        <div class="md:col-span-6 order-2 md:order-1 tilt-card rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+        <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
           <iframe 
             src="https://maps.google.com/maps?q=Jiron+Faustino+Sanchez+Carrion+140,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
             class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
@@ -786,7 +769,7 @@
                 </div>
               </div>
 
-              <!-- Mandolina Cuisinart (EJEMPLO: YA REGALADO) -->
+              <!-- Mandolina Cuisinart (YA REGALADO) -->
               <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-cotton/50 border border-ink/10 opacity-60 gap-3">
                 <div>
                   <p class="font-serif text-base text-mutedInk line-through font-medium">Mandolina V-Blade Cuisinart</p>
@@ -1007,80 +990,7 @@
       disable: prefersReducedMotion
     });
 
-    // --- Three.js: Motor 3D de Partículas y Pétalos de Luz en el Fondo ---
-    (function initThreeJS() {
-      const canvas = document.getElementById('webgl-canvas');
-      if (!canvas || prefersReducedMotion) return;
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      camera.position.z = 5;
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-      // Creación de partículas doradas y celestes en 3D
-      const particlesCount = 70;
-      const positions = new Float32Array(particlesCount * 3);
-      const scales = new Float32Array(particlesCount);
-
-      for (let i = 0; i < particlesCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 12;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 6;
-        scales[i] = Math.random() * 0.08 + 0.02;
-      }
-
-      const geometry = new THREE.BufferGeometry();
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-      // Material con partículas de polvo de oro y destellos suaves
-      const material = new THREE.PointsMaterial({
-        color: 0x8FAFC3,
-        size: 0.08,
-        transparent: true,
-        opacity: 0.45,
-        blending: THREE.AdditiveBlending
-      });
-
-      const particleSystem = new THREE.Points(geometry, material);
-      scene.add(particleSystem);
-
-      let mouseX = 0;
-      let mouseY = 0;
-
-      window.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 0.8;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 0.8;
-      });
-
-      function animate() {
-        requestAnimationFrame(animate);
-
-        const pos = geometry.attributes.position.array;
-        for (let i = 0; i < particlesCount; i++) {
-          pos[i * 3 + 1] -= 0.002;
-          if (pos[i * 3 + 1] < -6) pos[i * 3 + 1] = 6;
-        }
-        geometry.attributes.position.needsUpdate = true;
-
-        particleSystem.rotation.y += 0.0008;
-        particleSystem.rotation.x = mouseY * 0.2;
-        particleSystem.rotation.y += mouseX * 0.005;
-
-        renderer.render(scene, camera);
-      }
-      animate();
-
-      window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-      });
-    })();
-
-    // --- Cursor Interactivo ---
+    // --- Cursor Interactivo Fino ---
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
 
@@ -1096,30 +1006,7 @@
       el.addEventListener('mouseleave', () => document.body.classList.remove('hovered-link'));
     });
 
-    // --- Efecto 3D Tilt en Cards e Inclinación Parallax de la Carta ---
-    const mainLetter = document.getElementById('mainLetter');
-    window.addEventListener('mousemove', (e) => {
-      if (prefersReducedMotion || window.innerWidth < 768) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 4;
-      const y = (e.clientY / window.innerHeight - 0.5) * 4;
-      mainLetter.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
-    });
-
-    document.querySelectorAll('.tilt-card').forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        const rotateX = -(y / rect.height) * 12;
-        const rotateY = (x / rect.width) * 12;
-        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
-      });
-    });
-
-    // --- Apertura del Sobre con Confetti Fino ---
+    // --- Apertura del Sobre Limpia ---
     (function () {
       const gate = document.getElementById('envelopeGate');
       const waxSeal = document.getElementById('waxSeal');
@@ -1137,20 +1024,11 @@
         if (gate.classList.contains('is-opening')) return;
         gate.classList.add('is-opening');
 
-        confetti({
-          particleCount: 50,
-          spread: 70,
-          origin: { y: 0.55 },
-          colors: ['#3B7097', '#8FAFC3', '#9E5B68', '#D49FA9', '#FAF6EE'],
-          gravity: 1.2,
-          scalar: 0.85
-        });
-
-        window.setTimeout(() => gate.classList.add('gate-exit'), 600);
+        window.setTimeout(() => gate.classList.add('gate-exit'), 550);
         window.setTimeout(() => {
           gate.classList.add('gate-hidden');
           document.body.classList.remove('gate-locked');
-        }, 1300);
+        }, 1200);
       };
 
       waxSeal.addEventListener('click', openInvitation);
