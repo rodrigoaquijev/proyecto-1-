@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camila & Rodrigo — 21 de Noviembre, 2026</title>
 
-  <!-- Tipografías -->
+  <!-- Tipografías de Imprenta Editorial -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS, Lucide Icons & Canvas Confetti -->
+  <!-- Tailwind CSS, Lucide Icons, Canvas Confetti & Three.js CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
   <!-- AOS (Animate On Scroll) -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -61,6 +62,17 @@
   </script>
 
   <style>
+    /* Canvas 3D de fondo */
+    #webgl-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 5;
+    }
+
     /* Cursor personalizado */
     @media (pointer: fine) {
       body { cursor: default; }
@@ -77,9 +89,9 @@
       }
       .custom-cursor-ring {
         position: fixed;
-        width: 32px;
-        height: 32px;
-        border: 1.5px solid rgba(59, 112, 151, 0.4);
+        width: 34px;
+        height: 34px;
+        border: 1.5px solid rgba(59, 112, 151, 0.45);
         border-radius: 9999px;
         pointer-events: none;
         z-index: 9998;
@@ -92,17 +104,17 @@
         background-color: #2A5574;
       }
       body.hovered-link .custom-cursor-ring {
-        width: 44px;
-        height: 44px;
-        border-color: rgba(59, 112, 151, 0.85);
+        width: 46px;
+        height: 46px;
+        border-color: rgba(59, 112, 151, 0.9);
       }
     }
 
-    /* Mesa de fondo */
+    /* Mesa de Nogal y Lino Oscuro */
     body {
-      background-color: #241A14;
+      background-color: #201712;
       background-image: 
-        radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.88) 100%),
+        radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.9) 100%),
         url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=2000&q=80');
       background-size: cover;
       background-position: center;
@@ -114,7 +126,7 @@
       height: 100vh;
     }
 
-    /* Pliego Central */
+    /* Pliego Central: Textura Orgánica con Iluminación Cinética */
     .paper-texture {
       background-color: #FAF5EB;
       background-image: 
@@ -123,9 +135,11 @@
         radial-gradient(ellipse at 85% 90%, rgba(246, 229, 232, 0.45) 0%, transparent 60%),
         radial-gradient(ellipse at center, transparent 65%, rgba(68, 52, 38, 0.09) 100%);
       box-shadow: 
-        0 35px 80px -15px rgba(0, 0, 0, 0.75),
-        0 15px 35px -5px rgba(0, 0, 0, 0.5),
-        inset 0 0 50px rgba(184, 155, 126, 0.12);
+        0 40px 90px -20px rgba(0, 0, 0, 0.8),
+        0 15px 35px -5px rgba(0, 0, 0, 0.55),
+        inset 0 0 60px rgba(184, 155, 126, 0.14);
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
     }
 
     .deckled-border {
@@ -221,8 +235,8 @@
       justify-content: center;
       gap: 2.25rem;
       padding: 1.5rem;
-      background-color: rgba(28, 20, 15, 0.96);
-      backdrop-filter: blur(8px);
+      background-color: rgba(24, 17, 13, 0.97);
+      backdrop-filter: blur(10px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
     #envelopeGate.gate-exit {
@@ -247,12 +261,11 @@
       inset: 0;
       border-radius: 12px;
       background: linear-gradient(180deg, #E8DFC8, #DFD4BD);
-      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.75);
       border: 1px solid #D5C7B0;
       z-index: 1;
     }
 
-    /* Carta asomándose con estilo */
     .envelope-letter-peek {
       position: absolute;
       left: 6%;
@@ -273,7 +286,6 @@
       transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
     }
 
-    /* Bolsillo triangular */
     .envelope-pocket {
       position: absolute;
       inset: 0;
@@ -281,7 +293,6 @@
       pointer-events: none;
     }
 
-    /* Solapa Superior 3D */
     .envelope-flap {
       position: absolute;
       top: 0;
@@ -294,7 +305,6 @@
       z-index: 4;
     }
 
-    /* Sello de Cera */
     .wax-seal {
       position: absolute;
       top: 48%;
@@ -359,6 +369,9 @@
 
 <body class="text-ink antialiased selection:bg-powder-100 font-sans min-h-screen py-8 sm:py-16 md:py-24 px-3 sm:px-6 flex justify-center">
 
+  <!-- Lienzo 3D con Three.js para partículas y ambientación de lujo -->
+  <canvas id="webgl-canvas"></canvas>
+
   <!-- Cursor interactivo -->
   <div id="cursorDot" class="custom-cursor-dot hidden md:block"></div>
   <div id="cursorRing" class="custom-cursor-ring hidden md:block"></div>
@@ -366,19 +379,13 @@
   <!-- Puerta de entrada: sobre físico 3D con sello de cera -->
   <div id="envelopeGate" role="dialog" aria-modal="true" aria-label="Invitación de boda, toque el sello para abrir">
     <div class="envelope-scene" id="envelopeTrigger">
-      
-      <!-- Fondo del Sobre -->
       <div class="envelope-back"></div>
-
-      <!-- Pliego Interno Asomándose -->
       <div class="envelope-letter-peek">
         <p class="text-[9px] uppercase tracking-[0.3em] text-powder-600 font-sans font-semibold">Invitación de Boda</p>
         <h2 class="text-2xl sm:text-3xl font-serif text-ink mt-0.5 font-light">Camila & Rodrigo</h2>
         <div class="w-8 h-[1px] bg-powder-600/30 my-1.5"></div>
         <p class="text-[11px] italic font-serif text-mutedInk">21 de Noviembre, 2026</p>
       </div>
-
-      <!-- Bolsillo Frontal SVG -->
       <div class="envelope-pocket">
         <svg class="w-full h-full drop-shadow-md" viewBox="0 0 420 290" fill="none">
           <path d="M0 290L210 150L420 290H0Z" fill="#E2D6BC" />
@@ -386,15 +393,11 @@
           <path d="M420 0L210 150L420 290V0Z" fill="#DFD3B9" />
         </svg>
       </div>
-
-      <!-- Solapa Superior 3D -->
       <div class="envelope-flap">
         <svg class="w-full h-full drop-shadow-lg" viewBox="0 0 420 170" fill="none">
           <path d="M0 0H420L210 170L0 0Z" fill="#EFE5CD" />
         </svg>
       </div>
-
-      <!-- Sello de Cera 3D -->
       <button type="button" id="waxSeal" class="wax-seal" aria-label="Abrir invitación">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-2/3">
           <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"></circle>
@@ -406,8 +409,8 @@
   </div>
   <noscript><style>#envelopeGate{display:none !important;}body{overflow:auto !important;height:auto !important;}</style></noscript>
 
-  <!-- Pliego Continuo de la Carta -->
-  <article class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
+  <!-- Pliego Continuo de la Carta con Parallax 3D -->
+  <article id="mainLetter" class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
 
     <!-- Ornamentos florales en esquinas -->
     <svg class="absolute top-5 left-5 sm:top-8 sm:left-8 w-14 h-14 sm:w-20 sm:h-20 text-powder-600/30 hidden sm:block pointer-events-none" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -502,7 +505,7 @@
       <span class="divider-line"></span>
     </div>
 
-    <!-- Itinerario: Los Tres Tiempos con Google Maps y 3D Tilt -->
+    <!-- Itinerario: Los Tres Tiempos -->
     <section class="py-24 space-y-24">
       <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
         <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">Programa</p>
@@ -1004,6 +1007,79 @@
       disable: prefersReducedMotion
     });
 
+    // --- Three.js: Motor 3D de Partículas y Pétalos de Luz en el Fondo ---
+    (function initThreeJS() {
+      const canvas = document.getElementById('webgl-canvas');
+      if (!canvas || prefersReducedMotion) return;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 5;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // Creación de partículas doradas y celestes en 3D
+      const particlesCount = 70;
+      const positions = new Float32Array(particlesCount * 3);
+      const scales = new Float32Array(particlesCount);
+
+      for (let i = 0; i < particlesCount; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 12;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 12;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 6;
+        scales[i] = Math.random() * 0.08 + 0.02;
+      }
+
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+      // Material con partículas de polvo de oro y destellos suaves
+      const material = new THREE.PointsMaterial({
+        color: 0x8FAFC3,
+        size: 0.08,
+        transparent: true,
+        opacity: 0.45,
+        blending: THREE.AdditiveBlending
+      });
+
+      const particleSystem = new THREE.Points(geometry, material);
+      scene.add(particleSystem);
+
+      let mouseX = 0;
+      let mouseY = 0;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth - 0.5) * 0.8;
+        mouseY = (e.clientY / window.innerHeight - 0.5) * 0.8;
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        const pos = geometry.attributes.position.array;
+        for (let i = 0; i < particlesCount; i++) {
+          pos[i * 3 + 1] -= 0.002;
+          if (pos[i * 3 + 1] < -6) pos[i * 3 + 1] = 6;
+        }
+        geometry.attributes.position.needsUpdate = true;
+
+        particleSystem.rotation.y += 0.0008;
+        particleSystem.rotation.x = mouseY * 0.2;
+        particleSystem.rotation.y += mouseX * 0.005;
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    })();
+
     // --- Cursor Interactivo ---
     const cursorDot = document.getElementById('cursorDot');
     const cursorRing = document.getElementById('cursorRing');
@@ -1020,7 +1096,15 @@
       el.addEventListener('mouseleave', () => document.body.classList.remove('hovered-link'));
     });
 
-    // --- Efecto 3D Tilt en Cards ---
+    // --- Efecto 3D Tilt en Cards e Inclinación Parallax de la Carta ---
+    const mainLetter = document.getElementById('mainLetter');
+    window.addEventListener('mousemove', (e) => {
+      if (prefersReducedMotion || window.innerWidth < 768) return;
+      const x = (e.clientX / window.innerWidth - 0.5) * 4;
+      const y = (e.clientY / window.innerHeight - 0.5) * 4;
+      mainLetter.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
+    });
+
     document.querySelectorAll('.tilt-card').forEach((card) => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -1053,7 +1137,6 @@
         if (gate.classList.contains('is-opening')) return;
         gate.classList.add('is-opening');
 
-        // Confetti suave con tonos celestes, rosa y cera
         confetti({
           particleCount: 50,
           spread: 70,
