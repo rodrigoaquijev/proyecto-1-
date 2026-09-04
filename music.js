@@ -1,10 +1,10 @@
-// Original, softly voiced piano miniature. Audio starts only on an explicit click.
+// Start when browser policy permits; opening the envelope supplies a user gesture.
 (() => {
   const button = document.querySelector('#musicToggle');
   const label = document.querySelector('#musicLabel');
   const AudioEngine = window.AudioContext || window.webkitAudioContext;
   if (!AudioEngine) { button.hidden = true; return; }
-  let context, master, timer, playing = false, busy = false, next = 0, bar = 0;
+  let context, master, timer, playing = false, next = 0, bar = 0;
   const beat = 60 / 68;
   const chords = [[48,55,60,64],[43,55,59,62],[45,52,57,60],[41,53,57,60],[48,55,60,64],[40,52,55,59],[41,53,57,60],[43,55,59,62]];
   const melody = [[64,67,72,71],[69,67,62,67],[69,72,71,69],[65,69,67,65],[64,67,76,74],[71,67,64,62],[65,69,72,69],[67,62,64,67]];
@@ -33,9 +33,18 @@
       next += beat * 4; bar++;
     }
   }
-  button.addEventListener('click', async () => {
-    if (busy) return;
-    busy = true;
+  let wanted = true;
+  try { wanted = localStorage.getItem('cr-music-paused') !== '1'; } catch {}
+  function syncAudio() {
+    playing = wanted && context?.state === 'running';
+    clearInterval(timer);
+    if (playing) { schedule(); timer = setInterval(schedule, 200); }
+    button.setAttribute('aria-pressed', String(playing));
+    button.setAttribute('aria-label', playing ? 'Pausar melodía de piano' : 'Reproducir melodía romántica de piano');
+    label.textContent = playing ? 'Pausar melodía' : 'Escuchar melodía';
+  }
+  function startMusic() {
+    if (!wanted || document.hidden || context?.state === "running") return;
     try {
       if (!context) {
         context = new AudioEngine(); master = context.createGain();
@@ -47,26 +56,26 @@
         const wet = context.createGain(); wet.gain.value = .12;
         filter.connect(delay); delay.connect(wet); wet.connect(context.destination);
       }
-      if (playing) {
-        await context.suspend(); clearInterval(timer); playing = false;
-      } else {
-        await context.resume(); playing = true; schedule(); timer = setInterval(schedule, 150);
-      }
-      button.setAttribute('aria-pressed', String(playing));
-      button.setAttribute('aria-label', playing ? 'Pausar melodía de piano' : 'Reproducir melodía romántica de piano');
-      label.textContent = playing ? 'Pausar melodía' : 'Escuchar melodía';
-    } catch {
-      playing = false; clearInterval(timer); label.textContent = 'Reintentar música';
-      button.setAttribute('aria-pressed', 'false');
-    } finally { busy = false; }
+      context.onstatechange = syncAudio;
+      context.resume().then(syncAudio).catch(syncAudio);
+      syncAudio();
+    } catch { syncAudio(); }
+  }
+  button.addEventListener('click', () => {
+    wanted = !playing;
+    try { localStorage.setItem('cr-music-paused', wanted ? '0' : '1'); } catch {}
+    if (wanted) startMusic();
+    else { context?.suspend().catch(() => {}); syncAudio(); }
   });
+  document.addEventListener('pointerdown', event => {
+    if (!button.contains(event.target)) startMusic();
+  }, { passive: true });
+  document.querySelector('#openInvitation').addEventListener('click', startMusic);
+  if (!document.querySelector('#envelopeGate').open) startMusic();
   document.addEventListener('visibilitychange', () => {
-    if (!context || !playing || busy) return;
-    if (document.hidden) context.suspend().catch(() => {});
-    else context.resume().then(schedule).catch(() => {});
+    if (document.hidden) { clearInterval(timer); context?.suspend().catch(() => {}); }
+    else startMusic();
   });
-  window.addEventListener('pagehide', () => { clearInterval(timer); if (context) context.suspend().catch(() => {}); });
-  window.addEventListener('pageshow', event => {
-    if (event.persisted && playing) { context.resume().then(schedule).catch(() => {}); timer = setInterval(schedule, 150); }
-  });
+  window.addEventListener('pagehide', () => { clearInterval(timer); context?.suspend().catch(() => {}); });
+  window.addEventListener('pageshow', event => { if (event.persisted) startMusic(); });
 })();

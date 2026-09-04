@@ -11,53 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS & Lucide Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/layout.css?v=stable">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <!-- AOS (Animate On Scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            parchment: '#FAF6EE',
-            envelope: '#F4EFE6',
-            ink: '#2B2625',
-            mutedInk: '#68615E',
-            faintInk: '#8E8682',
-            powder: {
-              50: '#F0F6F9',
-              100: '#E2ECF2',
-              200: '#C7DAE6',
-              400: '#8FAFC3',
-              500: '#5A8BAE',
-              600: '#3B7097',
-              700: '#2A5574'
-            },
-            blush: {
-              50: '#FAF0F2',
-              100: '#F6E5E8',
-              200: '#E8C7CD',
-              400: '#D49FA9',
-              600: '#9E5B68'
-            }
-          },
-          fontFamily: {
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"Montserrat"', 'sans-serif'],
-            script: ['"Alex Brush"', 'cursive'],
-          },
-          letterSpacing: {
-            'widest-xl': '0.3em',
-            'widest-2xl': '0.45em'
-          }
-        }
-      }
-    }
-  </script>
+  
 
   <style>
     /* Cursor personalizado fino */
@@ -347,11 +306,11 @@
       border: 2px solid #1C140F;
     }
   </style>
-<link rel="stylesheet" href="styles.css?v=20260904-mobile">
-<script src="app.js?v=20260904-mobile" defer></script>
-<script src="floral.js" defer></script>
-<script src="music.js" defer></script>
-<script src="motion.js?v=20260904-mobile" defer></script>
+<link rel="stylesheet" href="styles.css?v=stable-2">
+<script src="app.js?v=stable-2" defer></script>
+<script src="floral.js?v=stable-2" defer></script>
+<script src="music.js?v=stable-2" defer></script>
+<script src="motion.js?v=stable-2" defer></script>
 <meta name="description" content="Camila y Rodrigo · 21 de noviembre de 2026. Una invitación para compartir nuestra boda en Magdalena del Mar, Lima.">
 <meta property="og:title" content="Camila & Rodrigo · Nuestra boda">
 <meta property="og:description" content="21 de noviembre de 2026 · Magdalena del Mar, Lima. Abre tu invitación.">
@@ -410,10 +369,8 @@
       <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
       <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
     </svg>
-
-    <nav class="letter-nav" aria-label="Accesos de la invitación"><a href="#programa">El día</a><span aria-hidden="true">·</span><a href="#regalos">Regalos y cuentas</a><span aria-hidden="true">·</span><a href="#confirmar">Confirmar</a></nav>
     <!-- Encabezado de la Carta -->
-    <header class="text-center pt-6 pb-16 space-y-6" data-aos="fade-up" data-aos-duration="1000">
+    <header class="text-center pt-6 pb-16 space-y-6">
       <div class="flex justify-center" aria-hidden="true">
         <svg class="w-10 h-10 text-powder-600" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.2" opacity="0.6"></circle>
@@ -446,7 +403,7 @@
 <aside class="letter-countdown" aria-label="Cuenta regresiva para la boda"><p id="countdown">Nos vemos muy pronto</p><div class="countdown-stamps"><div class="countdown-stamp"><span id="days">00</span><small>Días</small></div><div class="countdown-stamp"><span id="hours">00</span><small>Horas</small></div><div class="countdown-stamp"><span id="minutes">00</span><small><abbr title="Minutos">Min.</abbr></small></div><div class="countdown-stamp"><span id="seconds">00</span><small><abbr title="Segundos">Seg.</abbr></small></div></div><p class="countdown-note">Cada instante, más cerca de nuestro sí</p></aside>
 
     <!-- Introducción Editorial -->
-    <section id="carta" class="letter-chapter chapter-message py-24 max-w-2xl mx-auto space-y-12" data-aos="fade-up">
+    <section id="carta" class="letter-chapter chapter-message py-24 max-w-2xl mx-auto space-y-12">
       <div class="chapter-tab">I · Nuestra invitación</div>
       <div class="text-center space-y-6">
         <p class="font-script text-4xl sm:text-5xl text-powder-600">Querida familia y amigos,</p>
@@ -458,8 +415,8 @@
         </p>
       </div>
 
-      <div class="map-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
+      <div class="map-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" loading="lazy" decoding="async" width="1200" height="675" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
       </div>
     </section>
 
@@ -472,13 +429,13 @@
     <!-- Itinerario: Los Tres Tiempos -->
     <section id="programa" class="letter-chapter chapter-program py-24 space-y-24">
       <div class="chapter-tab">II · El día de nuestra boda</div>
-      <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
+      <div class="text-center space-y-2 max-w-md mx-auto">
         <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">Programa</p>
         <h2 class="font-serif text-3xl md:text-4xl font-light text-ink">Los Tres Tiempos</h2>
       </div>
 
       <!-- Momento I: Boda Civil -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
         <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
           <iframe title="Ubicación del matrimonio civil" 
             src="https://maps.google.com/maps?q=Municipalidad+de+Magdalena+del+Mar,+Lima&t=&z=16&ie=UTF8&iwloc=&output=embed" 
@@ -505,7 +462,7 @@
       </div>
 
       <!-- Momento II: Boda Religiosa -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-left" data-aos-duration="900">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
         <div class="md:col-span-6 space-y-3 text-left md:text-right">
           <div class="flex items-center gap-3 md:justify-end">
             <span class="seal-badge font-serif" aria-hidden="true">II</span>
@@ -532,7 +489,7 @@
       </div>
 
       <!-- Momento III: Recepción Íntima -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
         <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
           <iframe title="Ubicación del almuerzo" 
             src="https://maps.google.com/maps?q=Jiron+Faustino+Sanchez+Carrion+140,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
@@ -567,7 +524,7 @@
 
     <div class="calendar-note"><a class="letter-cta" href="boda-camila-rodrigo.ics" download>Guardar la fecha en mi calendario <span aria-hidden="true">↓</span></a></div>
     <!-- Código de Vestimenta -->
-    <section id="vestimenta" class="letter-chapter chapter-dress py-24 max-w-xl mx-auto space-y-16 text-center" data-aos="fade-up">
+    <section id="vestimenta" class="letter-chapter chapter-dress py-24 max-w-xl mx-auto space-y-16 text-center">
       <div class="chapter-tab">III · Los pequeños detalles</div>
       
       <div class="space-y-6">
@@ -651,7 +608,7 @@
       
     </section>
     <!-- Firma Final -->
-    <footer class="pt-16 pb-8 text-center space-y-4" data-aos="fade-up">
+    <footer class="pt-16 pb-8 text-center space-y-4">
       <div class="ornamental-divider max-w-[140px] mx-auto mb-8">
         <span class="divider-line"></span>
         <span class="divider-dot" aria-hidden="true"></span>
@@ -664,9 +621,7 @@
   </article>
 
   <script>
-    if (window.lucide) lucide.createIcons();
-    if (window.AOS) AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic', disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
-    else document.documentElement.classList.add('no-aos');
+    document.addEventListener('DOMContentLoaded', () => { if (window.lucide) lucide.createIcons(); }, { once: true });
   </script>
 
 <nav class="letter-mobile-nav" aria-label="Accesos rápidos"><a href="#programa">El día</a><a href="#regalos">Regalos y cuentas</a><a href="#confirmar">Confirmar</a></nav>

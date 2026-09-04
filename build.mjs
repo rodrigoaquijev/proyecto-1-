@@ -2,6 +2,8 @@ import { readFile, mkdir, copyFile, cp } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 const files = ['index.html', 'styles.css', 'app.js', 'floral.js', 'music.js', 'motion.js', 'boda-camila-rodrigo.ics'];
 const html = await readFile('index.html', 'utf8');
+const css = spawnSync(process.execPath, ['node_modules/tailwindcss/lib/cli.js', '-i', 'tailwind.input.css', '-o', 'assets/layout.css', '--minify'], { stdio: 'inherit' });
+if (css.status !== 0) process.exit(1);
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 if (new Set(ids).size !== ids.length) throw new Error('Duplicate HTML IDs');
 for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) {

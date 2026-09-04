@@ -10,7 +10,6 @@
     return animation;
   }
   const observer = new IntersectionObserver(entries => {
-    let order = 0;
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
       observer.unobserve(entry.target);
@@ -18,10 +17,7 @@
       if (innerWidth <= 640 && entry.target.matches('.gift-item')) {
         entry.target.classList.add('mobile-glint');
       }
-      animate(entry.target, [
-        { opacity: .15, transform: 'perspective(1000px) translateY(28px) rotateX(4deg) scale(.98)' },
-        { opacity: 1, transform: 'perspective(1000px) translateY(0) rotateX(0deg) scale(1)' }
-      ], { duration: 950, delay: Math.min(order++ * 85, 255), easing: ease });
+      animate(entry.target, [{ opacity: .5 }, { opacity: 1 }], { duration: 420, easing: ease });
     }
   }, { threshold: .12 });
   document.querySelectorAll('.gift-item,.gift-taken,.account,.wedding-keepsake,.chapter-tab').forEach(el => observer.observe(el));
@@ -57,7 +53,7 @@
     }
     settlePanels.add(settle);
     summary.addEventListener('click', event => {
-      if (reduced.matches) return;
+      if (reduced.matches || innerWidth <= 640) return;
       event.preventDefault();
       const start = panel.getBoundingClientRect().height;
       targetOpen = transition ? !targetOpen : !panel.open;

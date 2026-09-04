@@ -49,7 +49,7 @@
     control.setAttribute('aria-label', paused ? 'Activar animación de pétalos' : 'Pausar animación de pétalos');
     layer.hidden = disabled;
     if (!disabled && !animations.size) {
-      for (let i = 0; i < (innerWidth < 700 ? 12 : 20); i++) petal(false, i);
+      for (let i = 0; i < (innerWidth < 700 ? 6 : 10); i++) petal(false, i);
     }
     animations.forEach(animation => disabled || document.hidden ? animation.pause() : animation.play());
   }
@@ -62,7 +62,7 @@
   motion.addEventListener('change', sync);
   document.addEventListener('wedding:opened', () => {
     if (paused || motion.matches || document.hidden) return;
-    for (let i = 0; i < (innerWidth < 700 ? 10 : 18); i++) petal(true, i);
+    for (let i = 0; i < (innerWidth < 700 ? 4 : 8); i++) petal(true, i);
   });
   sync();
 })();
