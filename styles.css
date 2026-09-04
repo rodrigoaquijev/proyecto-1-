@@ -94,3 +94,32 @@ body :is(.gift-panel,.gift-panel>summary){border-radius:var(--invitation-radius)
 @media(hover:hover) and (prefers-reduced-motion:no-preference){#giftItems .gift-item:hover{transform:perspective(1100px) translateY(-4px) rotateX(1.2deg);box-shadow:0 3px 0 var(--metal-edge),0 16px 25px #59452f40,inset 0 2px 1px #ffffffb0}#giftItems .gift-item:hover:after{animation:plaque-reflection 1.2s cubic-bezier(.2,.65,.3,1) both}.gift-actions .coordinate,.copy-button{transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,background .25s}.gift-actions .coordinate:hover,.copy-button:hover{transform:translateY(-2px)}.gift-actions .coordinate:active,.copy-button:active{transform:translateY(1px)}}
 @keyframes plaque-reflection{0%{transform:translateX(-85%);opacity:0}20%{opacity:.45}100%{transform:translateX(85%);opacity:0}}
 @media(prefers-reduced-motion:reduce){#giftItems .gift-item{transition:none;transform:none!important}#giftItems .gift-item:after{display:none}}
+/* Compact postage-style countdown and a less intrusive mobile reading layout. */
+header .wedding-keepsake{width:clamp(148px,30vw,205px);margin:0 auto 8px!important}
+.letter-countdown{max-width:350px;margin:0 auto 46px;padding:17px 10px 15px;text-align:center;border-block:1px solid #a18a5e55;position:relative}
+.letter-countdown>p:first-child{font:italic 18px/1.4 var(--letter-serif);color:#63543d;margin:0 0 14px}
+.countdown-stamps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:294px;margin:auto}
+.countdown-stamp{padding:9px 2px 7px;border:1px dashed #9a8764;outline:1px solid #c7b899;outline-offset:3px;background:linear-gradient(145deg,#fffaf0,#eadfc9);box-shadow:2px 3px 5px #67512d19;transform:rotate(-2deg);border-radius:5px}
+.countdown-stamp:nth-child(even){transform:rotate(2deg)}
+.countdown-stamp>span{display:block;font:500 30px/1 var(--letter-serif);color:#4b402d;font-variant-numeric:tabular-nums}
+.countdown-stamp>small{display:block;font:500 12px/1.6 var(--letter-sans);color:#655b4a;margin-top:5px}
+.letter-countdown .countdown-note{font:italic 16px/1.4 var(--letter-serif);color:#716147;margin:15px 0 0}
+.letter-mobile-nav a[aria-current=location]{background:#e5d7bd;color:#483820;box-shadow:inset 0 1px 3px #765c2720}
+@media(max-width:640px){
+ html{scroll-padding-bottom:125px}body{padding-bottom:132px!important}
+ .paper-texture{width:calc(100% - 24px)!important;padding-left:16px!important;padding-right:16px!important}
+ .paper-texture>header{padding-bottom:32px}.paper-texture>header h1{font-size:clamp(35px,9.4vw,48px)}
+ .letter-countdown{width:100%;padding-inline:7px;margin-bottom:30px}.countdown-stamps{gap:9px}.countdown-stamp>span{font-size:28px}
+ .chapter-tab{max-width:calc(100% - 20px);white-space:normal!important;line-height:1.5}.letter-chapter{scroll-margin-top:20px}
+ .letter-chapter .section-intro{overflow-wrap:break-word}.gift-actions a{overflow-wrap:anywhere}
+ .letter-mobile-nav{display:grid;grid-template-columns:.75fr 1.4fr .95fr;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));gap:2px;padding:4px;min-height:52px;background:#faf5ebf5}
+ .letter-mobile-nav a{font-size:16px;min-height:44px;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.2;padding:5px 4px}
+ .music-control,.floral-control{bottom:calc(68px + env(safe-area-inset-bottom));min-height:44px;font-size:15px;padding:7px 11px}.music-control{left:8px}.floral-control{right:8px}
+ body:has(#rsvpForm input:focus,#rsvpForm textarea:focus) :is(.letter-mobile-nav,.music-control,.floral-control){visibility:hidden;pointer-events:none}
+ .moments label span{flex-wrap:wrap;gap:4px}.letter-chapter .gift-panel>summary strong{overflow-wrap:break-word}
+ a:active,button:active,summary:active{filter:brightness(.94)}
+}
+@media(max-width:640px) and (prefers-reduced-motion:no-preference){#giftItems .gift-item.mobile-glint:after{animation:plaque-reflection 1.4s cubic-bezier(.2,.65,.3,1) both}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
+
+.countdown-stamp abbr{text-decoration:none}

@@ -15,6 +15,9 @@
       if (!entry.isIntersecting) continue;
       observer.unobserve(entry.target);
       if (reduced.matches) continue;
+      if (innerWidth <= 640 && entry.target.matches('.gift-item')) {
+        entry.target.classList.add('mobile-glint');
+      }
       animate(entry.target, [
         { opacity: .15, transform: 'perspective(1000px) translateY(28px) rotateX(4deg) scale(.98)' },
         { opacity: 1, transform: 'perspective(1000px) translateY(0) rotateX(0deg) scale(1)' }
@@ -22,6 +25,23 @@
     }
   }, { threshold: .12 });
   document.querySelectorAll('.gift-item,.gift-taken,.account,.wedding-keepsake,.chapter-tab').forEach(el => observer.observe(el));
+
+  // Thumb navigation follows the section being read, without moving focus.
+  const links = [...document.querySelectorAll('.letter-mobile-nav a')];
+  const chapters = ['programa', 'regalos', 'confirmar'].map(id => document.getElementById(id));
+  let queued = false;
+  function markSection() {
+    queued = false;
+    const current = chapters.filter(el => el.getBoundingClientRect().top < innerHeight * .55).at(-1);
+    links.forEach(link => {
+      if (current && link.hash === '#' + current.id) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  addEventListener('scroll', () => {
+    if (!queued) { queued = true; requestAnimationFrame(markSection); }
+  }, { passive: true });
+  markSection();
 
   const settlePanels = new Set();
   document.querySelectorAll('.gift-panel').forEach(panel => {

@@ -27,7 +27,7 @@ function updateCountdown() {
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Lima', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
   const part = type => today.find(item => item.type === type).value;
   const days = Math.round((Date.UTC(2026, 10, 21) - Date.UTC(Number(part('year')), Number(part('month')) - 1, Number(part('day')))) / 86400000);
-  document.querySelector('#countdown').textContent = days > 0 ? `Falta${days === 1 ? '' : 'n'} ${days} día${days === 1 ? '' : 's'} para celebrar` : days === 0 ? 'Hoy celebramos juntos' : 'Gracias por ser parte de nuestra historia';
+  document.querySelector('#countdown').textContent = days > 0 ? 'Hasta el día de nuestra boda' : days === 0 ? 'Hoy celebramos juntos' : 'Gracias por ser parte de nuestra historia';
   const remaining = Math.max(0, new Date('2026-11-21T09:00:00-05:00').getTime() - Date.now());
   const values = { days: Math.floor(remaining / 86400000), hours: Math.floor(remaining / 3600000) % 24, minutes: Math.floor(remaining / 60000) % 60, seconds: Math.floor(remaining / 1000) % 60 };
   for (const [id, value] of Object.entries(values)) {
