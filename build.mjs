@@ -1,6 +1,6 @@
 import { readFile, mkdir, copyFile, cp } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
-const files = ['index.html', 'styles.css', 'app.js', 'floral.js', 'boda-camila-rodrigo.ics'];
+const files = ['index.html', 'styles.css', 'app.js', 'floral.js', 'music.js', 'boda-camila-rodrigo.ics'];
 const html = await readFile('index.html', 'utf8');
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 if (new Set(ids).size !== ids.length) throw new Error('Duplicate HTML IDs');

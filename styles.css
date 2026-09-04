@@ -20,3 +20,21 @@ article section p.text-xs,article section p.text-\[11px\]{font-size:14px;line-he
 @keyframes seal-breathe{0%,100%{box-shadow:0 12px 24px -6px #0008,inset 0 2px 3px #ffffff73,0 0 0 0 #8fafc300}50%{box-shadow:0 12px 28px -6px #0008,inset 0 2px 3px #ffffff73,0 0 20px 7px #8fafc326}}
 @media(max-width:640px){.floral-control{bottom:calc(82px + env(safe-area-inset-bottom));right:12px;font-size:15px;padding:6px 10px;min-height:40px}}
 @media(prefers-reduced-motion:reduce){.floral-layer,.floral-control{display:none!important}.wax-seal{animation:none!important}}
+
+/* Chapters within the same letter: paper inserts, ribbons and embossed rules. */
+.paper-texture>.letter-chapter{position:relative;margin-top:66px;margin-bottom:66px;padding:64px 30px 48px;border:1px solid #3b70972e;outline:1px solid #b2a18b29;outline-offset:7px;border-radius:2px;box-shadow:0 12px 22px -17px #47372670,inset 0 0 35px #fff9ed66;isolation:isolate}
+.chapter-tab{position:absolute;top:0;left:50%;transform:translate(-50%,-50%);max-width:95%;width:max-content;padding:10px 22px;background:#3b7097;color:#faf5eb;box-shadow:0 4px 9px #2b26251a;border:1px solid #2a557444;font:500 11px/1.6 'Montserrat',sans-serif;letter-spacing:.13em;text-transform:uppercase;text-align:center}
+.chapter-message{background:linear-gradient(145deg,#fff9f0b3,#eee1ce66)}
+.chapter-program{background:linear-gradient(145deg,#e2edf3a6,#f6f4ed66)}
+.chapter-dress{background:linear-gradient(145deg,#f9f2e1c9,#eaddc74d)}
+.chapter-gifts{background:linear-gradient(145deg,#f7e9e780,#fbf5e9b3)}
+.chapter-reply{background:linear-gradient(145deg,#e7f0f5b3,#fdf9f1cc)}
+.chapter-dress>.chapter-tab,.chapter-gifts>.chapter-tab{background:#8b7560;border-color:#79665055}
+.paper-texture>.ornamental-divider{max-width:220px;margin-top:20px;margin-bottom:20px;gap:20px}.ornamental-divider .divider-dot{width:10px;height:10px;outline:1px solid #3b709744;outline-offset:5px}
+.letter-chapter>div:not(.chapter-tab):first-of-type{margin-top:0}#programa>div.chapter-tab{margin-top:0!important}#confirmar.letter-chapter{max-width:100%}#confirmar form,#rsvpSuccess{max-width:450px;margin-left:auto;margin-right:auto}
+.music-control{position:fixed;left:18px;bottom:18px;z-index:26;display:flex;align-items:center;gap:9px;min-height:44px;padding:8px 13px;background:#faf5ebed;border:1px solid #3b709744;border-radius:4px;color:#3b7097;font:italic 16px 'Cormorant Garamond',serif;box-shadow:0 3px 12px #0002}
+.music-indicator{width:7px;height:7px;border-radius:50%;background:#3b70975c}.music-control[aria-pressed=true] .music-indicator{background:#3b7097;animation:music-breathe 2s ease-in-out infinite}
+@keyframes music-breathe{50%{box-shadow:0 0 0 5px #3b70971a}}
+@media(max-width:640px){.paper-texture>.letter-chapter{padding:48px 16px 32px!important;margin-top:48px;margin-bottom:48px;outline-offset:5px}.chapter-tab{font-size:10px;padding:9px 12px;letter-spacing:.08em}.letter-chapter .letter-title{font-size:38px}.letter-chapter .gift-panel summary{padding:16px 12px}.letter-chapter .panel-content{padding:0 12px 18px}.letter-chapter .account{flex-wrap:wrap}.music-control{left:12px;bottom:calc(82px + env(safe-area-inset-bottom));font-size:15px;min-height:40px;padding:6px 10px}.letter-chapter .attendance-options{grid-template-columns:1fr;gap:0}.letter-chapter .section-kicker{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.music-indicator{animation:none!important}}
+.letter-chapter>.chapter-tab+div{margin-top:0!important}

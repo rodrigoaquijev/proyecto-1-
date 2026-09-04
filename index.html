@@ -350,6 +350,7 @@
 <link rel="stylesheet" href="styles.css">
 <script src="app.js" defer></script>
 <script src="floral.js" defer></script>
+<script src="music.js" defer></script>
 <meta name="description" content="Camila y Rodrigo · 21 de noviembre de 2026. Una invitación para compartir nuestra boda en Magdalena del Mar, Lima.">
 <meta property="og:title" content="Camila & Rodrigo · Nuestra boda">
 <meta property="og:description" content="21 de noviembre de 2026 · Magdalena del Mar, Lima. Abre tu invitación.">
@@ -472,7 +473,8 @@
     </div>
 
     <!-- Introducción Editorial -->
-    <section class="py-24 max-w-2xl mx-auto space-y-12" data-aos="fade-up">
+    <section id="carta" class="letter-chapter chapter-message py-24 max-w-2xl mx-auto space-y-12" data-aos="fade-up">
+      <div class="chapter-tab">I · Nuestra invitación</div>
       <div class="text-center space-y-6">
         <p class="font-script text-4xl sm:text-5xl text-powder-600">Querida familia y amigos,</p>
         <p class="font-serif text-xl sm:text-2xl text-ink font-light leading-relaxed drop-cap text-left sm:text-center">
@@ -495,7 +497,8 @@
     </div>
 
     <!-- Itinerario: Los Tres Tiempos -->
-    <section id="programa" class="py-24 space-y-24">
+    <section id="programa" class="letter-chapter chapter-program py-24 space-y-24">
+      <div class="chapter-tab">II · El día de nuestra boda</div>
       <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
         <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">Programa</p>
         <h2 class="font-serif text-3xl md:text-4xl font-light text-ink">Los Tres Tiempos</h2>
@@ -591,7 +594,8 @@
 
     <div class="calendar-note"><a class="letter-cta" href="boda-camila-rodrigo.ics" download>Guardar la fecha en mi calendario <span aria-hidden="true">↓</span></a></div>
     <!-- Código de Vestimenta -->
-    <section class="py-24 max-w-xl mx-auto space-y-16 text-center" data-aos="fade-up">
+    <section id="vestimenta" class="letter-chapter chapter-dress py-24 max-w-xl mx-auto space-y-16 text-center" data-aos="fade-up">
+      <div class="chapter-tab">III · Los pequeños detalles</div>
       
       <div class="space-y-6">
         <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">Guía de Estilo</p>
@@ -642,7 +646,8 @@
       </div>
 
     </section>
-    <section id="regalos" class="py-20 text-center">
+    <section id="regalos" class="letter-chapter chapter-gifts py-20 text-center">
+      <div class="chapter-tab">IV · Nuestro nuevo hogar</div>
       <p class="section-kicker">Para nuestro nuevo hogar</p>
       <h2 class="letter-title">Un detalle con cariño</h2>
       <p class="section-intro">Tu compañía es nuestro mayor regalo. Si deseas tener un detalle para nuestro nuevo hogar, aquí encontrarás algunas ideas.</p>
@@ -657,7 +662,8 @@
       <span class="divider-line"></span>
     </div>
 
-    <section id="confirmar" class="py-24 max-w-lg mx-auto">
+    <section id="confirmar" class="letter-chapter chapter-reply py-24 max-w-lg mx-auto">
+      <div class="chapter-tab">V · Tu respuesta</div>
       <div class="text-center mb-12"><p class="section-kicker">Una respuesta para los novios</p><h2 class="letter-title">¿Nos acompañas?</h2><p class="section-intro">Por favor, responde antes del <strong>15 de octubre de 2026</strong> para ayudarnos a preparar todo con cariño.</p></div>
       <form id="rsvpForm" action="https://formsubmit.co/rodrigoaquije45@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Respuesta de asistencia · Boda Camila y Rodrigo"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -690,5 +696,6 @@
   </script>
 
 <nav class="letter-mobile-nav" aria-label="Accesos rápidos"><a href="#programa">El día</a><a href="#regalos">Regalos</a><a href="#confirmar">Confirmar</a></nav>
+<button id="musicToggle" class="music-control" type="button" aria-pressed="false" aria-label="Reproducir melodía romántica de piano"><span class="music-indicator" aria-hidden="true"></span><span id="musicLabel">Escuchar melodía</span></button>
 </body>
 </html>
