@@ -66,3 +66,19 @@ article section p.text-xs,article section p.text-\[11px\]{font-size:14px;line-he
 #giftContribution{background:linear-gradient(140deg,#f6f0e5,#e9dece);border:1px solid #bbaa92;border-radius:12px;box-shadow:6px 7px 18px #b3a18a33,-4px -4px 12px #fffaf0,inset 1px 1px 0 #fffaf3}#giftContribution>summary{background:transparent;border-radius:12px}#giftContribution>summary strong{color:#64513c;font-size:28px}#giftContribution>summary small,#giftContribution .expand-hint{color:#756047}#giftContribution .panel-content{padding-top:16px}#giftContribution .account{background:#f4ede1;border:1px solid #c3b59f70;border-radius:9px;padding:18px;margin:16px 0;box-shadow:inset 3px 3px 7px #c4b59f45,inset -3px -3px 7px #fffdf3}#giftContribution .account strong{font-size:16px;color:#473c2e;letter-spacing:.035em}#giftContribution .account span,#giftContribution .account-owner{color:#655846}#giftContribution .copy-button{background:#756048;color:#fff;border:1px solid #655039;font-size:14px;min-height:48px;padding:10px 15px;border-radius:6px;white-space:nowrap;box-shadow:2px 3px 6px #55432e22}#giftContribution .copy-button:hover{background:#5c4833}
 @media(max-width:640px){.gift-collection-nav{flex-direction:column}.gift-collection-nav a{width:100%}.gift-tier-title{font-size:27px}.gift-tier .gift-item{padding:20px 15px;margin-bottom:20px;border-radius:12px}#regalos-mayores .gift-item h4{font-size:28px}.gift-taken{padding:22px 16px}#giftContribution>summary strong{font-size:27px}#giftContribution .account{padding:16px 12px;gap:14px;flex-wrap:wrap}#giftContribution .account>div,#giftContribution .copy-button{width:100%}}
 @media(prefers-reduced-motion:reduce){.gift-tier .gift-item:hover{transform:none}}
+
+/* Brushed metal plaques: shared bevel, distinct alloy colors. */
+.gift-tier{--metal:linear-gradient(118deg,#c39b48 0%,#e6c778 19%,#fff0b8 35%,#d6ae53 52%,#eed18a 73%,#bc923d 100%);--metal-edge:#a58237;--metal-ink:#392c13}
+#regalos-medios{--metal:linear-gradient(118deg,#b6b7ba 0%,#dddfe2 20%,#fafafa 35%,#bfc1c5 52%,#e4e5e7 73%,#aaadb2 100%);--metal-edge:#96999e;--metal-ink:#303236}
+#regalos-detalles{--metal:linear-gradient(118deg,#b37c54 0%,#d4a780 20%,#efd0ad 35%,#bf8b61 52%,#ddb28b 73%,#a97149 100%);--metal-edge:#92603e;--metal-ink:#39251a}
+#giftItems .gift-tier :is(.gift-item,.gift-taken){position:relative;padding:25px 24px;margin:0 0 22px;border:1px solid var(--metal-edge);border-radius:12px;background:repeating-linear-gradient(0deg,#ffffff10 0px,#ffffff10 1px,#40302008 1px,transparent 3px),var(--metal);box-shadow:0 3px 0 var(--metal-edge),0 9px 16px #59452f30,inset 0 2px 1px #ffffffb0,inset 0 -2px 2px #46361f30,inset 2px 0 2px #ffffff60;color:var(--metal-ink)}
+#giftItems .gift-tier :is(.gift-item,.gift-taken) h4{color:var(--metal-ink);text-shadow:0 1px 0 #ffffff75}
+#giftItems .gift-tier .gift-item p,#giftItems .gift-tier .gift-taken small{color:var(--metal-ink)}
+#giftItems .gift-tier .gift-actions a:not(.coordinate){color:var(--metal-ink);font-weight:600}
+#regalos-mayores .gift-item:before{background:linear-gradient(90deg,#856021,#fff0bb,#856021);box-shadow:0 1px 0 #fff7cf}
+#regalos-medios .gift-tier-title{color:#55575c}#regalos-detalles .gift-tier-title{color:#82522f}
+.gift-crossed-title{position:relative;margin:18px 0 14px;padding:12px 0}.gift-crossed-title h4{font:500 28px/1.35 var(--letter-serif);margin:0}
+.gift-hand-cross{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;fill:none;stroke:#af2925;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;opacity:.85;transform:rotate(-2deg)}.gift-hand-cross path+path{stroke-width:1.2;opacity:.65}
+#giftItems .gift-received-badge{color:#81251e;background:#fff5e8dc;border-color:#ad5548;font-size:14px!important}
+#giftItems .gift-taken small{font:400 14px/1.8 var(--letter-sans)}
+@media(max-width:640px){#giftItems .gift-tier :is(.gift-item,.gift-taken){padding:20px 15px;margin-bottom:20px}}
