@@ -46,7 +46,7 @@ document.querySelectorAll('[data-copy]').forEach(button => {
       await navigator.clipboard.writeText(source.textContent.trim());
       status.textContent = 'Dato copiado. Ya puedes pegarlo en tu aplicación.';
       button.textContent = 'Copiado';
-      setTimeout(() => { button.textContent = 'Copiar'; }, 2200);
+      setTimeout(() => { button.textContent = 'Copiar dato'; }, 2200);
     } catch {
       const range = document.createRange();
       range.selectNodeContents(source);
