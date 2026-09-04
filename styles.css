@@ -82,3 +82,15 @@ article section p.text-xs,article section p.text-\[11px\]{font-size:14px;line-he
 #giftItems .gift-received-badge{color:#81251e;background:#fff5e8dc;border-color:#ad5548;font-size:14px!important}
 #giftItems .gift-taken small{font:400 14px/1.8 var(--letter-sans)}
 @media(max-width:640px){#giftItems .gift-tier :is(.gift-item,.gift-taken){padding:20px 15px;margin-bottom:20px}}
+/* One corner system for the invitation's rectangular surfaces and controls. */
+:root{--invitation-radius:12px}
+body :is(.paper-texture,.letter-chapter,.chapter-tab,.gift-panel,.gift-panel>summary,.gift-item,.gift-taken,.account,.gift-received-badge,.gift-collection-nav a,.letter-mobile-nav,.letter-mobile-nav a,.music-control,.floral-control,.copy-button,.coordinate,.choice,.button,.map-frame,button:not(.wax-seal),input:not([type=radio]):not([type=checkbox]),textarea,iframe){border-radius:var(--invitation-radius)!important}
+body :is(.gift-panel,.gift-panel>summary){border-radius:var(--invitation-radius)!important}
+.wedding-keepsake{width:clamp(180px,42vw,252px);margin:10px auto 24px!important;mix-blend-mode:multiply;transform-origin:50% 80%;pointer-events:none}
+.wedding-keepsake img{display:block;width:100%;height:auto;mask-image:radial-gradient(ellipse 51% 49% at 50% 51%,#000 62%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 51% 49% at 50% 51%,#000 62%,transparent 100%)}
+#giftItems .gift-item{overflow:hidden;isolation:isolate;transform-origin:center bottom;transition:transform .65s cubic-bezier(.22,1,.36,1),box-shadow .65s}
+#giftItems .gift-item:after{content:'';position:absolute;inset:-40% -70%;pointer-events:none;background:linear-gradient(112deg,transparent 40%,#fff9 48%,#fff2 53%,transparent 62%);transform:translateX(-85%);opacity:0;z-index:0}
+#giftItems .gift-item>*{position:relative;z-index:1}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){#giftItems .gift-item:hover{transform:perspective(1100px) translateY(-4px) rotateX(1.2deg);box-shadow:0 3px 0 var(--metal-edge),0 16px 25px #59452f40,inset 0 2px 1px #ffffffb0}#giftItems .gift-item:hover:after{animation:plaque-reflection 1.2s cubic-bezier(.2,.65,.3,1) both}.gift-actions .coordinate,.copy-button{transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s,background .25s}.gift-actions .coordinate:hover,.copy-button:hover{transform:translateY(-2px)}.gift-actions .coordinate:active,.copy-button:active{transform:translateY(1px)}}
+@keyframes plaque-reflection{0%{transform:translateX(-85%);opacity:0}20%{opacity:.45}100%{transform:translateX(85%);opacity:0}}
+@media(prefers-reduced-motion:reduce){#giftItems .gift-item{transition:none;transform:none!important}#giftItems .gift-item:after{display:none}}
