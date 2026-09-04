@@ -1,6 +1,6 @@
-import { readFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, mkdir, copyFile, cp } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
-const files = ['index.html', 'styles.css', 'app.js', 'boda-camila-rodrigo.ics'];
+const files = ['index.html', 'styles.css', 'app.js', 'floral.js', 'boda-camila-rodrigo.ics'];
 const html = await readFile('index.html', 'utf8');
 const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
 if (new Set(ids).size !== ids.length) throw new Error('Duplicate HTML IDs');
@@ -15,4 +15,5 @@ const syntax = spawnSync(process.execPath, ['--check', 'app.js'], { stdio: 'inhe
 if (syntax.status !== 0) process.exit(1);
 await mkdir('dist', { recursive: true });
 for (const file of files) await copyFile(file, `dist/${file}`);
+await cp('assets', 'dist/assets', { recursive: true });
 console.log('Static build complete: navigation, labels, gift list and JavaScript validated.');

@@ -10,6 +10,7 @@
   const closeGate = () => {
     rememberOpening();
     gate.close();
+    if (typeof CustomEvent === 'function') document.dispatchEvent(new CustomEvent('wedding:opened'));
     document.querySelector('h1').focus({ preventScroll: true });
   };
   document.querySelector('#openInvitation').addEventListener('click', () => {
