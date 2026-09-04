@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Camila y Rodrigo//Boda 2026//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:cr-20261121-civil@invitacion.local
+DTSTAMP:20260904T000000Z
+DTSTART:20261121T140000Z
+SUMMARY:Matrimonio civil · Camila y Rodrigo
+LOCATION:Municipalidad de Magdalena del Mar - Avenida Brasil 3501
+DESCRIPTION:Boda de Camila y Rodrigo. Magdalena del Mar - Lima.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cr-20261121-ceremonia@invitacion.local
+DTSTAMP:20260904T000000Z
+DTSTART:20261121T160000Z
+SUMMARY:Ceremonia religiosa · Camila y Rodrigo
+LOCATION:Parroquia San Juan María Vianney - Avenida Javier Prado Oeste 76
+ 5
+DESCRIPTION:Boda de Camila y Rodrigo. Magdalena del Mar - Lima.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:cr-20261121-almuerzo@invitacion.local
+DTSTAMP:20260904T000000Z
+DTSTART:20261121T180000Z
+SUMMARY:Almuerzo y brindis · Camila y Rodrigo
+LOCATION:Jirón Faustino Sánchez Carrión 140 - Magdalena del Mar
+DESCRIPTION:Boda de Camila y Rodrigo. Magdalena del Mar - Lima.
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

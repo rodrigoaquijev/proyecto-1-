@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test tests/rsvp.test.cjs"
+  },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^13.1.1",
