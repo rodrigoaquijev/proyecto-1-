@@ -1,70 +1,663 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f3ec">
-  <title>Camila & Rodrigo · Nos casamos · 21.11.2026</title>
-  <meta name="description" content="Una invitación para celebrar con nosotros. Sábado 21 de noviembre de 2026, Magdalena del Mar, Lima. Programa, regalos y confirmación de asistencia.">
-  <meta property="og:title" content="Camila & Rodrigo · 21 de noviembre de 2026">
-  <meta property="og:description" content="Nos casamos y queremos compartir este día contigo. Encuentra el programa, los regalos y confirma tu asistencia.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_PE">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camila & Rodrigo — 21 de Noviembre, 2026</title>
+
+  <!-- Tipografías Editoriales -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;450;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: '#FAF6EE',
+            envelope: '#F4EFE6',
+            ink: '#2B2625',
+            mutedInk: '#68615E',
+            faintInk: '#8E8682',
+            powder: {
+              50: '#F0F6F9',
+              100: '#E2ECF2',
+              200: '#C7DAE6',
+              400: '#8FAFC3',
+              500: '#5A8BAE',
+              600: '#3B7097',
+              700: '#2A5574'
+            },
+            blush: {
+              50: '#FAF0F2',
+              100: '#F6E5E8',
+              200: '#E8C7CD',
+              400: '#D49FA9',
+              600: '#9E5B68'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+            script: ['"Alex Brush"', 'cursive'],
+          },
+          letterSpacing: {
+            'widest-xl': '0.3em',
+            'widest-2xl': '0.45em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Cursor personalizado fino */
+    @media (pointer: fine) {
+      body { cursor: default; }
+      .custom-cursor-dot {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        background-color: #3B7097;
+        border-radius: 9999px;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease;
+      }
+      .custom-cursor-ring {
+        position: fixed;
+        width: 28px;
+        height: 28px;
+        border: 1px solid rgba(59, 112, 151, 0.35);
+        border-radius: 9999px;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease-out, width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+      }
+      body.hovered-link .custom-cursor-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #2A5574;
+      }
+      body.hovered-link .custom-cursor-ring {
+        width: 38px;
+        height: 38px;
+        border-color: rgba(59, 112, 151, 0.7);
+      }
+    }
+
+    /* Mesa de Madera Cálida */
+    body {
+      background-color: #241A14;
+      background-image: 
+        radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.9) 100%),
+        url('https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=2000&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    body.gate-locked {
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    /* Pliego Central: Textura Orgánica de Papel de Algodón */
+    .paper-texture {
+      background-color: #FAF5EB;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperFibers'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.17  0 0 0 0 0.15  0 0 0 0 0.14  0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperFibers)'/%3E%3C/svg%3E"),
+        radial-gradient(ellipse at 15% 10%, rgba(200, 222, 237, 0.45) 0%, transparent 60%),
+        radial-gradient(ellipse at 85% 90%, rgba(246, 229, 232, 0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at center, transparent 65%, rgba(68, 52, 38, 0.08) 100%);
+      box-shadow: 
+        0 35px 80px -15px rgba(0, 0, 0, 0.75),
+        0 15px 35px -5px rgba(0, 0, 0, 0.5),
+        inset 0 0 50px rgba(184, 155, 126, 0.12);
+    }
+
+    .deckled-border {
+      border: 1px solid rgba(59, 112, 151, 0.25);
+      outline: 1px solid rgba(43, 38, 37, 0.1);
+      outline-offset: 12px;
+    }
+
+    .hairline-separator {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 112, 151, 0.35), transparent);
+    }
+
+    .ornamental-divider {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .ornamental-divider .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59, 112, 151, 0.35), transparent);
+    }
+    .ornamental-divider .divider-dot {
+      width: 7px;
+      height: 7px;
+      flex-shrink: 0;
+      border-radius: 9999px;
+      background: radial-gradient(circle at 32% 28%, #8FAFC3, #3B7097 75%);
+      box-shadow: 0 2px 4px -1px rgba(43, 38, 37, 0.35);
+    }
+
+    .seal-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border-radius: 9999px;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 15px;
+      color: #FDFBF7;
+      background: radial-gradient(circle at 32% 28%, #5A8BAE, #2A5574 75%);
+      box-shadow: 
+        0 4px 10px -3px rgba(43, 38, 37, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.45),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.25);
+    }
+
+    .drop-cap::first-letter {
+      font-family: "Alex Brush", cursive;
+      font-size: 3.6em;
+      line-height: 0.75;
+      float: left;
+      padding-right: 0.16em;
+      padding-top: 0.08em;
+      color: #3B7097;
+    }
+
+    .digit-tile {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(240,246,249,0.95) 100%);
+      border: 1px solid rgba(59, 112, 151, 0.2);
+      border-radius: 12px;
+      padding: 0.75rem 0.25rem;
+      overflow: hidden;
+      box-shadow: 
+        0 4px 10px -2px rgba(43, 38, 37, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .map-frame {
+      border: 5px solid #FFFFFF;
+      box-shadow: 0 12px 28px -8px rgba(43, 38, 37, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .map-frame:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(35, 75, 102, 0.28);
+    }
+
+    /* --- SOBRE FÍSICO LIMPIO --- */
+    #envelopeGate {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1.5rem;
+      background-color: rgba(24, 17, 13, 0.96);
+      backdrop-filter: blur(8px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #envelopeGate.gate-exit {
+      opacity: 0;
+      transform: scale(1.04);
+      pointer-events: none;
+    }
+    #envelopeGate.gate-hidden {
+      display: none;
+    }
+
+    .envelope-scene {
+      position: relative;
+      width: min(85vw, 380px);
+      aspect-ratio: 1.45 / 1;
+      cursor: pointer;
+    }
+    
+    .envelope-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      background: linear-gradient(180deg, #E8DFC8, #DFD4BD);
+      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+      border: 1px solid #D5C7B0;
+      z-index: 1;
+    }
+
+    .envelope-letter-peek {
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      top: 8%;
+      bottom: 8%;
+      background: #FAF5EB;
+      border-radius: 6px;
+      border: 1px solid #E0D5C1;
+      box-shadow: 0 -4px 12px -4px rgba(43, 38, 37, 0.15);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+    }
+
+    .envelope-pocket {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 58%;
+      transform-origin: top center;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      z-index: 4;
+    }
+
+    .wax-seal {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 76px;
+      height: 76px;
+      border-radius: 9999px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 32% 28%, #5A8BAE, #2A5574 75%);
+      box-shadow: 
+        0 12px 24px -6px rgba(0, 0, 0, 0.55),
+        inset 0 2px 3px rgba(255, 255, 255, 0.45),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .wax-seal:hover {
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    #envelopeGate.is-opening .envelope-flap {
+      transform: rotateX(-175deg);
+    }
+    #envelopeGate.is-opening .envelope-letter-peek {
+      transform: translateY(-110px) scale(1.02);
+    }
+    #envelopeGate.is-opening .wax-seal {
+      animation: sealFade 0.4s ease forwards;
+    }
+    @keyframes sealFade {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(0.6); opacity: 0; }
+    }
+
+    .tap-hint {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #C7DAE6;
+      animation: hintPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes hintPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #1C140F; }
+    ::-webkit-scrollbar-thumb {
+      background: #3B7097;
+      border-radius: 8px;
+      border: 2px solid #1C140F;
+    }
+  </style>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+<meta name="description" content="Camila y Rodrigo · 21 de noviembre de 2026. Una invitación para compartir nuestra boda en Magdalena del Mar, Lima.">
+<meta property="og:title" content="Camila & Rodrigo · Nuestra boda">
+<meta property="og:description" content="21 de noviembre de 2026 · Magdalena del Mar, Lima. Abre tu invitación.">
 </head>
-<body>
-  <a class="skip-link" href="#contenido">Ir a la invitación</a>
-  <dialog id="envelopeGate" aria-labelledby="gateTitle" aria-describedby="gateHint">
-    <div class="gate-content">
-      <p class="eyebrow">Una fecha. Un nuevo comienzo.</p>
-      <h2 id="gateTitle">Camila <em>&</em> Rodrigo</h2>
-      <p class="gate-date">21 de noviembre de 2026 · Lima</p>
-      <div class="envelope" aria-hidden="true"><span class="envelope-monogram">C<span>&</span>R</span><span class="envelope-date">21 · 11 · 26</span></div>
-      <button class="button" id="openInvitation" type="button">Abre tu invitación <span aria-hidden="true">↗</span></button>
-      <p id="gateHint" class="small">Tenemos algo muy especial que compartir contigo.</p>
+
+<body class="text-ink antialiased selection:bg-powder-100 font-sans min-h-screen py-8 sm:py-16 md:py-24 px-3 sm:px-6 flex justify-center">
+
+  
+
+  <!-- Puerta de entrada: Sobre físico limpio -->
+  <dialog id="envelopeGate" aria-modal="true" aria-label="Invitación de boda, toque el sello para abrir">
+    <div class="envelope-scene" id="envelopeTrigger">
+      <div class="envelope-back"></div>
+      
+      <div class="envelope-letter-peek">
+        <p class="text-[9px] uppercase tracking-[0.3em] text-powder-600 font-sans font-semibold">Invitación de Boda</p>
+        <h2 class="text-2xl sm:text-3xl font-serif text-ink mt-0.5 font-light">Camila & Rodrigo</h2>
+        <div class="w-8 h-[1px] bg-powder-600/30 my-1.5"></div>
+        <p class="text-[11px] italic font-serif text-mutedInk">21 de Noviembre, 2026</p>
+      </div>
+
+      <div class="envelope-pocket">
+        <svg class="w-full h-full drop-shadow-md" viewBox="0 0 420 290" fill="none">
+          <path d="M0 290L210 150L420 290H0Z" fill="#E2D6BC" />
+          <path d="M0 0L210 150L0 290V0Z" fill="#E8DEC4" />
+          <path d="M420 0L210 150L420 290V0Z" fill="#DFD3B9" />
+        </svg>
+      </div>
+
+      <div class="envelope-flap">
+        <svg class="w-full h-full drop-shadow-lg" viewBox="0 0 420 170" fill="none">
+          <path d="M0 0H420L210 170L0 0Z" fill="#EFE5CD" />
+        </svg>
+      </div>
+
+      <button type="button" id="openInvitation" class="wax-seal" aria-label="Abrir invitación">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="w-2/3">
+          <circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"></circle>
+          <text x="50" y="61" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="40" fill="#FDFBF7">C&amp;R</text>
+        </svg>
+      </button>
     </div>
+    <p class="tap-hint font-sans">Toca el sello para abrir tu invitación</p>
   </dialog>
-  <div class="page-shell">
-    <nav class="navigation" aria-label="Navegación de la invitación">
-      <a class="nav-monogram" href="#inicio" aria-label="Camila y Rodrigo, inicio">C<span>&</span>R</a>
-      <div class="nav-links"><a href="#programa">El día</a><a href="#detalles">Los detalles</a><a href="#regalos">Regalos</a></div>
-      <a class="nav-confirm" href="#confirmar">Confirmar <span aria-hidden="true">↗</span></a>
-    </nav>
-    <main id="contenido">
-      <header class="hero" id="inicio">
-        <div class="hero-topline"><span>Una invitación para ti</span><span>Magdalena del Mar · Lima</span></div>
-        <div class="hero-center">
-          <p class="eyebrow">Nos casamos</p>
-          <h1 tabindex="-1">Camila <span class="ampersand">&</span><br class="mobile-break"> Rodrigo</h1>
-          <p class="hero-message">Y queremos compartir este día contigo.</p>
-          <div class="date-lockup" aria-label="Sábado 21 de noviembre de 2026"><span>Sábado</span><strong>21 <i>/</i> 11 <i>/</i> 2026</strong></div>
-          <div class="hero-actions"><a class="button" href="#confirmar">Confirmar asistencia <span aria-hidden="true">↗</span></a><a class="text-link" href="#programa">Conoce el programa <span aria-hidden="true">↓</span></a></div>
+  <noscript><style>#envelopeGate{display:none !important;}body{overflow:auto !important;height:auto !important;}</style></noscript>
+
+  <!-- Pliego Continuo de la Carta -->
+  <article id="inicio" class="paper-texture w-full max-w-4xl deckled-border p-6 sm:p-14 md:p-24 relative overflow-hidden transition-all">
+
+    <!-- Ornamentos florales en esquinas -->
+    <svg class="absolute top-5 left-5 sm:top-8 sm:left-8 w-14 h-14 sm:w-20 sm:h-20 text-powder-600/30 hidden sm:block pointer-events-none" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
+      <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
+    </svg>
+    <svg class="absolute top-5 right-5 sm:top-8 sm:right-8 -scale-x-100 w-14 h-14 sm:w-20 sm:h-20 text-powder-600/30 hidden sm:block pointer-events-none" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M4 4C4 4 30 2 34 26C36 40 50 44 60 36" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
+      <circle cx="60" cy="36" r="2.5" fill="currentColor"></circle>
+    </svg>
+
+    <nav class="letter-nav" aria-label="Accesos de la invitación"><a href="#programa">El día</a><span aria-hidden="true">·</span><a href="#regalos">Regalos</a><span aria-hidden="true">·</span><a href="#confirmar">Confirmar</a></nav>
+    <!-- Encabezado de la Carta -->
+    <header class="text-center pt-6 pb-16 space-y-6" data-aos="fade-up" data-aos-duration="1000">
+      <div class="flex justify-center" aria-hidden="true">
+        <svg class="w-10 h-10 text-powder-600" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="1.2" opacity="0.6"></circle>
+          <text x="50" y="60" text-anchor="middle" font-family="'Alex Brush', cursive" font-size="34" fill="currentColor">C&amp;R</text>
+        </svg>
+      </div>
+      <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">
+        Correspondencia Privada &middot; Boda Íntima
+      </p>
+
+      <div class="py-2">
+        <h1 tabindex="-1" class="font-serif text-5xl sm:text-6xl md:text-7xl font-light tracking-normal text-ink leading-tight">
+          Camila <span class="font-script text-4xl sm:text-5xl md:text-6xl text-powder-600 lowercase align-middle">&</span> Rodrigo
+        </h1>
+      </div>
+
+      <div class="hairline-separator max-w-xs mx-auto"></div>
+
+      <p class="font-serif italic text-lg sm:text-xl text-mutedInk font-light tracking-wide">
+        Sábado, 21 de noviembre de 2026
+      </p>
+      
+      <p class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-semibold font-sans">
+        Magdalena del Mar, Lima
+      </p>
+      <a class="letter-cta" href="#confirmar">Confirmar asistencia <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <!-- Contador Regresivo -->
+    <div class="py-10 border-y border-ink/10 text-center" data-aos="fade-up" data-aos-delay="150">
+      <p class="text-[10px] tracking-widest-xl uppercase text-powder-600 mb-6 font-semibold font-sans" id="countdown">Nos vemos muy pronto</p>
+      <div class="grid grid-cols-4 gap-3 sm:gap-4 max-w-md mx-auto">
+        <div>
+          <div class="digit-tile">
+            <span id="days" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          </div>
+          <span class="text-[9px] uppercase tracking-widest text-mutedInk mt-2 block font-semibold font-sans">Días</span>
         </div>
-        <div class="hero-bottom"><span>Civil · Ceremonia · Almuerzo</span><span id="countdown">21 de noviembre de 2026</span></div>
-      </header>
-      <section class="letter section" aria-labelledby="letterTitle">
-        <div class="section-note"><span class="chapter">01 / CON CARIÑO</span><span class="mini-monogram" aria-hidden="true">C&R</span></div>
-        <div class="letter-copy"><h2 id="letterTitle">Querida familia<br>y amigos,</h2><p class="lead">Hay días que se vuelven inolvidables por las personas con quienes los compartimos.</p><p>Queremos celebrar el comienzo de nuestro matrimonio rodeados de nuestra familia y amigos más cercanos. Nos hace mucha ilusión que seas parte.</p><p>Será un día para acompañarnos, conversar sin prisa y brindar por todo lo que viene. Hemos pensado en cada lugar de nuestra mesa con mucho cariño.</p><p class="signature">Con amor,<br><em>Camila y Rodrigo</em></p></div>
-      </section>
-      <section class="program section" id="programa" aria-labelledby="programTitle">
-        <div class="section-heading"><div><p class="chapter">02 / EL DÍA</p><h2 id="programTitle">Tres momentos.<br><em>Una misma alegría.</em></h2></div><p>Sábado 21 de noviembre de 2026<br>Magdalena del Mar, Lima</p></div>
-        <div class="schedule">
-          <article class="event"><div class="event-time"><span class="event-number">I</span><time datetime="2026-11-21T09:00:00-05:00">9:00 <small>a. m.</small></time></div><div class="event-info"><h3>Matrimonio civil</h3><p>Municipalidad de Magdalena del Mar</p><address>Avenida Brasil 3501, Magdalena del Mar</address></div><a class="route-link" href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar al matrimonio civil en Google Maps">Cómo llegar <span aria-hidden="true">↗</span></a></article>
-          <article class="event"><div class="event-time"><span class="event-number">II</span><time datetime="2026-11-21T11:00:00-05:00">11:00 <small>a. m.</small></time></div><div class="event-info"><h3>Ceremonia religiosa</h3><p>Parroquia San Juan María Vianney</p><address>Avenida Javier Prado Oeste 765, Magdalena</address></div><a class="route-link" href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar a la ceremonia religiosa en Google Maps">Cómo llegar <span aria-hidden="true">↗</span></a></article>
-          <article class="event"><div class="event-time"><span class="event-number">III</span><time datetime="2026-11-21T13:00:00-05:00">1:00 <small>p. m.</small></time></div><div class="event-info"><h3>Almuerzo y brindis</h3><p>Una celebración entre los más cercanos</p><address>Jirón Faustino Sánchez Carrión 140, Magdalena</address></div><a class="route-link" href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar al almuerzo en Google Maps">Cómo llegar <span aria-hidden="true">↗</span></a></article>
+        <div>
+          <div class="digit-tile">
+            <span id="hours" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          </div>
+          <span class="text-[9px] uppercase tracking-widest text-mutedInk mt-2 block font-semibold font-sans">Horas</span>
         </div>
-        <div class="section-bottom"><p>Tres encuentros para celebrar juntos.</p><a class="text-link" href="boda-camila-rodrigo.ics" download>Guardar la fecha <span aria-hidden="true">↓</span></a></div>
-      </section>
-      <section class="details section" id="detalles" aria-labelledby="detailsTitle"><div><p class="chapter">03 / LOS DETALLES</p><h2 id="detailsTitle">Elegante<br><em>de día.</em></h2><p class="detail-intro">Nos encantará verte con un look especial para celebrar de la mañana al almuerzo.</p></div><div class="dress-copy"><p>Un vestido de día, un conjunto elegante o un traje son buenas opciones. Elige prendas con las que te sientas a gusto para acompañarnos durante la celebración.</p><p>Reservamos el blanco y el marfil para la novia. Les agradecemos evitar también el rojo y el negro.</p><div class="swatches" aria-label="Colores reservados o a evitar"><span><i style="--swatch:#fff"></i>Blanco<small>Reservado</small></span><span><i style="--swatch:#f2e9d8"></i>Marfil<small>Reservado</small></span><span><i style="--swatch:#9e303b"></i>Rojo<small>Evitar</small></span><span><i style="--swatch:#282928"></i>Negro<small>Evitar</small></span></div><a class="text-link" href="https://wa.me/51935355020?text=Hola%20Camila%20y%20Rodrigo%2C%20tengo%20una%20consulta%20sobre%20la%20boda." target="_blank" rel="noopener noreferrer">¿Tienes alguna duda? Escríbenos <span aria-hidden="true">↗</span></a></div></section>
-      <section class="gifts section" id="regalos" aria-labelledby="giftsTitle"><div class="section-heading"><div><p class="chapter">04 / NUESTRO NUEVO HOGAR</p><h2 id="giftsTitle">Un detalle<br><em>con mucho significado.</em></h2></div><p>Compartir este día contigo es lo más importante. Si deseas hacernos un regalo, aquí encontrarás algunas ideas para nuestro hogar.</p></div>
-        <div class="gift-choices"><details class="gift-panel" id="giftList"><summary><span><small>PARA EL HOGAR</small><strong>Elegir un regalo</strong></span><span class="expand-mark" aria-hidden="true">+</span></summary><div class="panel-content"><p class="panel-intro">Elige un detalle y escríbenos por WhatsApp para confirmar su disponibilidad. Los enlaces de tienda son referencias; coordinaremos la reserva contigo.</p><div id="giftItems"><h3 class="gift-category">Hogar y tecnología</h3><article class="gift-item"><h4>Olla arrocera</h4><p>Olla Arrocera Eléctrica Zojirushi 1.0 Lt · Modelo NS-ZAQ10WZ</p><div class="gift-actions"><a href="https://fuku.pe/producto/olla-arrocera-electrica-zojirushi-1-0-lt-ns-zaq10wz/" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Olla%20Arrocera%20Zojirushi%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Olla arrocera">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Lavadora y secadora</h4><p>LG WashTower (14Kg lavado / 10Kg secado) · AI DD y ThinQ</p><div class="gift-actions"><a href="https://www.lg.com/pe/lavadoras/washtower/wk14bs6r/" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20LG%20WashTower%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Lavadora y secadora">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Aspiradora robot</h4><p>Xiaomi Robot Vacuum X20 Pro · Aspiradora robot inteligente</p><div class="gift-actions"><a href="https://www.mi.com/pe/product/xiaomi-robot-vacuum-x20-pro/" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Xiaomi%20Robot%20Vacuum%20X20%20Pro%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Aspiradora robot">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Televisor de 75 pulgadas</h4><p>Televisor TCL MiniLed 75&quot; UHD 4K · Smart TV 75C6K</p><div class="gift-actions"><a href="https://www.plazavea.com.pe/televisor-tcl-mini-led-75--uhd-4k-smart-tv-75c6k/p" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Televisor%20TCL%2075%22%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Televisor de 75 pulgadas">Coordinar por WhatsApp ↗</a></div></article><h3 class="gift-category">Cocina y sobremesa</h3><article class="gift-item"><h4>Batidora de pedestal</h4><p>Batidora Artisan Empire Red 4.7L · Combo con molino de alimentos</p><div class="gift-actions"><a href="https://www.kitchenaid.pe/combo-batidora-artisan-molino-de-carne-empire-red-1/p" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Batidora%20KitchenAid%20Artisan%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Batidora de pedestal">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Batidora de inmersión</h4><p>Batidora de Inmersión Oster 800W · Modelo Fpsthb2801</p><div class="gift-actions"><a href="https://www.falabella.com.pe/falabella-pe/product/144849332/Batidora-De-Inmersion-Fpsthb2801-800W/144849334" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Batidora%20de%20Inmersi%C3%B3n%20Oster%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Batidora de inmersión">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Waflera belga</h4><p>Waflera Belga Oster · Acero Inoxidable</p><div class="gift-actions"><a href="https://www.sodimac.com.pe/sodimac-pe/articulo/140036181/Oster-Waflera-Belga-Acero-Inoxidable/140036182" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Waflera%20Belga%20Oster%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Waflera belga">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Juego de ollas</h4><p>Juego de Ollas 12 Piezas Oster · Acero Inoxidable</p><div class="gift-actions"><a href="https://www.falabella.com.pe/falabella-pe/product/882538483/juego-de-ollas-12-piezas-acero-inoxidable/882538483" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20Ollas%20Oster%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Juego de ollas">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Juego de cubiertos</h4><p>Juego de Cubiertos 24 Piezas Benetton · Acero Inoxidable</p><div class="gift-actions"><a href="https://www.falabella.com.pe/falabella-pe/product/883377125/juego-de-cubiertos-24-piezas-benetton/883377125" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20Cubiertos%20Benetton%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Juego de cubiertos">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Tabla de madera</h4><p>Tabla de Picar de Madera Acacia · Crate &amp; Barrel</p><div class="gift-actions"><a href="https://www.crateandbarrel.com.pe/crateandbarrel-pe/product/770628085/tabla-de-picar-de-madera-acacia/770628085" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Tabla%20de%20Picar%20de%20Acacia%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Tabla de madera">Coordinar por WhatsApp ↗</a></div></article><h3 class="gift-category">Dormitorio y bienestar</h3><article class="gift-item"><h4>Juego de sábanas</h4><p>Seda · Coordinemos la medida antes de elegir el regalo.</p><div class="gift-actions"><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20S%C3%A1banas%20de%20Seda%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Juego de sábanas">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Fundas de almohada</h4><p>Seda natural · Coordinemos las medidas y los tonos.</p><div class="gift-actions"><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20las%20Fundas%20de%20Almohada%20de%20Seda%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Fundas de almohada">Coordinar por WhatsApp ↗</a></div></article></div><div class="gift-taken"><span>Ya regalado</span><p>Mandolina V-Blade Cuisinart</p><small>Gracias por este detalle para nuestro hogar.</small></div></div></details>
+        <div>
+          <div class="digit-tile">
+            <span id="minutes" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          </div>
+          <span class="text-[9px] uppercase tracking-widest text-mutedInk mt-2 block font-semibold font-sans">Minutos</span>
+        </div>
+        <div>
+          <div class="digit-tile">
+            <span id="seconds" class="font-serif text-3xl md:text-4xl text-ink font-light block">00</span>
+          </div>
+          <span class="text-[9px] uppercase tracking-widest text-mutedInk mt-2 block font-semibold font-sans">Segundos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Introducción Editorial -->
+    <section class="py-24 max-w-2xl mx-auto space-y-12" data-aos="fade-up">
+      <div class="text-center space-y-6">
+        <p class="font-script text-4xl sm:text-5xl text-powder-600">Querida familia y amigos,</p>
+        <p class="font-serif text-xl sm:text-2xl text-ink font-light leading-relaxed drop-cap text-left sm:text-center">
+          Queremos celebrar este día rodeados de nuestra familia y amigos más cercanos. Nos hace mucha ilusión que seas parte.
+        </p>
+        <p class="text-xs sm:text-sm text-mutedInk font-sans font-light leading-loose tracking-wide max-w-lg mx-auto">
+          No concebimos dar este paso sin su compañía y cariño. Cada asiento en nuestra mesa fue pensado con gratitud para celebrar en intimidad el comienzo de nuestro nuevo hogar.
+        </p>
+      </div>
+
+      <div class="map-frame rounded-2xl overflow-hidden aspect-[16/9] max-w-xl mx-auto" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Detalle nupcial editorial" class="w-full h-full object-cover grayscale contrast-[0.95] hover:grayscale-0 transition-all duration-700">
+      </div>
+    </section>
+
+    <div class="ornamental-divider max-w-xs mx-auto">
+      <span class="divider-line"></span>
+      <span class="divider-dot" aria-hidden="true"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <!-- Itinerario: Los Tres Tiempos -->
+    <section id="programa" class="py-24 space-y-24">
+      <div class="text-center space-y-2 max-w-md mx-auto" data-aos="fade-up">
+        <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">Programa</p>
+        <h2 class="font-serif text-3xl md:text-4xl font-light text-ink">Los Tres Tiempos</h2>
+      </div>
+
+      <!-- Momento I: Boda Civil -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
+        <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+          <iframe title="Ubicación del matrimonio civil" 
+            src="https://maps.google.com/maps?q=Municipalidad+de+Magdalena+del+Mar,+Lima&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="md:col-span-6 order-1 md:order-2 space-y-3 text-left">
+          <div class="flex items-center gap-3">
+            <span class="seal-badge font-serif" aria-hidden="true">I</span>
+            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-semibold font-sans">09:00 AM</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Matrimonio Civil</h3>
+          <p class="font-serif italic text-base text-mutedInk">Municipalidad de Magdalena del Mar</p>
+          <p class="text-xs text-faintInk font-light font-sans">Avenida Brasil 3501, Magdalena del Mar</p>
+          <div class="pt-4">
+            <a href="https://maps.google.com/?q=Municipalidad+de+Magdalena+del+Mar" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-powder-600 hover:text-powder-700 underline underline-offset-8 transition-colors group font-semibold font-sans">
+              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
+              <span>Abrir en Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Momento II: Boda Religiosa -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-left" data-aos-duration="900">
+        <div class="md:col-span-6 space-y-3 text-left md:text-right">
+          <div class="flex items-center gap-3 md:justify-end">
+            <span class="seal-badge font-serif" aria-hidden="true">II</span>
+            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-semibold font-sans">11:00 AM</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Ceremonia Religiosa</h3>
+          <p class="font-serif italic text-base text-mutedInk">Parroquia San Juan María Vianney</p>
+          <p class="text-xs text-faintInk font-light font-sans">Avenida Javier Prado Oeste 765, Magdalena</p>
+          <div class="pt-4 flex md:justify-end">
+            <a href="https://maps.google.com/?q=Parroquia+San+Juan+Maria+Vianney+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-powder-600 hover:text-powder-700 underline underline-offset-8 transition-colors group font-semibold font-sans">
+              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
+              <span>Abrir en Google Maps</span>
+            </a>
+          </div>
+        </div>
+        <div class="md:col-span-6 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+          <iframe title="Ubicación de la ceremonia religiosa" 
+            src="https://maps.google.com/maps?q=Parroquia+San+Juan+Maria+Vianney,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Momento III: Recepción Íntima -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center" data-aos="fade-right" data-aos-duration="900">
+        <div class="md:col-span-6 order-2 md:order-1 map-frame rounded-2xl overflow-hidden aspect-[4/3] bg-white">
+          <iframe title="Ubicación del almuerzo" 
+            src="https://maps.google.com/maps?q=Jiron+Faustino+Sanchez+Carrion+140,+Magdalena+del+Mar&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="md:col-span-6 order-1 md:order-2 space-y-3 text-left">
+          <div class="flex items-center gap-3">
+            <span class="seal-badge font-serif" aria-hidden="true">III</span>
+            <span class="text-[11px] tracking-widest-xl uppercase text-powder-600 font-semibold font-sans">01:00 PM</span>
+          </div>
+          <h3 class="font-serif text-2xl md:text-3xl text-ink font-normal">Recepción Íntima</h3>
+          <p class="font-serif italic text-base text-mutedInk">Almuerzo y brindis</p>
+          <p class="text-xs text-faintInk font-light font-sans">Jirón Faustino Sánchez Carrión 140, Magdalena</p>
+          <div class="pt-4">
+            <a href="https://maps.google.com/?q=Jiron+Faustino+Sanchez+Carrion+140+Magdalena" target="_blank" class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-powder-600 hover:text-powder-700 underline underline-offset-8 transition-colors group font-semibold font-sans">
+              <i data-lucide="compass" class="w-3.5 h-3.5 transition-transform group-hover:scale-110"></i>
+              <span>Abrir en Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornamental-divider max-w-xs mx-auto">
+      <span class="divider-line"></span>
+      <span class="divider-dot" aria-hidden="true"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <div class="calendar-note"><a class="letter-cta" href="boda-camila-rodrigo.ics" download>Guardar la fecha en mi calendario <span aria-hidden="true">↓</span></a></div>
+    <!-- Código de Vestimenta -->
+    <section class="py-24 max-w-xl mx-auto space-y-16 text-center" data-aos="fade-up">
+      
+      <div class="space-y-6">
+        <p class="text-[10px] tracking-widest-2xl uppercase text-powder-600 font-semibold font-sans">Guía de Estilo</p>
+        <h3 class="font-serif text-2xl md:text-3xl text-ink">Código de Vestimenta</h3>
+        <p class="text-xs text-mutedInk font-sans font-light leading-relaxed max-w-sm mx-auto">
+          Vestimenta <strong class="font-semibold text-ink">Elegante de Día</strong>. Un vestido de día, un conjunto elegante o un traje son buenas opciones. Elige prendas con las que te sientas a gusto para acompañarnos.
+        </p>
+        
+        <div class="pt-4 space-y-3">
+          <p class="text-[10px] uppercase tracking-widest-xl text-blush-600 font-semibold font-sans">
+            Blanco y marfil para la novia · Agradecemos evitar rojo y negro
+          </p>
+          
+          <div class="flex justify-center items-center gap-6 sm:gap-8 pt-2">
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-9 h-9 rounded-full bg-[#FFFFFF] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-ink font-semibold font-sans">Blanco</span>
+              <span class="text-[9px] text-faintInk font-sans">(Novia)</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-9 h-9 rounded-full bg-[#FAF6EE] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-ink font-semibold font-sans">Marfil</span>
+              <span class="text-[9px] text-faintInk font-sans">(Novia)</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-9 h-9 rounded-full bg-[#9E1B22] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-ink font-semibold font-sans">Rojo</span>
+              <span class="text-[9px] text-faintInk font-sans">(Evitar)</span>
+            </div>
+
+            <div class="flex flex-col items-center gap-1.5 group">
+              <div class="relative w-9 h-9 rounded-full bg-[#1A1A1A] border border-ink/20 shadow-sm flex items-center justify-center transition-transform group-hover:scale-110">
+                <span class="absolute w-full h-[1.5px] bg-[#9E5B68] rotate-45"></span>
+              </div>
+              <span class="text-[10px] text-ink font-semibold font-sans">Negro</span>
+              <span class="text-[9px] text-faintInk font-sans">(Evitar)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section id="regalos" class="py-20 text-center">
+      <p class="section-kicker">Para nuestro nuevo hogar</p>
+      <h2 class="letter-title">Un detalle con cariño</h2>
+      <p class="section-intro">Tu compañía es nuestro mayor regalo. Si deseas tener un detalle para nuestro nuevo hogar, aquí encontrarás algunas ideas.</p>
+      <div class="gift-choices"><details class="gift-panel" id="giftList"><summary><span><small>PARA EL HOGAR</small><strong>Elegir un regalo</strong></span><span class="expand-mark" aria-hidden="true">+</span></summary><div class="panel-content"><p class="panel-intro">Elige un detalle y escríbenos por WhatsApp para confirmar su disponibilidad. Los enlaces de tienda son referencias; coordinaremos la reserva contigo.</p><div id="giftItems"><h3 class="gift-category">Hogar y tecnología</h3><article class="gift-item"><h4>Olla arrocera</h4><p>Olla Arrocera Eléctrica Zojirushi 1.0 Lt · Modelo NS-ZAQ10WZ</p><div class="gift-actions"><a href="https://fuku.pe/producto/olla-arrocera-electrica-zojirushi-1-0-lt-ns-zaq10wz/" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Olla%20Arrocera%20Zojirushi%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Olla arrocera">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Lavadora y secadora</h4><p>LG WashTower (14Kg lavado / 10Kg secado) · AI DD y ThinQ</p><div class="gift-actions"><a href="https://www.lg.com/pe/lavadoras/washtower/wk14bs6r/" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20LG%20WashTower%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Lavadora y secadora">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Aspiradora robot</h4><p>Xiaomi Robot Vacuum X20 Pro · Aspiradora robot inteligente</p><div class="gift-actions"><a href="https://www.mi.com/pe/product/xiaomi-robot-vacuum-x20-pro/" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Xiaomi%20Robot%20Vacuum%20X20%20Pro%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Aspiradora robot">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Televisor de 75 pulgadas</h4><p>Televisor TCL MiniLed 75&quot; UHD 4K · Smart TV 75C6K</p><div class="gift-actions"><a href="https://www.plazavea.com.pe/televisor-tcl-mini-led-75--uhd-4k-smart-tv-75c6k/p" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Televisor%20TCL%2075%22%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Televisor de 75 pulgadas">Coordinar por WhatsApp ↗</a></div></article><h3 class="gift-category">Cocina y sobremesa</h3><article class="gift-item"><h4>Batidora de pedestal</h4><p>Batidora Artisan Empire Red 4.7L · Combo con molino de alimentos</p><div class="gift-actions"><a href="https://www.kitchenaid.pe/combo-batidora-artisan-molino-de-carne-empire-red-1/p" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Batidora%20KitchenAid%20Artisan%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Batidora de pedestal">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Batidora de inmersión</h4><p>Batidora de Inmersión Oster 800W · Modelo Fpsthb2801</p><div class="gift-actions"><a href="https://www.falabella.com.pe/falabella-pe/product/144849332/Batidora-De-Inmersion-Fpsthb2801-800W/144849334" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Batidora%20de%20Inmersi%C3%B3n%20Oster%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Batidora de inmersión">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Waflera belga</h4><p>Waflera Belga Oster · Acero Inoxidable</p><div class="gift-actions"><a href="https://www.sodimac.com.pe/sodimac-pe/articulo/140036181/Oster-Waflera-Belga-Acero-Inoxidable/140036182" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Waflera%20Belga%20Oster%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Waflera belga">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Juego de ollas</h4><p>Juego de Ollas 12 Piezas Oster · Acero Inoxidable</p><div class="gift-actions"><a href="https://www.falabella.com.pe/falabella-pe/product/882538483/juego-de-ollas-12-piezas-acero-inoxidable/882538483" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20Ollas%20Oster%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Juego de ollas">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Juego de cubiertos</h4><p>Juego de Cubiertos 24 Piezas Benetton · Acero Inoxidable</p><div class="gift-actions"><a href="https://www.falabella.com.pe/falabella-pe/product/883377125/juego-de-cubiertos-24-piezas-benetton/883377125" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20Cubiertos%20Benetton%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Juego de cubiertos">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Tabla de madera</h4><p>Tabla de Picar de Madera Acacia · Crate &amp; Barrel</p><div class="gift-actions"><a href="https://www.crateandbarrel.com.pe/crateandbarrel-pe/product/770628085/tabla-de-picar-de-madera-acacia/770628085" target="_blank" rel="noopener noreferrer">Ver referencia ↗</a><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20la%20Tabla%20de%20Picar%20de%20Acacia%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Tabla de madera">Coordinar por WhatsApp ↗</a></div></article><h3 class="gift-category">Dormitorio y bienestar</h3><article class="gift-item"><h4>Juego de sábanas</h4><p>Seda · Coordinemos la medida antes de elegir el regalo.</p><div class="gift-actions"><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20el%20Juego%20de%20S%C3%A1banas%20de%20Seda%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Juego de sábanas">Coordinar por WhatsApp ↗</a></div></article><article class="gift-item"><h4>Fundas de almohada</h4><p>Seda natural · Coordinemos las medidas y los tonos.</p><div class="gift-actions"><a class="coordinate" href="https://wa.me/51935355020?text=%C2%A1Hola%20Camila%20y%20Rodrigo!%20%E2%9C%A8%20Me%20gustar%C3%ADa%20regalarles%20las%20Fundas%20de%20Almohada%20de%20Seda%20para%20su%20nuevo%20hogar." target="_blank" rel="noopener noreferrer" aria-label="Coordinar por WhatsApp: Fundas de almohada">Coordinar por WhatsApp ↗</a></div></article></div><div class="gift-taken"><span>Ya regalado</span><p>Mandolina V-Blade Cuisinart</p><small>Gracias por este detalle para nuestro hogar.</small></div></div></details>
         <details class="gift-panel" id="giftContribution"><summary><span><small>A TU MANERA</small><strong>Hacer un aporte</strong></span><span class="expand-mark" aria-hidden="true">+</span></summary><div class="panel-content"><p class="panel-intro">Si prefieres un aporte para nuestro nuevo hogar, puedes utilizar cualquiera de estas opciones. Gracias por acompañarnos también en este comienzo.</p><div class="account"><div><span>BCP · Cuenta en soles</span><strong id="bankAccount">193-XXXXXXXX-0-XX</strong></div><button class="copy-button" type="button" data-copy="bankAccount" aria-label="Copiar cuenta BCP">Copiar</button></div><div class="account"><div><span>Código interbancario · CCI</span><strong id="bankCci">002-193-XXXXXXXXXXXX-XX</strong></div><button class="copy-button" type="button" data-copy="bankCci" aria-label="Copiar CCI">Copiar</button></div><div class="account"><div><span>Yape / Plin</span><strong id="mobileAccount">+51 935 355 020</strong></div><button class="copy-button" type="button" data-copy="mobileAccount" aria-label="Copiar número de Yape o Plin">Copiar</button></div><p class="account-owner">Titulares: Rodrigo Aquijo / Camila</p><p id="copyStatus" class="small" role="status" aria-live="polite"></p></div></details></div>
-      </section>
-      <section class="rsvp section" id="confirmar" aria-labelledby="rsvpTitle"><div class="rsvp-heading"><p class="chapter">05 / TE ESPERAMOS</p><h2 id="rsvpTitle">¿Nos<br><em>acompañas?</em></h2><p>Responde antes del <strong>15 de octubre de 2026</strong> para ayudarnos a preparar todo con cariño.</p><span class="rsvp-monogram" aria-hidden="true">C&R</span></div><div class="rsvp-content">
+      
+    </section>
+
+    <div class="ornamental-divider max-w-xs mx-auto">
+      <span class="divider-line"></span>
+      <span class="divider-dot" aria-hidden="true"></span>
+      <span class="divider-line"></span>
+    </div>
+
+    <section id="confirmar" class="py-24 max-w-lg mx-auto">
+      <div class="text-center mb-12"><p class="section-kicker">Una respuesta para los novios</p><h2 class="letter-title">¿Nos acompañas?</h2><p class="section-intro">Por favor, responde antes del <strong>15 de octubre de 2026</strong> para ayudarnos a preparar todo con cariño.</p></div>
       <form id="rsvpForm" action="https://formsubmit.co/rodrigoaquije45@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Respuesta de asistencia · Boda Camila y Rodrigo"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="field"><label for="guestName">Tu nombre y apellido</label><input id="guestName" name="Nombre_Invitado" autocomplete="name" maxlength="120" required placeholder="Tal como aparece en tu invitación"><p class="field-hint">Completa una respuesta por persona invitada.</p></div>
@@ -74,10 +667,27 @@
         <p id="formError" class="form-error" role="alert" hidden></p><button class="button submit-button" id="submitBtn" type="submit">Enviar mi respuesta <span aria-hidden="true">↗</span></button><p class="form-note">Usaremos tu respuesta para organizar nuestra celebración.</p><noscript><p>También puedes confirmar tu asistencia <a href="https://wa.me/51935355020">por WhatsApp</a>.</p></noscript>
       </form>
       <div id="rsvpSuccess" class="success" role="status" tabindex="-1" hidden><span class="chapter">CON MUCHO CARIÑO</span><h3>Gracias por<br><em>responder.</em></h3><p id="successMessage"></p><p id="responseSummary" class="response-summary"></p><a class="button" href="boda-camila-rodrigo.ics" download id="successCalendar">Guardar la fecha <span aria-hidden="true">↓</span></a><a class="text-link" href="https://wa.me/51935355020?text=Hola%20Camila%20y%20Rodrigo%2C%20necesito%20actualizar%20mi%20respuesta%20para%20su%20boda." target="_blank" rel="noopener noreferrer">¿Cambió tu respuesta? Escríbenos <span aria-hidden="true">↗</span></a></div>
-      </div></section>
-    </main>
-    <footer><p class="eyebrow">El comienzo de todo lo que viene</p><p class="footer-names">Camila <em>&</em> Rodrigo</p><p>21 · 11 · 2026 &nbsp; / &nbsp; Lima, Perú</p><a href="#inicio" class="text-link">Volver al inicio <span aria-hidden="true">↑</span></a></footer>
-  </div>
-  <nav class="mobile-nav" aria-label="Accesos rápidos"><a href="#programa">El día</a><a href="#regalos">Regalos</a><a href="#confirmar">Confirmar <span aria-hidden="true">↗</span></a></nav>
+      
+    </section>
+    <!-- Firma Final -->
+    <footer class="pt-16 pb-8 text-center space-y-4" data-aos="fade-up">
+      <div class="ornamental-divider max-w-[140px] mx-auto mb-8">
+        <span class="divider-line"></span>
+        <span class="divider-dot" aria-hidden="true"></span>
+        <span class="divider-line"></span>
+      </div>
+      <p class="font-script text-4xl text-ink">Con amor, Camila & Rodrigo</p>
+      <p class="text-[9px] uppercase tracking-widest-2xl text-powder-600 font-semibold font-sans">21 &middot; 11 &middot; 2026</p>
+    </footer>
+
+  </article>
+
+  <script>
+    if (window.lucide) lucide.createIcons();
+    if (window.AOS) AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic', disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches });
+    else document.documentElement.classList.add('no-aos');
+  </script>
+
+<nav class="letter-mobile-nav" aria-label="Accesos rápidos"><a href="#programa">El día</a><a href="#regalos">Regalos</a><a href="#confirmar">Confirmar</a></nav>
 </body>
 </html>

@@ -14,6 +14,6 @@ Servir la carpeta con un servidor HTTP local. `npm run build` valida enlaces int
 - Confirmación: una respuesta por invitado. Sin acompañantes libres ni cupos inventados. Los momentos indicados siguen sujetos a la invitación de cada persona.
 - FormSubmit mantiene el destinatario del proyecto original. El éxito requiere respuesta positiva del servicio; un error conserva los datos y ofrece WhatsApp. Falta validar una entrega real y la activación del destinatario antes de distribuir la invitación.
 - No se guarda información de invitados en el navegador. Solo se recuerda localmente la apertura de la invitación.
-- Sin fotografías genéricas. La personalización por nombre requiere la lista real de invitados. Direcciones, accesos, traslados y alcance del código de vestimenta requieren confirmación de los novios.
+- Se conserva la estética original: sobre físico, sello azul, papel sobre madera, caligrafía, adornos y fotografía original. La personalización por nombre requiere la lista real de invitados. Direcciones, accesos, traslados y alcance del código de vestimenta requieren confirmación de los novios.
 
 La configuración de Sites está en `.openai/hosting.json`. Solo se empaquetan archivos públicos, nunca el proyecto completo.

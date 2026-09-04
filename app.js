@@ -4,9 +4,9 @@
 (() => {
   const gate = document.querySelector('#envelopeGate');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const rememberOpening = () => { try { localStorage.setItem('cr-invitation-opened', '1'); } catch {} };
+  const rememberOpening = () => { try { localStorage.setItem('cr-letter-opened', '1'); } catch {} };
   let previouslyOpened = false;
-  try { previouslyOpened = localStorage.getItem('cr-invitation-opened') === '1'; } catch {}
+  try { previouslyOpened = localStorage.getItem('cr-letter-opened') === '1'; } catch {}
   const closeGate = () => {
     rememberOpening();
     gate.close();
@@ -15,8 +15,8 @@
   document.querySelector('#openInvitation').addEventListener('click', () => {
     if (gate.classList.contains('opening')) return;
     if (reducedMotion) return closeGate();
-    gate.classList.add('opening');
-    window.setTimeout(closeGate, 650);
+    gate.classList.add('opening', 'is-opening');
+    window.setTimeout(closeGate, 1250);
   });
   gate.addEventListener('cancel', event => { event.preventDefault(); closeGate(); });
   if (!previouslyOpened && !location.hash && !reducedMotion && typeof gate.showModal === 'function') gate.showModal();
@@ -27,9 +27,15 @@ function updateCountdown() {
   const part = type => today.find(item => item.type === type).value;
   const days = Math.round((Date.UTC(2026, 10, 21) - Date.UTC(Number(part('year')), Number(part('month')) - 1, Number(part('day')))) / 86400000);
   document.querySelector('#countdown').textContent = days > 0 ? `Falta${days === 1 ? '' : 'n'} ${days} día${days === 1 ? '' : 's'} para celebrar` : days === 0 ? 'Hoy celebramos juntos' : 'Gracias por ser parte de nuestra historia';
+  const remaining = Math.max(0, new Date('2026-11-21T09:00:00-05:00').getTime() - Date.now());
+  const values = { days: Math.floor(remaining / 86400000), hours: Math.floor(remaining / 3600000) % 24, minutes: Math.floor(remaining / 60000) % 60, seconds: Math.floor(remaining / 1000) % 60 };
+  for (const [id, value] of Object.entries(values)) {
+    const target = document.querySelector('#' + id);
+    if (target) target.textContent = String(value).padStart(2, '0');
+  }
 }
 updateCountdown();
-setInterval(updateCountdown, 60000);
+setInterval(updateCountdown, 1000);
 
 document.querySelectorAll('[data-copy]').forEach(button => {
   button.addEventListener('click', async () => {
