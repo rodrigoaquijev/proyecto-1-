@@ -38,7 +38,7 @@ function setup(fetchResponse) {
   }
   const context = {
     document: { querySelector: element, querySelectorAll: () => [], createElement: () => ({}) },
-    window: { matchMedia: () => ({ matches: true }) },
+    window: { matchMedia: () => ({ matches: true }), addEventListener() {} },
     localStorage: { getItem: () => '1' }, location: { hash: '' },
     Intl, Date, FormData: Data, AbortController,
     setInterval() {}, setTimeout() { return 1; }, clearTimeout() {},

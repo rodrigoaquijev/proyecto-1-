@@ -4,11 +4,7 @@
 (() => {
   const gate = document.querySelector('#envelopeGate');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const rememberOpening = () => { try { localStorage.setItem('cr-letter-opened', '1'); } catch {} };
-  let previouslyOpened = false;
-  try { previouslyOpened = localStorage.getItem('cr-letter-opened') === '1'; } catch {}
   const closeGate = () => {
-    rememberOpening();
     gate.close();
     if (typeof CustomEvent === 'function') document.dispatchEvent(new CustomEvent('wedding:opened'));
     document.querySelector('h1').focus({ preventScroll: true });
@@ -20,7 +16,10 @@
     window.setTimeout(closeGate, 1250);
   });
   gate.addEventListener('cancel', event => { event.preventDefault(); closeGate(); });
-  if (!previouslyOpened && !location.hash && !reducedMotion && typeof gate.showModal === 'function') gate.showModal();
+  const showEnvelope = () => { gate.classList.remove('opening', 'is-opening'); gate.showModal(); };
+  if (!reducedMotion && typeof gate.showModal === 'function') showEnvelope();
+  // Coming back through the browser's back/forward cache shows the envelope again.
+  window.addEventListener('pageshow', event => { if (event.persisted && !reducedMotion && !gate.open && typeof gate.showModal === 'function') showEnvelope(); });
 })();
 
 function updateCountdown() {

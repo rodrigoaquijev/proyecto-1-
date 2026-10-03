@@ -1,13 +1,13 @@
-// Start when browser policy permits; opening the envelope supplies a user gesture.
+// Joyful wedding-style arpeggios (D-A-Bm-F#m-G-D-G-A) with a bright melody. Start when browser policy permits; opening the envelope supplies a user gesture.
 (() => {
   const button = document.querySelector('#musicToggle');
   const label = document.querySelector('#musicLabel');
   const AudioEngine = window.AudioContext || window.webkitAudioContext;
   if (!AudioEngine) { button.hidden = true; return; }
   let context, master, timer, playing = false, next = 0, bar = 0;
-  const beat = 60 / 68;
-  const chords = [[48,55,60,64],[43,55,59,62],[45,52,57,60],[41,53,57,60],[48,55,60,64],[40,52,55,59],[41,53,57,60],[43,55,59,62]];
-  const melody = [[64,67,72,71],[69,67,62,67],[69,72,71,69],[65,69,67,65],[64,67,76,74],[71,67,64,62],[65,69,72,69],[67,62,64,67]];
+  const beat = 60 / 104;
+  const chords = [[50,57,62,66],[45,52,57,61],[47,54,59,62],[42,49,54,57],[43,50,55,59],[50,57,62,66],[43,50,55,59],[45,52,57,61]];
+  const melody = [[78,76,74,73],[71,69,71,73],[74,73,71,69],[69,66,69,73],[71,74,79,78],[76,74,78,81],[79,78,76,74],[73,76,69,73]];
   function note(midi, time, length, volume) {
     const frequency = 440 * 2 ** ((midi - 69) / 12);
     [1, 2, 3].forEach((harmonic, index) => {
@@ -28,8 +28,8 @@
     if (next < context.currentTime) next = context.currentTime + .1;
     while (next < context.currentTime + .5) {
       const chord = chords[bar % chords.length];
-      for (let i = 0; i < 8; i++) note(chord[[0,1,2,3,2,1,2,3][i]], next + i * beat / 2, beat * 2.4, .18);
-      melody[bar % melody.length].forEach((pitch, i) => note(pitch, next + i * beat + .04, beat * 2.6, .23));
+      for (let i = 0; i < 8; i++) note(chord[[0,1,2,3,2,1,2,3][i]], next + i * beat / 2, beat * 1.6, .17);
+      melody[bar % melody.length].forEach((pitch, i) => note(pitch, next + i * beat + .02, beat * 1.7, .26));
       next += beat * 4; bar++;
     }
   }
@@ -40,7 +40,7 @@
     clearInterval(timer);
     if (playing) { schedule(); timer = setInterval(schedule, 200); }
     button.setAttribute('aria-pressed', String(playing));
-    button.setAttribute('aria-label', playing ? 'Pausar melodía de piano' : 'Reproducir melodía romántica de piano');
+    button.setAttribute('aria-label', playing ? 'Pausar melodía nupcial' : 'Reproducir melodía nupcial');
     label.textContent = playing ? 'Pausar melodía' : 'Escuchar melodía';
   }
   function startMusic() {
@@ -49,7 +49,7 @@
       if (!context) {
         context = new AudioEngine(); master = context.createGain();
         master.gain.value = .17;
-        const filter = context.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 2800;
+        const filter = context.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 3600;
         master.connect(filter); filter.connect(context.destination);
         // Quiet echo adds room without masking the invitation's calm atmosphere.
         const delay = context.createDelay(); delay.delayTime.value = .24;

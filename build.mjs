@@ -12,7 +12,7 @@ for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) {
 for (const [, id] of html.matchAll(/\bfor="([^"]+)"/g)) {
   if (!ids.includes(id)) throw new Error(`Missing form label target: ${id}`);
 }
-if ((html.match(/class="gift-item"/g) || []).length !== 13) throw new Error('Gift list incomplete');
+if ((html.match(/class="gift-item"/g) || []).length !== 12) throw new Error('Gift list incomplete');
 const syntax = spawnSync(process.execPath, ['--check', 'app.js'], { stdio: 'inherit' });
 if (syntax.status !== 0) process.exit(1);
 await mkdir('dist', { recursive: true });
