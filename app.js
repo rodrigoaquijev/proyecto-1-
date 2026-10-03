@@ -60,7 +60,6 @@ document.querySelectorAll('[data-copy]').forEach(button => {
 
 const form = document.querySelector('#rsvpForm');
 const attendanceFields = document.querySelector('#attendingFields');
-const dietField = document.querySelector('#dietField');
 const moments = [...form.querySelectorAll('[name="Momentos"]')];
 const errorBox = document.querySelector('#formError');
 const submitButton = document.querySelector('#submitBtn');
@@ -69,9 +68,6 @@ function updateAttendance() {
   const attending = form.querySelector('[name="Asistencia"]:checked')?.value === 'Sí, asistiré';
   attendanceFields.hidden = !attending;
   attendanceFields.querySelectorAll('input').forEach(input => { input.disabled = !attending; });
-  const lunch = attending && moments[2].checked;
-  dietField.hidden = !lunch;
-  document.querySelector('#diet').disabled = !lunch;
   moments[0].setCustomValidity(attending && !moments.some(input => input.checked) ? 'Selecciona al menos un momento al que asistirás.' : '');
   errorBox.hidden = true;
 }

@@ -19,18 +19,17 @@ function setup(fetchResponse) {
   };
   const moments = ['civil', 'ceremonia', 'almuerzo'].map(element);
   const form = element('#rsvpForm');
-  const diet = element('#diet'), song = element('#song');
+  const song = element('#song');
   const selection = element('selection');
   form.querySelectorAll = () => moments;
   form.querySelector = () => selection;
   form.elements = { _honey: { value: '' } };
   form.reportValidity = () => Boolean(element('#guestName').value) && !moments.some(x => !x.disabled && x.validity);
-  element('#attendingFields').querySelectorAll = () => [...moments, diet, song];
+  element('#attendingFields').querySelectorAll = () => [...moments, song];
   let submitted;
   class Data {
     constructor() {
       this.values = new Map([['Nombre_Invitado', [element('#guestName').value]], ['Asistencia', [selection.value]], ['Momentos', moments.filter(x => !x.disabled && x.checked).map(x => x.value)]]);
-      if (!diet.disabled) this.values.set('Restricciones_Alimentarias', [diet.value]);
     }
     get(key) { return this.values.get(key)?.[0]; }
     getAll(key) { return this.values.get(key) || []; }
@@ -46,22 +45,19 @@ function setup(fetchResponse) {
     fetch: async (url, options) => { submitted = options.body; return fetchResponse(); },
   };
   vm.runInNewContext(fs.readFileSync('app.js', 'utf8'), context);
-  return { element, form, moments, diet, selection, submitted: () => submitted,
+  return { element, form, moments, selection, submitted: () => submitted,
     submit: () => form.submit({ preventDefault() {} }), change: () => form.change() };
 }
 
-test('Declining hides and excludes meal information; attendance requires a moment', () => {
+test('Declining hides attendance fields; attendance requires a moment', () => {
   const s = setup(() => {});
   s.selection.value = 'Sí, asistiré'; s.change();
   assert.equal(s.element('#attendingFields').hidden, false);
   assert.ok(s.moments[0].validity);
   s.moments[2].checked = true; s.change();
-  assert.equal(s.element('#dietField').hidden, false);
-  assert.equal(s.diet.disabled, false);
   assert.equal(s.moments[0].validity, '');
   s.selection.value = 'No podré asistir'; s.change();
   assert.equal(s.element('#attendingFields').hidden, true);
-  assert.equal(s.diet.disabled, true);
   assert.ok(s.moments.every(x => x.disabled));
 });
 test('Successful attendance combines moments and confirms only a positive service result', async () => {
@@ -77,12 +73,10 @@ test('Successful attendance combines moments and confirms only a positive servic
   assert.match(s.element('#successMessage').textContent, /confirmación/);
   assert.equal(s.element('#successCalendar').hidden, false);
 });
-test('Declined attendance gets its own acknowledgement and excludes previous diet input', async () => {
+test('Declined attendance gets its own acknowledgement', async () => {
   const s = setup(() => ({ ok: true, json: async () => ({ success: true }) }));
   s.element('#guestName').value = 'Invitado de prueba';
-  s.diet.value = 'Previous dietary answer';
   s.selection.value = 'No podré asistir'; s.change(); await s.submit();
-  assert.equal(s.submitted().get('Restricciones_Alimentarias'), undefined);
   assert.match(s.element('#successMessage').textContent, /avisarnos/);
   assert.equal(s.element('#successCalendar').hidden, true);
 });

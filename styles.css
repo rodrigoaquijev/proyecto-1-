@@ -129,3 +129,80 @@ header .wedding-keepsake{width:clamp(148px,30vw,205px);margin:0 auto 8px!importa
 .gift-panel>summary{box-shadow:inset 0 0 0 1px #ffffffa6,0 0 13px #bda77b20}
 .music-control,.floral-control{border-color:#a29070;box-shadow:0 0 0 2px #fff5dc55,0 0 16px #bd9e6040}
 @media(max-width:640px){.gift-item:after{display:none!important}.gift-item{transition:none!important}.floral-layer{opacity:.65}}
+
+/* Program times read like the hour printed on a card; attendance choices are large, clear cards. */
+#programa .seal-badge+span{font:500 28px/1 var(--letter-serif)!important;letter-spacing:.02em!important;text-transform:none!important;color:#2a5574!important;padding:6px 14px;border:1px solid #3b709740;border-radius:var(--invitation-radius);background:#faf6eeb3;font-variant-numeric:lining-nums tabular-nums}
+.attendance-options label{min-height:64px;padding:12px 16px;border:1px solid #3b709755;border-radius:var(--invitation-radius);background:#faf6ee99;transition:background .2s,border-color .2s,box-shadow .2s}
+.attendance-options label:hover{background:#e2ecf2aa}
+.attendance-options label:has(:checked){border-color:#285775;background:#e2ecf2;box-shadow:0 0 0 2px #3b709740;font-weight:500}
+.attendance-options input{width:22px;height:22px}
+@media(max-width:640px){#programa .seal-badge+span{font-size:26px!important}.letter-chapter .attendance-options{gap:12px}}
+
+/* Opening letter: stationery-style salutation, lead paragraph, flourish and signature. */
+#carta .letter-body{max-width:520px;margin:0 auto;text-align:center}
+#carta .letter-salutation{font:400 46px/1.2 var(--letter-script);color:var(--letter-blue);margin:0 0 30px}
+#carta .letter-lead{font:400 24px/1.65 var(--letter-serif);color:var(--letter-ink);margin:0}
+#carta .letter-flourish{display:block;width:120px;height:1px;margin:34px auto;background:linear-gradient(90deg,transparent,#a18a5e,transparent);position:relative}
+#carta .letter-flourish:after{content:'';position:absolute;left:50%;top:50%;width:9px;height:9px;transform:translate(-50%,-50%) rotate(45deg);background:#faf6ee;border:1px solid #a18a5e}
+#carta .letter-para{font:italic 400 22px/1.7 var(--letter-serif);color:#514b47;margin:0}
+#carta .letter-signoff{font:italic 400 20px/1.5 var(--letter-serif);color:#68615e;margin:38px 0 0}
+#carta .letter-signoff span{display:block;font:400 40px/1.3 var(--letter-script);color:var(--letter-blue);margin-top:6px}
+#carta .map-frame{margin-top:44px}
+@media(max-width:640px){#carta .letter-salutation{font-size:40px}#carta .letter-lead{font-size:21px;text-align:left}#carta .letter-para{font-size:20px}#carta .letter-signoff span{font-size:36px}}
+
+/* Header: a clearer hierarchy for the date and place. */
+header>p.text-\[10px\]{font-size:13px!important;letter-spacing:.22em!important}
+header>p.font-serif.italic{font-size:30px!important;line-height:1.3;color:#3f3a37!important;font-style:normal;letter-spacing:.01em}
+header>p.text-\[11px\]{font-size:14px!important;letter-spacing:.2em!important}
+@media(max-width:640px){header>p.text-\[10px\]{font-size:11px!important;letter-spacing:.14em!important}header>p.font-serif.italic{font-size:26px!important}header>p.text-\[11px\]{font-size:13px!important}}
+
+/* Opening envelope: introduce the couple and make the call to action unmistakable. */
+#envelopeGate{background:radial-gradient(ellipse at 50% 42%,#3a2a20 0%,#1d140f 62%,#120c08 100%)!important;gap:1.6rem!important}
+#envelopeGate[open]{display:flex!important;flex-direction:column;align-items:center;justify-content:center}
+.gate-title{text-align:center;color:#f4efe6}
+.gate-eyebrow{font:500 13px/1.6 var(--letter-sans);letter-spacing:.24em;text-transform:uppercase;color:#c9b88f;margin:0 0 10px}
+.gate-names{font:300 clamp(44px,8vw,68px)/1.1 var(--letter-serif);margin:0;color:#faf6ee}
+.gate-names span{font:400 .8em var(--letter-script);color:#8fafc3;padding:0 .1em}
+.gate-date{font:italic 400 clamp(19px,3.4vw,24px)/1.4 var(--letter-serif);color:#d9cfb9;margin:10px 0 0}
+#envelopeGate .envelope-scene{width:min(88vw,500px)!important}
+#envelopeGate .gate-hint{font:italic 400 20px/1.4 var(--letter-serif)!important;letter-spacing:.01em!important;text-transform:none!important;color:#f4efe6!important;opacity:1!important;padding:11px 24px;border:1px solid #c9b88f88;border-radius:var(--invitation-radius);background:#ffffff0d;margin:0;text-align:center}
+@media(max-width:640px){.gate-eyebrow{font-size:11px;letter-spacing:.16em}#envelopeGate .gate-hint{font-size:18px!important;padding:10px 16px}#envelopeGate{padding:1rem!important}}
+@media(max-height:560px){.gate-title{display:none}}
+
+/* Design pass: one quiet shape language. Rectangles share a single 12px radius; only the wax seal, dots and swatches are round. */
+.letter-countdown{max-width:420px;padding:22px 0 20px;border-block:1px solid #a18a5e55}
+.letter-countdown>p:first-child{font:italic 400 19px/1.4 var(--letter-serif);color:#63543d;margin:0 0 18px}
+.countdown-stamps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:none;margin:0}
+.countdown-stamp,.countdown-stamp:nth-child(even){padding:2px 6px;border:0;outline:0;border-radius:0!important;background:none;box-shadow:none;transform:none}
+.countdown-stamp+.countdown-stamp{border-left:1px solid #a18a5e66}
+.countdown-stamp>span{font:300 clamp(38px,9vw,50px)/1 var(--letter-serif);color:#2b2625;letter-spacing:.01em}
+.countdown-stamp>small{font:500 11px/1.4 var(--letter-sans);letter-spacing:.2em;text-transform:uppercase;color:#68615e;margin-top:10px}
+.letter-countdown .countdown-note{font:italic 400 17px/1.4 var(--letter-serif);color:#716147;margin:18px 0 0}
+body :is(.letter-cta,.gate-hint,.countdown-stamps,.wedding-keepsake img){border-radius:var(--invitation-radius)}
+.countdown-stamps{border-radius:0!important}
+.letter-countdown{border-radius:0!important}
+input:not([type=radio]):not([type=checkbox]),textarea{border:1px solid #3b709755!important;background:#faf6ee99;padding:10px 14px;min-height:52px}
+input:not([type=radio]):not([type=checkbox]):focus,textarea:focus{border-color:#285775!important;background:#fff}
+.chapter-tab{border-radius:var(--invitation-radius)!important}
+@media(max-width:640px){.countdown-stamp>small{font-size:10px;letter-spacing:.12em}.countdown-stamp{padding:2px 2px}}
+
+/* Gifts, refined: quiet paper cards; the gold, silver and bronze live in a metal edge and a medallion beside each collection. */
+#giftItems .gift-tier{--paper:linear-gradient(145deg,#fffdf6,#f6edd7)}
+#regalos-medios{--paper:linear-gradient(145deg,#fdfefe,#edf0f2)}
+#regalos-detalles{--paper:linear-gradient(145deg,#fffaf6,#f5e8dc)}
+#giftItems .gift-tier :is(.gift-item,.gift-taken){padding:24px 26px 24px 34px;margin:0 0 18px;background:var(--paper);border:1px solid color-mix(in srgb,var(--metal-edge) 45%,transparent);box-shadow:0 1px 0 #fff inset,0 8px 20px -14px color-mix(in srgb,var(--metal-edge) 70%,transparent);overflow:hidden}
+#giftItems .gift-tier :is(.gift-item,.gift-taken):before{content:'';display:block;position:absolute;left:0;top:0;bottom:0;width:8px;height:auto;margin:0;border-radius:0;background:var(--metal);box-shadow:inset -1px 0 0 #ffffff80,1px 0 0 color-mix(in srgb,var(--metal-edge) 60%,transparent)}
+#giftItems .gift-tier .gift-item h4{font-size:29px;color:#2b2625;text-shadow:none}
+#giftItems .gift-tier .gift-item p{color:#514b47}
+#giftItems .gift-tier .gift-actions a:not(.coordinate){color:#2a5574;font-weight:600}
+#giftItems .gift-tier-title{display:flex;align-items:center;gap:14px;font:italic 500 30px/1.25 var(--letter-serif);padding:0 0 14px;margin:0 0 18px;border-bottom:1px solid color-mix(in srgb,var(--metal-edge) 40%,transparent)}
+#giftItems .gift-tier-title:before{content:'';flex:none;width:22px;height:22px;border-radius:50%;background:var(--metal);border:1px solid var(--metal-edge);box-shadow:inset 0 1px 1px #fffc,0 1px 3px #0003}
+#giftItems .gift-tier .gift-taken small{color:#514b47}
+#giftItems .gift-tier .gift-item:hover{transform:translateY(-2px)}
+@media(max-width:640px){#giftItems .gift-tier :is(.gift-item,.gift-taken){padding:20px 16px 20px 26px}#giftItems .gift-tier-title{font-size:26px}}
+
+/* Final polish: calmer chapter tabs, quieter gift actions, richer maps. */
+.paper-texture>.letter-chapter>.chapter-tab,.chapter-dress>.chapter-tab,.chapter-gifts>.chapter-tab{background:#3b7097!important;border-color:#2a557444!important}
+.letter-chapter .gift-actions .coordinate{background:#fffdf8!important;color:#0b733c!important;border:1.5px solid #128c4a!important;box-shadow:none!important;font-weight:600}
+.letter-chapter .gift-actions .coordinate:hover,.letter-chapter .gift-actions .coordinate:focus-visible{background:#128c4a!important;color:#fff!important}
+.map-frame iframe{filter:saturate(.8) sepia(.08)}
