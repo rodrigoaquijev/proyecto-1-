@@ -8,7 +8,7 @@ Servir la carpeta con un servidor HTTP local. `npm run build` valida enlaces int
 
 ## Contenido y funcionamiento
 
-- Programa: civil 09:00, ceremonia 12:00, almuerzo 13:00, hora de Lima. El calendario descargable contiene los tres momentos, sin inventar horas de finalización.
+- Programa: civil 09:00, ceremonia 12:00, almuerzo 14:00, hora de Lima. El calendario descargable contiene los tres momentos, sin inventar horas de finalización.
 - Regalos: 13 disponibles. La disponibilidad se actualiza manualmente en el HTML. WhatsApp inicia una coordinación; no crea una reserva automática.
 - Cuentas: se conservan deliberadamente los números de ejemplo, también al copiarlos. Actualizar cuentas y titular en `index.html` cuando se reciban los definitivos.
 - Confirmación: una respuesta por invitado. Sin acompañantes libres ni cupos inventados. Los momentos indicados siguen sujetos a la invitación de cada persona.
