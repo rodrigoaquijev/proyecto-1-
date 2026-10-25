@@ -4,6 +4,7 @@ The invitation shows indicative ranges, not guaranteed current prices. Products 
 
 - Over S/ 1,000: LG WK14BS6R (LG catalogue range above S/ 5,000; current original page does not expose a readable price), TCL 75C6K (plazaVea listing indexed by Compy around S/ 3,449), Xiaomi X20 Pro (Sodimac official Xiaomi seller S/ 1,599), KitchenAid combo (official page S/ 1,239), Zojirushi (Fuku S/ 1,205.60).
 - S/ 200–1,000: immersion blender (linked Falabella seller S/ 399), waffle maker (same SKU 140036182 on Falabella/Sodimac S/ 299), Oster pots (indexed Falabella prices S/ 219.90–349.90), acacia board (Crate & Barrel S/ 219). Pots/waffle maker ordering is indicative because promotions vary.
+- S/ 200–1,000 (added 2026-10-25): Philips STE1020/40 stand steamer (sold by Falabella, S/ 399) and Bosch GSB 185-LI brushless kit with battery, charger, case and 23 accessories (sold by Sodimac on Falabella, S/ 379.90).
 - Under S/ 200: Benetton cutlery (Falabella S/ 79.90), sheets and pillowcases (user-directed budget; no exact model or independently verified price). The unreferenced textiles explicitly require choosing an option within that budget.
 
 References are preserved in the invitation. Additional verification sources:
