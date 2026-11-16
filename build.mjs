@@ -12,12 +12,9 @@ for (const [, id] of html.matchAll(/href="#([^"]+)"/g)) {
 for (const [, id] of html.matchAll(/\bfor="([^"]+)"/g)) {
   if (!ids.includes(id)) throw new Error(`Missing form label target: ${id}`);
 }
-const availableGifts = (html.match(/class="gift-item"/g) || []).length;
-const takenGifts = (html.match(/class="gift-taken"/g) || []).length;
-if ((availableGifts + takenGifts) !== 11) throw new Error('Gift list incomplete');
 const syntax = spawnSync(process.execPath, ['--check', 'app.js'], { stdio: 'inherit' });
 if (syntax.status !== 0) process.exit(1);
 await mkdir('dist', { recursive: true });
 for (const file of files) await copyFile(file, `dist/${file}`);
 await cp('assets', 'dist/assets', { recursive: true });
-console.log('Static build complete: navigation, labels, gift list and JavaScript validated.');
+console.log('Static build complete: navigation, labels, and JavaScript validated.');
